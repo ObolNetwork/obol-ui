@@ -13,7 +13,7 @@ export const mediaQueryKeys = {
 const spaces = {
   xs: "4px",
   sm: "8px",
-  md: "16px",
+  md: "12px",
   lg: "24px",
   xl: "32px",
   "1xl": "40px",
@@ -32,11 +32,36 @@ export const {
 } = createStitches({
   theme: {
     colors: {
-      // TODO: gather colors from figma with an script
+      // TODO: gather colors from figma with an script when document in figma is already define
       white: "#fff",
       black: "#000",
       lightBackground: "#E1E1E1",
       obolBlue: "#162A40",
+
+
+      // background
+      primaryBgDefault: "#CCE1E6",
+      primaryBgDefaultHover: "#EFF4F6",
+      primaryTextDefault: "#3B6F7D",
+      secondaryBgDefault: "rgba(255, 255, 255, 0.05)",
+      secondaryBgHover: "hsla(0, 0%, 100%, 0.1)",
+      grayBgDefault: "hsla(190, 42%, 9%, 0.05)",
+      gray2BgDefault: "hsla(190, 42%, 9%, 0.1)",
+      neutralDark: "#0D1D21",
+      navButtonBgDefault: "#132A2F",
+      navButtonBgHover: "#1A3A42",
+      cardBackgroundDark: '#25383C',
+      cardBackgroundLight: 'hsla(150, 20%, 99%, 0.2)',
+
+      // text
+      textMiddle: "#ABB7BA",
+      textLight: "#DFEAED",
+      textGreenDark: "#16968E",
+      textGreenLight: "#DDFFEE",
+      textGreen1: "#18AF6B",
+      textGreen2: "#27CAA1",
+      textGreen3: "#9DBFC8",
+
     },
     space: {
       ...spaces,
@@ -59,9 +84,9 @@ export const {
     fontSizes: {
       1: "11px",
       2: "12px",
-      3: "14px",
+      3: "15px",
       4: "16px",
-      5: "19px",
+      5: "18px",
       6: "20px",
       7: "21px",
       8: "24px",
