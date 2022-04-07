@@ -4,6 +4,18 @@ import { styled } from "../../../stitches.config";
 import { modifyVariantsForStory } from "../../utils/types";
 
 export const Button = styled("button", {
+  //reset
+  all: "unset",
+  alignItems: "center",
+  boxSizing: "border-box",
+  userSelect: "none",
+  "&::before": {
+    boxSizing: "border-box",
+  },
+  "&::after": {
+    boxSizing: "border-box",
+  },
+
   px: "$lg",
   py: "$md",
   display: "flex",
@@ -16,8 +28,7 @@ export const Button = styled("button", {
   fontWeight: 700,
   fontSize: "$4",
   lineHeight: "$base",
-  width: "101px",
-  height: "48px",
+
   variants: {
     color: {
       primary: {
@@ -29,7 +40,7 @@ export const Button = styled("button", {
       secondary: {
         backgroundColor: "$grayBgDefault",
         border: "2px solid $grayBgDefault",
-        color:"$neutralDark",
+        color: "$neutralDark",
         "&:hover": {
           backgroundColor: "$gray2BgDefault",
           border: "2px solid $gray2BgDefault",
@@ -54,6 +65,17 @@ export const Button = styled("button", {
         border: "1px solid",
       },
     },
+    variant: {
+      nav: {
+        borderRadius: "68px",
+        backgroundColor: "$navButtonBgDefault",
+        color: "$textMiddle",
+        "&:hover": {
+          backgroundColor: "$navButtonBgHover",
+          color: "$textLight",
+        },
+      },
+    },
   },
   defaultVariants: {
     color: "primary",
@@ -69,8 +91,7 @@ NOTE: this can't live in the stories file because the storybook navigator will t
 type ComponentVariants = Stitches.VariantProps<typeof Button>;
 type ComponentProps = ComponentVariants;
 
-export const ButtonStory = modifyVariantsForStory<
-  ComponentVariants,
-  ComponentProps,
-  typeof Button
->(Button);
+export const ButtonStory =
+  modifyVariantsForStory<ComponentVariants, ComponentProps, typeof Button>(
+    Button
+  );
