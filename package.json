@@ -1,5 +1,5 @@
 {
-  "name": "@ObolNetwork/obol-ui",
+  "name": "@obolnetwork/obol-ui",
   "version": "0.1.0",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
