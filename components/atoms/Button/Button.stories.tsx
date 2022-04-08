@@ -19,6 +19,14 @@ Default.args = {
   children: 'Button',
 };
 
+export const NavButton = Template.bind({});
+
+NavButton.args = {
+  variant: 'nav',
+  children: "Join the community"
+
+};
+
 Default.parameters = {
   design: {
     type: 'figma',
