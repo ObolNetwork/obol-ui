@@ -1,6 +1,5 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { withDesign } from "storybook-addon-designs";
-import { Box } from "../Box/Box";
+import { withDesign } from "storybook-addon-designs";2
 
 import { Button, ButtonStory } from "./Button";
 
