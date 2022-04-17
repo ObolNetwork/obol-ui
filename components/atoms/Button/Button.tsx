@@ -67,7 +67,6 @@ export const Button = styled("button", {
     },
     variant: {
       nav: {
-        borderRadius: "68px",
         backgroundColor: "$navButtonBgDefault",
         color: "$textMiddle",
         "&:hover": {
