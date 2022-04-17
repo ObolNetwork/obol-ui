@@ -9,8 +9,7 @@ export default {
   decorators: [withDesign],
 } as ComponentMeta<typeof ButtonStory>;
 
-type CompButtonStory = typeof ButtonStory;
-const Template: ComponentStory<CompButtonStory> = (args) => (
+const Template: ComponentStory<typeof ButtonStory> = (args) => (
   <Button {...args}>{args.children}</Button>
 );
 
@@ -18,7 +17,6 @@ export const DefaultObol = Template.bind({});
 
 DefaultObol.args = {
   children: "Button",
-  disabled: false,
 };
 
 export const DefaultLight = Template.bind({});
