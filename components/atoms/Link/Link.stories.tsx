@@ -17,7 +17,7 @@ const Template: ComponentStory<typeof LinkStory> = (args) => (
 export const Default = Template.bind({});
 
 Default.args = {
-  children: <p>Learn More</p>,
+  children: "Learn More",
 };
 
 export const WitArrow = Template.bind({});
@@ -25,7 +25,7 @@ export const WitArrow = Template.bind({});
 WitArrow.args = {
   children: (
     <>
-      <p>Learn More</p>
+      Learn More
       <IconArrowForward size="md" />
     </>
   ),

@@ -10,6 +10,7 @@ export const Link = styled("a", {
   fontStyle: "$",
   fontWeight: "$bold",
   fontSize: "$4",
+  height: "$lg",
   lineHeight: "$normal",
   cursor: "pointer",
 
