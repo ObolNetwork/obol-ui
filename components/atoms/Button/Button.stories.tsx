@@ -10,14 +10,22 @@ export default {
   decorators: [withDesign],
 } as ComponentMeta<typeof ButtonStory>;
 
-const Template: ComponentStory<typeof ButtonStory> = (args) => (
+type CompButtonStory = typeof ButtonStory & { disabled: boolean };
+const Template: ComponentStory<CompButtonStory> = (args) => (
   <Button {...args}>{args.children}</Button>
 );
 
-export const Default = Template.bind({});
+export const DefaultObol = Template.bind({});
 
-Default.args = {
+DefaultObol.args = {
   children: "Button",
+};
+
+export const DefaultLight = Template.bind({});
+
+DefaultLight.args = {
+  children: "Button",
+  color: "primary",
 };
 
 export const NavButton = Template.bind({});
@@ -27,7 +35,7 @@ NavButton.args = {
   children: "Join the community",
 };
 
-Default.parameters = {
+DefaultObol.parameters = {
   design: {
     type: "figma",
     url: "https://www.figma.com/file/XV5QpuUQnYK5kOWcYA4Kpv/Deep-Work-x-Obol-(Copy)?node-id=57%3A1272",

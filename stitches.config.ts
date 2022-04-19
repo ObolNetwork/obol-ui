@@ -11,6 +11,7 @@ export const mediaQueryKeys = {
 
 // TODO: discuss the nomenclature of sizes & spaces
 const spaces = {
+  1: "1px",
   xs: "4px",
   sm: "8px",
   md: "12px",
@@ -63,6 +64,11 @@ export const {
       textGreen1: "#18AF6B",
       textGreen2: "#27CAA1",
       textGreen3: "#9DBFC8",
+
+      //dark
+      obolMidGreen: '#2FE4AB',
+      obolDarkDark: '#16968E',
+      obolDisabled: '#1A292D',
 
     },
     space: {
