@@ -19,10 +19,7 @@ export default {
     typescript({
       clean: true,
       tsconfig: 'tsconfig-rollup.json',
-      typescript: require('typescript'),
-      tsconfigOverride: {
-        exclude: ["**/*.stories.tsx"]
-      }
+      typescript: require('typescript'),     
     }),
   ],
 };
