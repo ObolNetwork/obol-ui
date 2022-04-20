@@ -1,6 +1,5 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
-import { Box } from "../Box/Box";
 
 import { Button, ButtonStory } from "./Button";
 
@@ -10,7 +9,7 @@ export default {
   decorators: [withDesign],
 } as ComponentMeta<typeof ButtonStory>;
 
-type CompButtonStory = typeof ButtonStory & { disabled: boolean };
+type CompButtonStory = typeof ButtonStory;
 const Template: ComponentStory<CompButtonStory> = (args) => (
   <Button {...args}>{args.children}</Button>
 );
@@ -19,13 +18,14 @@ export const DefaultObol = Template.bind({});
 
 DefaultObol.args = {
   children: "Button",
+  disabled: false,
 };
 
 export const DefaultLight = Template.bind({});
 
 DefaultLight.args = {
   children: "Button",
-  color: "primary",
+  color: "primary"
 };
 
 export const NavButton = Template.bind({});

@@ -12,6 +12,7 @@ export const mediaQueryKeys = {
 // TODO: discuss the nomenclature of sizes & spaces
 const spaces = {
   1: "1px",
+  2: "2px",
   xs: "4px",
   sm: "8px",
   md: "12px",

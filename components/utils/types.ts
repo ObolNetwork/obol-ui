@@ -1,4 +1,4 @@
-import type * as Stitches from '@stitches/react';
+import type * as Stitches from "@stitches/react";
 
 interface StitchesMedia {
   [x: string]: any;
@@ -9,7 +9,7 @@ interface StitchesMedia {
 // We exclude these type properties from the `ComponentVariants` type so that storybook can more
 // easily understand the type arguments. We exclude `"true"` and `"false"` strings as well since
 // stitches also adds these, and they aren't necessary for storybook controls.
-type StitchesPropsToExclude = 'true' | 'false' | StitchesMedia;
+type StitchesPropsToExclude = "true" | "false" | StitchesMedia;
 
 export function modifyVariantsForStory<
   ComponentVariants,
@@ -24,7 +24,7 @@ export function modifyVariantsForStory<
   };
 
   type ComponentStoryProps = Omit<ComponentProps, keyof ComponentVariants> &
-    ComponentStoryVariants & { children?: React.ReactNode };
+    ComponentStoryVariants & { children?: React.ReactNode; disabled?: boolean };
 
   return component as unknown as (props: ComponentStoryProps) => JSX.Element;
 }

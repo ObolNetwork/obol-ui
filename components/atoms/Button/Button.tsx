@@ -41,7 +41,6 @@ export const Button = styled("button", {
         "&:disabled": {
           backgroundColor: "transparent",
           border: "2px solid $obolDisabled",
-
           color: "$obolDisabled",
         },
       },
