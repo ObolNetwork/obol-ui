@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
-import { IconArrowForward } from "../icons";
+import { IconArrowForward } from "../../icons";
 
 import { Link, LinkStory } from "./Link";
 

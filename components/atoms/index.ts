@@ -5,4 +5,3 @@ export { Link } from "./Link/Link";
 export { Text } from "./Text/Text";
 
 export * as Tabs from "./Tabs/Tabs";
-export * from "./icons/index";

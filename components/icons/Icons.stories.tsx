@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import { IconArrowForward } from "./index";
-import { Box } from "../index";
+import { IconArrowForward } from "./IconArrowForward";
+import { Box } from "../atoms/index";
 
 export default {
   title: "Design System/Components/SvgIcon",

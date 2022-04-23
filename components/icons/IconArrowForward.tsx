@@ -1,4 +1,4 @@
-import { SvgIcon, SvgIconProps } from "../SvgIcon/SvgIcon";
+import { SvgIcon, SvgIconProps } from "../atoms/SvgIcon/SvgIcon";
 
 export const IconArrowForward = (props: SvgIconProps) => (
   <SvgIcon {...props}>

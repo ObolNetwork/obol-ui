@@ -1,7 +1,6 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-
+import type { NextPage } from "next";
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
 const Home: NextPage = () => {
   return (
     <div className={styles.container}>
@@ -12,24 +11,16 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to Obol ui
-        </h1>
-
+        <h1 className={styles.title}>Welcome to Obol ui</h1>
       </main>
 
       <footer className={styles.footer}>
-        <a
-          href="https://obol.tech"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href="https://obol.tech" target="_blank" rel="noopener noreferrer">
           Powered by obol.tech
-         
         </a>
       </footer>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
