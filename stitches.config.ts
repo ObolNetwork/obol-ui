@@ -40,7 +40,6 @@ export const {
       lightBackground: "#E1E1E1",
       obolBlue: "#162A40",
 
-
       // background
       primaryBgDefault: "#CCE1E6",
       primaryBgDefaultHover: "#EFF4F6",
@@ -52,14 +51,14 @@ export const {
       neutralDark: "#0D1D21",
       navButtonBgDefault: "#132A2F",
       navButtonBgHover: "#1A3A42",
-      cardBackgroundDark: '#25383C',
-      cardBackgroundLight: 'hsla(150, 20%, 99%, 0.2)',
+      cardBackgroundDark: "#25383C",
+      cardBackgroundLight: "hsla(150, 20%, 99%, 0.2)",
 
       // text
       textMiddle: "#ABB7BA",
       textLight: "#DFEAED",
-      textTabHover: '#DFEAED66',
-      textTabInactive: '#DFEAED4D',
+      textTabHover: "#DFEAED66",
+      textTabInactive: "#DFEAED4D",
       textGreenDark: "#16968E",
       textGreenLight: "#DDFFEE",
       textGreen1: "#18AF6B",
@@ -67,10 +66,13 @@ export const {
       textGreen3: "#9DBFC8",
 
       //dark
-      obolMidGreen: '#2FE4AB',
-      obolDarkDark: '#16968E',
-      obolDisabled: '#1A292D',
+      obolMidGreen: "#2FE4AB",
+      obolDarkDark: "#16968E",
+      obolDisabled: "#1A292D",
 
+      purple: "#9167E4",
+      orange: "#DD603C",
+      teal: "#3CD2DD",
     },
     space: {
       ...spaces,
@@ -100,7 +102,7 @@ export const {
       7: "21px",
       8: "24px",
       9: "32px",
-      10: "59px",
+      10: "52px",
     },
     fontWeights: {
       hairline: 100,
