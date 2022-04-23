@@ -15,7 +15,6 @@ export const Button = styled("button", {
   "&::after": {
     boxSizing: "border-box",
   },
-
   px: "$lg",
   py: "$md",
   display: "flex",
@@ -25,12 +24,26 @@ export const Button = styled("button", {
   borderRadius: "$3",
   color: "$primaryTextDefault",
 
+  height: "$2xl",
   fontWeight: 700,
   fontSize: "$4",
   lineHeight: "$base",
 
+  border: '2px solid transparent',
   variants: {
     color: {
+      // TODO: put in the colors config to use dark or light theme
+      obol: {
+        backgroundColor: "$obolMidGreen",
+        "&:hover": {
+          backgroundColor: "$obolDarkDark",
+        },
+        "&:disabled": {
+          backgroundColor: "transparent",
+          border: "2px solid $obolDisabled",
+          color: "$obolDisabled",
+        },
+      },
       primary: {
         backgroundColor: "$primaryBgDefault",
         "&:hover": {
@@ -40,6 +53,7 @@ export const Button = styled("button", {
       secondary: {
         backgroundColor: "$grayBgDefault",
         border: "2px solid $grayBgDefault",
+
         color: "$neutralDark",
         "&:hover": {
           backgroundColor: "$gray2BgDefault",
@@ -67,7 +81,7 @@ export const Button = styled("button", {
     },
     variant: {
       nav: {
-        borderRadius: "68px",
+        borderRadius: "$3",
         backgroundColor: "$navButtonBgDefault",
         color: "$textMiddle",
         "&:hover": {
@@ -78,7 +92,7 @@ export const Button = styled("button", {
     },
   },
   defaultVariants: {
-    color: "primary",
+    color: "obol",
   },
 });
 

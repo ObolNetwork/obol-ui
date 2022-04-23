@@ -1,6 +1,5 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
-import { Box } from "../Box/Box";
 
 import { Button, ButtonStory } from "./Button";
 
@@ -14,10 +13,17 @@ const Template: ComponentStory<typeof ButtonStory> = (args) => (
   <Button {...args}>{args.children}</Button>
 );
 
-export const Default = Template.bind({});
+export const DefaultObol = Template.bind({});
 
-Default.args = {
+DefaultObol.args = {
   children: "Button",
+};
+
+export const DefaultLight = Template.bind({});
+
+DefaultLight.args = {
+  children: "Button",
+  color: "primary"
 };
 
 export const NavButton = Template.bind({});
@@ -27,7 +33,7 @@ NavButton.args = {
   children: "Join the community",
 };
 
-Default.parameters = {
+DefaultObol.parameters = {
   design: {
     type: "figma",
     url: "https://www.figma.com/file/XV5QpuUQnYK5kOWcYA4Kpv/Deep-Work-x-Obol-(Copy)?node-id=57%3A1272",

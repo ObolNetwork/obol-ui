@@ -15,6 +15,6 @@
       "strict": true,
       "target": "es5"
     },
-    "exclude": ["node_modules", "pages"],
+    "exclude": ["node_modules", "pages", "**/*.stories.tsx"],
     "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
   }

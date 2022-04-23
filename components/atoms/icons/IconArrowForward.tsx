@@ -3,7 +3,7 @@ import { SvgIcon, SvgIconProps } from "../SvgIcon/SvgIcon";
 export const IconArrowForward = (props: SvgIconProps) => (
   <SvgIcon {...props}>
     <path
-      d="M8.99992 0.333496L8.05992 1.2735L11.1133 4.3335H0.333252V5.66683H11.1133L8.05325 8.72683L8.99992 9.66683L13.6666 5.00016L8.99992 0.333496Z"
+      d="M9.99992 3.3335L9.05992 4.2735L12.1133 7.3335H1.33325V8.66683H12.1133L9.05325 11.7268L9.99992 12.6668L14.6666 8.00016L9.99992 3.3335Z"
       stroke="currentColor"
       fill="currentColor"
     />
