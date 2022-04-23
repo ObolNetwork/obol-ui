@@ -1,6 +1,6 @@
 import type * as Stitches from "@stitches/react";
 
-import { styled, theme, CSS } from "../../../stitches.config";
+import { styled, theme } from "../../../stitches.config";
 import { modifyVariantsForStory } from "../../utils/types";
 const { colors } = theme;
 
