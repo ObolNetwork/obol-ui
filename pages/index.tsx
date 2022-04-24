@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
+import { Text } from "../components/atoms";
 const Home: NextPage = () => {
   return (
     <div className={styles.container}>
@@ -11,6 +12,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
+        <Text css={{ fontWeight: "$bold" }}>Test</Text>
         <h1 className={styles.title}>Welcome to Obol ui</h1>
       </main>
 

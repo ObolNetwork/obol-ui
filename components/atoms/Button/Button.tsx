@@ -25,7 +25,7 @@ export const Button = styled("button", {
   color: "$primaryTextDefault",
 
   height: "$2xl",
-  fontWeight: 700,
+  fontWeight: "$bold",
   fontSize: "$4",
   lineHeight: "$base",
 
