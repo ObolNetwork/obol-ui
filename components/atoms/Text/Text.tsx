@@ -44,6 +44,11 @@ export const Text = styled("span", {
         textShadow: "0px 0px $$color, 0 0 30px $$color, 0 0 20px $$color;"
       },
     },
+    inline:{
+      true:{
+        display: 'inline'
+      }
+    }
   },
 });
 
