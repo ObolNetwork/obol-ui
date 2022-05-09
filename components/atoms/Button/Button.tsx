@@ -16,7 +16,7 @@ export const Button = styled("button", {
     boxSizing: "border-box",
   },
   px: "$lg",
-  py: "$md",
+  py: "$xs",
   display: "flex",
   justifyContent: "center",
   cursor: "pointer",

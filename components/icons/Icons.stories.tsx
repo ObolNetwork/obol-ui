@@ -13,7 +13,7 @@ const Template: ComponentStory<typeof Box> = (args) => (
     css={{
       display: "flex",
       flexDirection: "column",
-      gap: "$sm",
+      gap: "$xxs",
     }}
   >
     {args.children}
@@ -25,19 +25,19 @@ export const SingleArrowDownLeftIcon = Template.bind({});
 SingleArrowDownLeftIcon.args = {
   children: (
     <>
-      <Box css={{ display: "flex", gap: "$sm" }}>
+      <Box css={{ display: "flex", gap: "$xxs" }}>
         <p>xs (10px)</p>
         <IconArrowForward size="xs" color="obolBlue" />
       </Box>
-      <Box css={{ display: "flex", gap: "$sm" }}>
+      <Box css={{ display: "flex", gap: "$xxs" }}>
         <p>sm (12px)</p>
         <IconArrowForward size="sm" color="obolBlue" />
       </Box>
-      <Box css={{ display: "flex", gap: "$sm" }}>
+      <Box css={{ display: "flex", gap: "$xxs" }}>
         <p>md (16px)</p>
         <IconArrowForward size="md" color="textGreen1" />
       </Box>
-      <Box css={{ display: "flex", gap: "$sm" }}>
+      <Box css={{ display: "flex", gap: "$xxs" }}>
         <p>lg (24px)</p>
         <IconArrowForward size="lg" color="obolBlue" />
       </Box>
