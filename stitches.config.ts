@@ -9,17 +9,23 @@ export const mediaQueryKeys = {
   lg: "(max-width: 1800px)",
 } as const;
 
-// TODO: discuss the nomenclature of sizes & spaces
+// NOTE: since there is not sizes defined, spaces will be reuse on sizes definitions
 const spaces = {
   1: "1px",
   2: "2px",
-  xs: "4px",
-  sm: "8px",
-  md: "12px",
+  "xxxs": "4px",
+  "xxs": "8px",
+  xs: "12px",
+  sm: "16px",
+  md: "20px",
   lg: "24px",
   xl: "32px",
-  "1xl": "40px",
-  "2xl": "48px",
+  "2xl": "40px",
+  "3xl": "48px",
+  "4xl": "64px",
+  "5xl": "80px",
+  "6xl": "96px",
+  "7xl": "120px",
 };
 
 export const {

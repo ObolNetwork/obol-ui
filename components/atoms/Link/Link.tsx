@@ -5,7 +5,7 @@ import { modifyVariantsForStory } from "../../utils/types";
 
 export const Link = styled("a", {
   display: "flex",
-  gap: "$sm",
+  gap: "$xxs",
   alignItems: "center",
   fontStyle: "$",
   fontWeight: "$bold",
