@@ -71,14 +71,29 @@ export const {
       textGreen2: "#27CAA1",
       textGreen3: "#9DBFC8",
 
-      //dark
+      // new colors      
       obolMidGreen: "#2FE4AB",
+      obolGreenLight: "#B6EA5C",
       obolDarkDark: "#16968E",
       obolDisabled: "#1A292D",
 
+      //secondary
       purple: "#9167E4",
       orange: "#DD603C",
-      teal: "#3CD2DD",
+      teal: "#3CD2DD",     
+
+      // type
+      light: "#D9ECF3",
+      body: "#9DBDC8",
+      muted: "#475E64",
+
+      // backgrounds
+      "bg.01": "#091011",
+      "bg.02": "#111F22",
+      "bg.03": "#182D32",
+      "bg.04": "#243D42",
+      "bg.05": "#2D4D53",
+
     },
     space: {
       ...spaces,
