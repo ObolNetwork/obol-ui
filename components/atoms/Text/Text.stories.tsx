@@ -14,10 +14,10 @@ const Template: ComponentStory<typeof TextStory> = (args) => (
 
 const TemplateNeon = () => (
   <Box css={{ position: "relative" }}>
-    <Text glow color="purple" size="5" css={{ position: "absolute" }}>
+    <Text glow color="coordinate" size="5" css={{ position: "absolute" }}>
       co-ordinate
     </Text>
-    <Text color="purple" size="5" css={{ position: "absolute" }}>
+    <Text color="coordinate" size="5" css={{ position: "absolute" }}>
       co-ordinate
     </Text>
   </Box>

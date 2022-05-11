@@ -40,7 +40,6 @@ export const {
 } = createStitches({
   theme: {
     colors: {
-      // TODO: gather colors from figma with an script when document in figma is already define
       white: "#fff",
       black: "#000",
       lightBackground: "#E1E1E1",
