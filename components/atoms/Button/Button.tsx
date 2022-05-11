@@ -22,44 +22,98 @@ export const Button = styled("button", {
   cursor: "pointer",
   textAlign: "center",
   borderRadius: "$3",
-  color: "$primaryTextDefault",
+  gap: "$xxs",
 
-  height: "$2xl",
+  height: "$3xl",
   fontWeight: "$bold",
   fontSize: "$4",
   lineHeight: "$base",
 
-  border: '2px solid transparent',
+  border: "2px solid transparent",
+  $$color: "$colors$bg01",
+  color: "$$color",
+
+  "&:disabled": {
+    pointerEvents: "none",
+    color: "$bg04",
+    backgroundColor: "transparent",
+    border: "2px solid $bg04",
+    "& svg": {
+      "& path": {
+        fill: "$bg04",
+        stroke: "$bg04",
+      },
+    },
+  },
   variants: {
     color: {
-      // TODO: put in the colors config to use dark or light theme
-      obol: {
-        backgroundColor: "$obolMidGreen",
-        "&:hover": {
-          backgroundColor: "$obolDarkDark",
-        },
-        "&:disabled": {
-          backgroundColor: "transparent",
-          border: "2px solid $obolDisabled",
-          color: "$obolDisabled",
-        },
-      },
       primary: {
-        backgroundColor: "$primaryBgDefault",
+        backgroundColor: "$obolGreen",
         "&:hover": {
-          backgroundColor: "$primaryBgDefaultHover",
+          backgroundColor: "$obolGreenHover",
+          $$color: "$colors$textGreenHover",
+          "& svg": {
+            "& path": {
+              fill: "$textGreenHover",
+              stroke: "$textGreenHover",
+            },
+          },
         },
       },
       secondary: {
-        backgroundColor: "$grayBgDefault",
-        border: "2px solid $grayBgDefault",
-
-        color: "$neutralDark",
+        "& svg": {
+          "& path": {
+            fill: "$body",
+            stroke: "$body",
+          },
+        },
+        backgroundColor: "$bg03",
+        border: "2px solid $bg03",
+        color: "$body",
         "&:hover": {
-          backgroundColor: "$gray2BgDefault",
-          border: "2px solid $gray2BgDefault",
+          backgroundColor: "$bg04",
+          border: "2px solid $bg04",
         },
       },
+      create: {
+        backgroundColor: "$create",
+        "&:hover": {
+          backgroundColor: "$createHover",
+          $$color: "$colors$textCreateHover",
+          "& svg": {
+            "& path": {
+              fill: "$textCreateHover",
+              stroke: "$textCreateHover",
+            },
+          },
+        },
+      },
+      test: {
+        backgroundColor: "$test",
+        "&:hover": {
+          backgroundColor: "$testHover",
+          $$color: "$colors$textGrayHover",
+          "& svg": {
+            "& path": {
+              fill: "$textGrayHover",
+              stroke: "$textGrayHover",
+            },
+          },
+        },
+      },
+      coordinate: {
+        backgroundColor: "$coordinate",
+        "&:hover": {
+          backgroundColor: "$coordinateHover",
+          $$color: "$colors$textGrayHover",
+          "& svg": {
+            "& path": {
+              fill: "$textGrayHover",
+              stroke: "$textGrayHover",
+            },
+          },
+        },
+      }
     },
     ghost: {
       true: {
@@ -92,7 +146,7 @@ export const Button = styled("button", {
     },
   },
   defaultVariants: {
-    color: "obol",
+    color: "primary",
   },
 });
 
