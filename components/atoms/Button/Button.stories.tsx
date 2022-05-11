@@ -1,5 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
+import { Download } from "../../icons";
 
 import { Button, ButtonStory } from "./Button";
 
@@ -23,7 +24,20 @@ export const DefaultLight = Template.bind({});
 
 DefaultLight.args = {
   children: "Button",
-  color: "primary"
+  color: "primary",
+};
+
+export const WithIcon = Template.bind({});
+
+WithIcon.args = {
+  children: (
+    <>    
+      <Download size="lg" />
+      Button
+    </>
+  ),
+  color: "primary",
+  disabled: true
 };
 
 export const NavButton = Template.bind({});
