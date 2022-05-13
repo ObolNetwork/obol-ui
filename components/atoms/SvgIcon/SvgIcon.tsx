@@ -1,8 +1,7 @@
 import type * as Stitches from '@stitches/react';
 
 import { styled, CSS } from '../../../stitches.config';
-
-import { colorVariants } from "../../utils/color-variants";
+import { colorVariants } from '../../utils/color-variants';
 
 export const SvgIcon = styled('svg', {
   $$size: '1em',
