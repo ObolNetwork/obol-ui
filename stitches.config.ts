@@ -73,6 +73,8 @@ export const {
       textCreateHover: "#067089",
       textGrayHover: "#1F3337",
 
+      txButton: "#B7F6E2",
+
       // new colors      
       obolGreen: "#2FE4AB",
       obolGreenHover: "#82EDCC",

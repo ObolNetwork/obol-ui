@@ -4,6 +4,8 @@ import { Download } from "../../icons";
 
 import { Button, ButtonStory } from "./Button";
 
+import { LoadingButton } from "../../molecules/LoadingButton/LoadingButton";
+
 export default {
   title: "Design System/Atoms/Button",
   component: Button,
@@ -12,6 +14,10 @@ export default {
 
 const Template: ComponentStory<typeof ButtonStory> = (args) => (
   <Button {...args}>{args.children}</Button>
+);
+
+const TemplateLoading: ComponentStory<typeof ButtonStory> = (args) => (
+  <LoadingButton {...args}>{args.children}</LoadingButton>
 );
 
 export const DefaultObol = Template.bind({});
@@ -31,13 +37,29 @@ export const WithIcon = Template.bind({});
 
 WithIcon.args = {
   children: (
-    <>    
+    <>
       <Download size="lg" />
       Button
     </>
   ),
   color: "primary",
-  disabled: true
+  disabled: true,
+};
+
+export const WithLoading = TemplateLoading.bind({});
+
+WithLoading.args = {
+  loading: true,
+  variant: "tx",
+  children: "Waiting for transaction to be mined...",
+};
+
+export const WithLoading2 = TemplateLoading.bind({});
+
+WithLoading2.args = {
+  loading: true,
+  color:"primary",
+  children: "Button",
 };
 
 export const NavButton = Template.bind({});
