@@ -1,17 +1,8 @@
 import type * as Stitches from '@stitches/react';
 
-import { styled, theme, CSS } from '../../../stitches.config';
+import { styled, CSS } from '../../../stitches.config';
 
-const { colors } = theme;
-
-type MappedColor = {
-  [K in keyof typeof colors]: { $$color: `$color${string}` };
-};
-
-const colorVariants = Object.keys(colors).reduce(
-  (prev, curr) => ({ ...prev, [curr]: { $$color: '$colors$' + curr } }),
-  {} as MappedColor
-);
+import { colorVariants } from "../../utils/color-variants";
 
 export const SvgIcon = styled('svg', {
   $$size: '1em',

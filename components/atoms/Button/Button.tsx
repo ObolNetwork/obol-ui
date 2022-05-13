@@ -1,4 +1,4 @@
-import type * as Stitches from "@stitches/react";
+import * as Stitches from "@stitches/react";
 
 import { styled } from "../../../stitches.config";
 import { modifyVariantsForStory } from "../../utils/types";
@@ -33,6 +33,9 @@ export const Button = styled("button", {
   $$color: "$colors$bg01",
   color: "$$color",
 
+  $$background: "transparent",
+  backgroundColor: "$$background",
+
   "&:disabled": {
     pointerEvents: "none",
     color: "$bg04",
@@ -45,13 +48,19 @@ export const Button = styled("button", {
       },
     },
   },
+
+  "& div": {
+    "&::after": {
+      background: "$$background",
+    },
+  },
   variants: {
     color: {
       primary: {
-        backgroundColor: "$obolGreen",
+        $$background: "$colors$obolGreen",
         "&:hover": {
-          backgroundColor: "$obolGreenHover",
           $$color: "$colors$textGreenHover",
+          $$background: "$colors$obolGreenHover",
           "& svg": {
             "& path": {
               fill: "$textGreenHover",
@@ -67,18 +76,18 @@ export const Button = styled("button", {
             stroke: "$body",
           },
         },
-        backgroundColor: "$bg03",
+        $$background: "$colors$bg03",
         border: "2px solid $bg03",
         color: "$body",
         "&:hover": {
-          backgroundColor: "$bg04",
+          $$background: "$colors$bg04",
           border: "2px solid $bg04",
         },
       },
       create: {
-        backgroundColor: "$create",
+        $$background: "$colors$create",
         "&:hover": {
-          backgroundColor: "$createHover",
+          $$background: "$colors$createHover",
           $$color: "$colors$textCreateHover",
           "& svg": {
             "& path": {
@@ -89,9 +98,9 @@ export const Button = styled("button", {
         },
       },
       test: {
-        backgroundColor: "$test",
+        $$background: "$colors$test",
         "&:hover": {
-          backgroundColor: "$testHover",
+          $$background: "$colors$testHover",
           $$color: "$colors$textGrayHover",
           "& svg": {
             "& path": {
@@ -102,9 +111,9 @@ export const Button = styled("button", {
         },
       },
       coordinate: {
-        backgroundColor: "$coordinate",
+        $$background: "$colors$coordinate",
         "&:hover": {
-          backgroundColor: "$coordinateHover",
+          $$background: "$colors$coordinateHover",
           $$color: "$colors$textGrayHover",
           "& svg": {
             "& path": {
@@ -113,11 +122,11 @@ export const Button = styled("button", {
             },
           },
         },
-      }
+      },
     },
     ghost: {
       true: {
-        backgroundColor: "transparent",
+        $$background: "transparent",
         color: "white",
       },
     },
@@ -129,19 +138,27 @@ export const Button = styled("button", {
     },
     outlined: {
       true: {
-        backgroundColor: "transparent",
+        $$background: "transparent",
         border: "1px solid",
       },
     },
     variant: {
       nav: {
         borderRadius: "$3",
-        backgroundColor: "$navButtonBgDefault",
+        $$background: "$colors$navButtonBgDefault",
         color: "$textMiddle",
         "&:hover": {
-          backgroundColor: "$navButtonBgHover",
+          $$background: "$colors$navButtonBgHover",
           color: "$textLight",
         },
+      },
+      tx: {
+        px: "$7xl",
+        py: "$xs",
+        height: "3xl",
+        fontSize: "$4",
+        fontWeight: "$bold",
+        $$background: "$colors$txButton",
       },
     },
   },
@@ -157,7 +174,7 @@ NOTE: this can't live in the stories file because the storybook navigator will t
 */
 
 type ComponentVariants = Stitches.VariantProps<typeof Button>;
-type ComponentProps = ComponentVariants;
+export type ComponentProps = ComponentVariants & { loading?: boolean };
 
 export const ButtonStory =
   modifyVariantsForStory<ComponentVariants, ComponentProps, typeof Button>(
