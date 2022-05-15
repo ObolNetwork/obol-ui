@@ -37,7 +37,7 @@ export const SvgIcon = styled('svg', {
     },
   },
   defaultVariants: {
-    size: 'xs',
+    size: 'md',
   },
 });
 

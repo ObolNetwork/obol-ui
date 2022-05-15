@@ -94,6 +94,7 @@ export const {
       light: "#D9EEF3",
       body: "#9CC2C9",
       muted: "#475E64",
+      menu: "#DAEEF3",
 
       // backgrounds
       bg01: "#091011",
