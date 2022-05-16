@@ -1,0 +1,19 @@
+name: Publish npm package to Github packages
+on:
+  push:
+    branches: xenowits/publish-to-gh-packages
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      # Setup .npmrc file to publish to GitHub Packages
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@obolnetwork'
+      # - run: npm ci
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: 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
