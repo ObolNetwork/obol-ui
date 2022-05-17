@@ -1,7 +1,13 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import { IconArrowForward } from "./IconArrowForward";
-import { Box } from "../atoms/index";
+import {
+  IconArrowForward,
+  ObolDarkBgH,
+  ObolLightBgH,
+  ObolSolidLightBgH,
+  ObolSolidDarkBgH,
+} from "./index";
+import { Box, Text } from "../atoms/index";
 
 export default {
   title: "Design System/Components/SvgIcon",
@@ -42,6 +48,47 @@ SingleArrowDownLeftIcon.args = {
         <IconArrowForward size="lg" color="obolBlue" />
       </Box>
     </>
+  ),
+};
+
+const Template2: ComponentStory<typeof Box> = (args) => (
+  <Box
+    css={{
+      display: "flex",
+      gap: "$xxs",
+    }}
+  >
+    {args.children}
+  </Box>
+);
+
+export const ObolLogoIcons = Template2.bind({});
+
+ObolLogoIcons.args = {
+  children: (
+    <Box
+      css={{
+        display: "flex",
+        gap: "$xs",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignContent: "center",
+      }}
+    >
+      <Text>Horizontal</Text>
+      <Box css={{ padding: "$xs", backgroundColor: "$bg01" }}>
+        <ObolDarkBgH />
+      </Box>
+      <Box css={{ padding: "$xs" }}>
+        <ObolLightBgH />
+      </Box>
+      <Box css={{ padding: "$xs", backgroundColor: "$bg01" }}>
+        <ObolSolidDarkBgH />
+      </Box>
+      <Box css={{ padding: "$xs" }}>
+        <ObolSolidLightBgH />
+      </Box>
+    </Box>
   ),
 };
 
