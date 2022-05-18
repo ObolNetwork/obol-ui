@@ -40,7 +40,7 @@ export const InfoCard: React.FC<InfoCardProps> = (props): JSX.Element => {
           {props.heading}
         </Text>
         {props.subheading && (
-          <Text css={{ lineHeight: "$base", color: "#9CC2C9" }} size="4">
+          <Text css={{ lineHeight: "$base", color: "$body" }} size="4">
             {props.subheading}
           </Text>
         )}
