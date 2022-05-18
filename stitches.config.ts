@@ -81,6 +81,7 @@ export const {
       obolGreenLight: "#B6EA5C",
       obolDarkDark: "#16968E",
       obolDisabled: "#1A292D",
+      linkButtonHover: '#A0F3D9',
 
       //secondary
       coordinate: "#9167E4",
@@ -94,6 +95,7 @@ export const {
       light: "#D9EEF3",
       body: "#9CC2C9",
       muted: "#475E64",
+      menu: "#DAEEF3",
 
       // backgrounds
       bg01: "#091011",
