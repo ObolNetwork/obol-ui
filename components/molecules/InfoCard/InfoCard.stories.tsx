@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Link } from "../../atoms";
-import { IconArrowForward } from "../../icons";
+import { ArrowForward, CodeIcon } from "../../icons";
 
 import { InfoCard, InfoCardProps } from "./InfoCard";
 
@@ -10,7 +10,7 @@ export default {
 } as ComponentMeta<typeof InfoCard>;
 
 const Template: ComponentStory<typeof InfoCard> = (args: InfoCardProps) => (
-  <InfoCard {...args}>{args.children}</InfoCard>
+  <InfoCard {...args}></InfoCard>
 );
 
 export const Default = Template.bind({});
@@ -19,10 +19,30 @@ Default.args = {
   heading: "Heading",
   subheading:
     "The Obol Network will forever be open source and permissionless. The impact of distributed validators lies in their accessibility.",
-  image: { src: "/vercel.svg", width: "48px", height: "48px" },
-  children: (
-    <Link>
-      Learn More <IconArrowForward />
-    </Link>
-  ),
+  icon: <CodeIcon />,
+  link: "https://obol.tech",
+};
+
+export const NoSubHeading = Template.bind({});
+
+NoSubHeading.args = {
+  heading: "Heading",
+  icon: <CodeIcon />,
+  link: "https://obol.tech",
+};
+
+export const NoSubHeadingAndChildren = Template.bind({});
+
+NoSubHeadingAndChildren.args = {
+  heading: "Heading",
+  icon: <CodeIcon />,
+};
+
+export const NoChildren = Template.bind({});
+
+NoChildren.args = {
+  heading: "Heading",
+  icon: <CodeIcon />,
+  subheading:
+    "The Obol Network will forever be open source and permissionless. The impact of distributed validators lies in their accessibility.",
 };

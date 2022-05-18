@@ -13,23 +13,23 @@ export const Link = styled("a", {
   height: "$lg",
   lineHeight: "$normal",
   cursor: "pointer",
-
+  textDecoration: "none",
   variants: {
     variant: {
       default: {
-        color: "$textGreenDark",
+        color: "$obolGreen",
         "& svg": {
           "& path": {
-            fill: "$textGreenDark",
-            stroke: "$textGreenDark",
+            fill: "$obolGreen",
+            stroke: "$obolGreen",
           },
         },
         "&:hover": {
-          color: "$textGreen2",
+          color: "$linkButtonHover",
           "& svg": {
             "& path": {
-              fill: "$textGreen2",
-              stroke: "$textGreen2",
+              fill: "$linkButtonHover",
+              stroke: "$linkButtonHover",
             },
           },
         },

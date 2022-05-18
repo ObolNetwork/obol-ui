@@ -1,5 +1,6 @@
-export * from "./IconArrowForward";
+export * from "./ArrowForward";
 export * from "./Download";
+export * from "./OpenInNew";
 export * from "./static-icons/obol/circle";
 export * from "./static-icons/obol/horizontal";
 export * from "./static-icons/obol/mark/";

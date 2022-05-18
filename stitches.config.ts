@@ -81,6 +81,7 @@ export const {
       obolGreenLight: "#B6EA5C",
       obolDarkDark: "#16968E",
       obolDisabled: "#1A292D",
+      linkButtonHover: '#A0F3D9',
 
       //secondary
       coordinate: "#9167E4",

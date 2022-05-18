@@ -4,7 +4,7 @@ import { Download } from "../../icons";
 
 import { Button, ButtonStory } from "./Button";
 
-import { LoadingButton } from "../../molecules/LoadingButton/LoadingButton";
+import { LoadingButton } from "../LoadingButton/LoadingButton";
 
 export default {
   title: "Design System/Atoms/Button",

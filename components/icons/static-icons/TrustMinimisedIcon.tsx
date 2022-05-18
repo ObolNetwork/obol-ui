@@ -1,6 +1,6 @@
 
 
-export const TrustMinimised = () => (
+export const TrustMinimisedIcon = () => (
   <svg width="48" height="48" viewBox="0 0 48 48" >
     <path
       d="M24.5 2L6.5 10V22C6.5 33.1 14.18 43.48 24.5 46C34.82 43.48 42.5 33.1 42.5 22V10L24.5 2ZM24.5 23.98H38.5C37.44 32.22 31.94 39.56 24.5 41.86V24H10.5V12.6L24.5 6.38V23.98Z"

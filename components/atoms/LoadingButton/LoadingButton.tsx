@@ -1,8 +1,8 @@
 import React from "react";
 import * as Stitches from "@stitches/react";
 import { CSS } from "../../../stitches.config";
-import { Spin, Button } from "../../atoms";
-import { ComponentProps } from "../../atoms/Button/Button";
+import { Spin, Button } from "..";
+import { ComponentProps } from "../Button/Button";
 
 interface LoadingButtonProps extends ComponentProps {
   css?: CSS;

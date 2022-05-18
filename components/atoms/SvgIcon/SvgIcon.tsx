@@ -4,7 +4,9 @@ import { styled, CSS } from "../../../stitches.config";
 import { colorVariants } from "../../utils/color-variants";
 
 export const SvgIcon = styled("svg", {
-  $$size: "auto",
+  $$size: "1em",
+  $$color: "$colors$black",
+  lineHeight: "1em",
   verticalAlign: "middle",
   width: "$$size",
   height: "$$size",
@@ -20,19 +22,23 @@ export const SvgIcon = styled("svg", {
       ...colorVariants,
     },
     size: {
-      xs: {
-        $$size: "10px",
-      },
       sm: {
-        $$size: "12px",
+        $$size: "$space$sm",
       },
       md: {
-        $$size: "16px",
+        $$size: "$space$md",
       },
       lg: {
-        $$size: "24px",
+        $$size: "$space$lg",
+      },
+      xl: {
+        $$size: "$space$xl",
       },
     },
+  },
+  defaultVariants: {
+    size: "sm",
+    color: "inherit",
   },
 });
 

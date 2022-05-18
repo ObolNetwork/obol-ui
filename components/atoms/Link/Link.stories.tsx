@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
-import { IconArrowForward } from "../../icons";
+import { ArrowForward, OpenInNew } from "../../icons";
 
 import { Link, LinkStory } from "./Link";
 
@@ -20,13 +20,24 @@ Default.args = {
   children: "Learn More",
 };
 
-export const WitArrow = Template.bind({});
+export const WithArrow = Template.bind({});
 
-WitArrow.args = {
+WithArrow.args = {
   children: (
     <>
       Learn More
-      <IconArrowForward size="md" />
+      <ArrowForward size="md" />
+    </>
+  ),
+};
+
+export const WithOpenInNew = Template.bind({});
+
+WithOpenInNew.args = {
+  children: (
+    <>
+      Learn More
+      <OpenInNew size="md" />
     </>
   ),
 };

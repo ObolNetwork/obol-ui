@@ -1,11 +1,11 @@
-import { Box, Text } from "../../atoms";
-import Image, { ImageProps } from "next/image";
+import { Box, Text, GlowIconBox, Link } from "../../atoms";
+import { ArrowForward } from "../../icons";
 
 export interface InfoCardProps {
-  image: ImageProps;
   heading: string;
-  subheading: string;
-  children?: React.ReactNode;
+  icon: JSX.Element;
+  link?: string;
+  subheading?: string;
 }
 
 export const InfoCard: React.FC<InfoCardProps> = (props): JSX.Element => {
@@ -25,9 +25,7 @@ export const InfoCard: React.FC<InfoCardProps> = (props): JSX.Element => {
         },
       }}
     >
-      <Box className="svg-shadow">
-        <Image className="block-image" {...props.image} alt={props.heading} />
-      </Box>
+      <GlowIconBox>{props.icon}</GlowIconBox>
       <Box
         css={{
           display: "flex",
@@ -41,14 +39,17 @@ export const InfoCard: React.FC<InfoCardProps> = (props): JSX.Element => {
         <Text css={{ fontWeight: "$bold" }} size="5" color="textLight">
           {props.heading}
         </Text>
-        <Text
-          css={{ lineHeight: "$base", color: "#9CC2C9", mb: "$xl" }}
-          size="4"
-        >
-          {props.subheading}
-        </Text>
+        {props.subheading && (
+          <Text css={{ lineHeight: "$base", color: "#9CC2C9" }} size="4">
+            {props.subheading}
+          </Text>
+        )}
       </Box>
-      {props.children}
+      {props.link && (
+        <Link href={props.link}>
+          Learn More <ArrowForward />
+        </Link>
+      )}
     </Box>
   );
 };

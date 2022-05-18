@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import {
-  IconArrowForward,
+  ArrowForward,
   ObolDarkBgH,
   ObolLightBgH,
   ObolSolidLightBgH,
@@ -20,10 +20,10 @@ import {
   ObolSolidDarkBgMark,
   ObolSolidLightBgMark,
 } from "./static-icons/obol/mark";
-import { ObolDarkCircle, ObolLightCircle, ReactComponent } from "./static-icons/obol/circle";
+import { ObolDarkCircle, ObolLightCircle } from "./static-icons/obol/circle";
 
 export default {
-  title: "Design System/Components/SvgIcon",
+  title: "Design System/Atoms/SvgIcon",
   component: Box,
 } as ComponentMeta<typeof Box>;
 
@@ -46,19 +46,19 @@ SingleArrowDownLeftIcon.args = {
     <>
       <Box css={{ display: "flex", gap: "$xxs" }}>
         <p>xs (10px)</p>
-        <IconArrowForward size="xs" color="obolBlue" />
+        <ArrowForward size="sm" color="obolBlue" />
       </Box>
       <Box css={{ display: "flex", gap: "$xxs" }}>
         <p>sm (12px)</p>
-        <IconArrowForward size="sm" color="obolBlue" />
+        <ArrowForward size="md" color="obolBlue" />
       </Box>
       <Box css={{ display: "flex", gap: "$xxs" }}>
         <p>md (16px)</p>
-        <IconArrowForward size="md" color="textGreen1" />
+        <ArrowForward size="lg" color="textGreen1" />
       </Box>
       <Box css={{ display: "flex", gap: "$xxs" }}>
         <p>lg (24px)</p>
-        <IconArrowForward size="lg" color="obolBlue" />
+        <ArrowForward size="xl" color="obolBlue" />
       </Box>
     </>
   ),
