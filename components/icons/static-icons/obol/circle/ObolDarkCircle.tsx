@@ -1,7 +1,6 @@
-import { SvgIcon, SvgIconProps } from "../../../../atoms/SvgIcon/SvgIcon";
-
-export const ObolDarkCircle = (props: SvgIconProps) => (
-  <SvgIcon width="60" height="60" viewBox="0 0 60 60" {...props}>
+//SVGProps<SVGSVGElement>
+export const ObolDarkCircle = () => (
+  <svg width="60" height="60" viewBox="0 0 60 60">
     <g clipPath="url(#clip0_909_63994)">
       <path
         d="M30.0003 60.0006C46.569 60.0006 60.0006 46.569 60.0006 30.0003C60.0006 13.4316 46.569 0 30.0003 0C13.4316 0 0 13.4316 0 30.0003C0 46.569 13.4316 60.0006 30.0003 60.0006Z"
@@ -51,6 +50,5 @@ export const ObolDarkCircle = (props: SvgIconProps) => (
         <rect width="60" height="60" fill="white" />
       </clipPath>
     </defs>
-  </SvgIcon>
+  </svg>
 );
-

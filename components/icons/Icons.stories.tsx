@@ -8,6 +8,19 @@ import {
   ObolSolidDarkBgH,
 } from "./index";
 import { Box, Text } from "../atoms/index";
+import {
+  ObolDarkBgV,
+  ObolLightBgV,
+  ObolSolidDarkBgV,
+  ObolSolidLightBgV,
+} from "./static-icons/obol/vertical";
+import {
+  ObolDarkBgMark,
+  ObolLightBgMark,
+  ObolSolidDarkBgMark,
+  ObolSolidLightBgMark,
+} from "./static-icons/obol/mark";
+import { ObolDarkCircle, ObolLightCircle, ReactComponent } from "./static-icons/obol/circle";
 
 export default {
   title: "Design System/Components/SvgIcon",
@@ -55,7 +68,7 @@ const Template2: ComponentStory<typeof Box> = (args) => (
   <Box
     css={{
       display: "flex",
-      gap: "$xxs",
+      gap: "$xs",
     }}
   >
     {args.children}
@@ -66,29 +79,90 @@ export const ObolLogoIcons = Template2.bind({});
 
 ObolLogoIcons.args = {
   children: (
-    <Box
-      css={{
-        display: "flex",
-        gap: "$xs",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignContent: "center",
-      }}
-    >
-      <Text>Horizontal</Text>
-      <Box css={{ padding: "$xs", backgroundColor: "$bg01" }}>
-        <ObolDarkBgH />
+    <>
+      <Box
+        css={{
+          display: "flex",
+          gap: "$xs",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <Text size="5">Horizontal</Text>
+        <Box css={{ padding: "$xs", backgroundColor: "$bg01" }}>
+          <ObolDarkBgH />
+        </Box>
+        <Box css={{ padding: "$xs" }}>
+          <ObolLightBgH />
+        </Box>
+        <Box css={{ padding: "$xs", backgroundColor: "$bg01" }}>
+          <ObolSolidDarkBgH />
+        </Box>
+        <Box css={{ padding: "$xs" }}>
+          <ObolSolidLightBgH />
+        </Box>
       </Box>
-      <Box css={{ padding: "$xs" }}>
-        <ObolLightBgH />
+      <Box
+        css={{
+          display: "flex",
+          gap: "$xs",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <Text size="5">Vertical</Text>
+        <Box css={{ padding: "$xs", backgroundColor: "$bg01" }}>
+          <ObolDarkBgV />
+        </Box>
+        <Box css={{ padding: "$xs" }}>
+          <ObolLightBgV />
+        </Box>
+        <Box css={{ padding: "$xs", backgroundColor: "$bg01" }}>
+          <ObolSolidDarkBgV />
+        </Box>
+        <Box css={{ padding: "$xs" }}>
+          <ObolSolidLightBgV />
+        </Box>
       </Box>
-      <Box css={{ padding: "$xs", backgroundColor: "$bg01" }}>
-        <ObolSolidDarkBgH />
+      <Box
+        css={{
+          display: "flex",
+          gap: "$xs",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <Text size="5">Logo Mark</Text>
+        <Box css={{ padding: "$xs", backgroundColor: "$bg01" }}>
+          <ObolDarkBgMark />
+        </Box>
+        <Box css={{ padding: "$xs" }}>
+          <ObolLightBgMark />
+        </Box>
+        <Box css={{ padding: "$xs", backgroundColor: "$bg01" }}>
+          <ObolSolidDarkBgMark />
+        </Box>
+        <Box css={{ padding: "$xs" }}>
+          <ObolSolidLightBgMark />
+        </Box>
       </Box>
-      <Box css={{ padding: "$xs" }}>
-        <ObolSolidLightBgH />
+      <Box
+        css={{
+          display: "flex",
+          gap: "$xs",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <Text size="5">Circle</Text>
+        <Box css={{ padding: "$xs", backgroundColor: "$bg01" }}>
+          <ObolDarkCircle />
+        </Box>
+        <Box css={{ padding: "$xs", backgroundColor: "$bg01" }}>
+          <ObolLightCircle />
+        </Box>
       </Box>
-    </Box>
+    </>
   ),
 };
 

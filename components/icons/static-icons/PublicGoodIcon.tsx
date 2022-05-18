@@ -1,7 +1,7 @@
-import { SvgIcon, SvgIconProps } from "../../atoms/SvgIcon/SvgIcon";
 
-export const PublicGood = (props: SvgIconProps) => (
-  <SvgIcon width="48" height="48" viewBox="0 0 48 48" {...props}>
+
+export const PublicGood = () => (
+  <svg width="48" height="48" viewBox="0 0 48 48" >
     <path
       d="M32 26C38.18 20.38 44 15.12 44 10.6C44 6.9 41.1 4 37.4 4C35.32 4 33.3 4.98 32 6.5C30.68 4.98 28.68 4 26.6 4C22.9 4 20 6.9 20 10.6C20 15.12 25.82 20.38 32 26ZM26.6 8C27.48 8 28.38 8.42 28.96 9.1L32 12.68L35.04 9.1C35.62 8.42 36.52 8 37.4 8C38.88 8 40 9.12 40 10.6C40 12.84 35.92 16.94 32 20.58C28.08 16.94 24 12.82 24 10.6C24 9.12 25.12 8 26.6 8Z"
       fill="url(#paint0_linear_372_9678)"
@@ -34,5 +34,5 @@ export const PublicGood = (props: SvgIconProps) => (
         <stop offset="1" stopColor="#B6EA5C" />
       </linearGradient>
     </defs>
-  </SvgIcon>
+  </svg>
 );
