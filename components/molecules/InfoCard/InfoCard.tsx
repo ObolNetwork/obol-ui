@@ -1,4 +1,5 @@
-import { Box, Text, GlowIconBox, Link } from "../../atoms";
+import { styled } from "../../../stitches.config";
+import { Box, Text, Link } from "../../atoms";
 import { ArrowForward } from "../../icons";
 
 export interface InfoCardProps {
@@ -7,6 +8,25 @@ export interface InfoCardProps {
   link?: string;
   subheading?: string;
 }
+
+const GlowIconBox = styled("div", {
+  position: "block",
+  $$size: "$space$3xl",
+  width: "$$size",
+  height: "$$size",
+
+  "&::before": {
+    content: " ",
+    width: "$$size",
+    height: "$$size",
+    position: "absolute",
+    background: "linear-gradient(180deg, $obolGreen 0%, $obolGreenLight 100%)",
+    opacity: "0.3",
+    filter: "blur(18px)",
+    borderRadius: "310px",
+  },
+});
+
 
 export const InfoCard: React.FC<InfoCardProps> = (props): JSX.Element => {
   return (
