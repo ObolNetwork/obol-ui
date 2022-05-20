@@ -1,7 +1,9 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import { Text } from "../components/atoms";
+import { Text, Box } from "../components/atoms";
+import { Card } from "../components/molecules";
+import { CodeIcon } from "../components/icons";
 const Home: NextPage = () => {
   return (
     <div className={styles.container}>
@@ -14,6 +16,20 @@ const Home: NextPage = () => {
       <main className={styles.main}>
         <Text css={{ fontWeight: "$bold" }}>Test</Text>
         <h1 className={styles.title}>Welcome to Obol ui</h1>
+        <Card
+          heading="Heading"
+          image="/image-card.png"
+          variant="image"
+          subheading="The Obol Network will forever be open source and permissionless. The impact of distributed validators lies in their accessibility."
+          link="https://obol.tech"
+        />
+        <Box css={{ mt: "$xl" }} />
+        <Card
+          heading="Heading"
+          image={<CodeIcon />}
+          subheading="The Obol Network will forever be open source and permissionless. The impact of distributed validators lies in their accessibility."
+          link="https://obol.tech"
+        />
       </main>
 
       <footer className={styles.footer}>
