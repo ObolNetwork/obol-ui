@@ -58,7 +58,6 @@ export const {
       navButtonBgHover: "#1A3A42",
       cardBackgroundDark: "#25383C",
       cardBackgroundLight: "hsla(150, 20%, 99%, 0.2)",
-
       // text
       textMiddle: "#ABB7BA",
       textLight: "#DFEAED",
@@ -133,7 +132,7 @@ export const {
       7: "21px",
       8: "24px",
       9: "32px",
-      10: "52px",
+      10: "45px",
     },
     fontWeights: {
       hairline: 100,
