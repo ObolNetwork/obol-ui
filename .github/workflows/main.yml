@@ -3,7 +3,7 @@ name: Publishing my-pkg
 on:
   push:
     branches:
-      - master
+      - develop
 
 jobs:
   publish-gpr:
@@ -20,7 +20,7 @@ jobs:
         run: yarn install
 
       - name: Build package
-        run: yarns build
+        run: yarn build
 
       - uses: actions/setup-node@v2
         with:
@@ -29,6 +29,6 @@ jobs:
           scope: "@obolnetwork"
 
       - name: Publish package
-        run: npm publish
+        run: yarn ds:release --any-branch
         env:
           NODE_AUTH_TOKEN: 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
