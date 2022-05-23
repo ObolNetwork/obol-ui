@@ -4,7 +4,7 @@ import styles from "../styles/Home.module.css";
 import { Text, Box, Button } from "../components/atoms";
 import { Card } from "../components/molecules";
 import { CodeIcon } from "../components/icons";
-import HeroSection from "../components/organisms/hero-section/hero-section";
+import HeroSection from "../components/organisms/HeroSection/HeroSection";
 const Home: NextPage = () => {
   return (
     <div className={styles.container}>

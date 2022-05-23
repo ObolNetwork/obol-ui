@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Button, Text } from "../../atoms";
-import { HeroSection, HeroSectionProps } from "./hero-section";
+import { HeroSection, HeroSectionProps } from "./HeroSection";
 
 export default {
   title: "Design System/Organisms/HeroSection",
