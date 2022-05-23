@@ -31,4 +31,4 @@ jobs:
       - name: Publish package
         run: npm publish
         env:
-          NODE_AUTH_TOKEN: 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
+          NODE_AUTH_TOKEN: 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
