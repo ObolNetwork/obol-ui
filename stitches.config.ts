@@ -125,7 +125,7 @@ export const {
     fontSizes: {
       1: "11px",
       2: "12px",
-      3: "15px",
+      3: "14px",
       4: "16px",
       5: "18px",
       6: "20px",
@@ -133,6 +133,7 @@ export const {
       8: "24px",
       9: "32px",
       10: "45px",
+      11: "52px",
     },
     fontWeights: {
       hairline: 100,

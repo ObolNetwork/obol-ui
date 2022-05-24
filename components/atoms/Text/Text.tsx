@@ -24,6 +24,49 @@ export const Text = styled("span", {
   color: "$$color",
 
   variants: {
+    variant: {
+      h1: {
+        fontSize: "$11",
+        lineHeight: '64px',
+        fontWeight: "bold",
+      },
+      h2: {
+        fontSize: "$10",
+        lineHeight: '56px',
+        fontWeight: "bold",
+      },
+      h3: {
+        fontSize: "$9",
+        lineHeight: '48px',
+        fontWeight: "bold",
+      },
+      h4: {
+        fontSize: "$8",
+        lineHeight: '32px',
+        fontWeight: "bold",
+      },
+      h5: {
+        fontSize: "$5",
+        lineHeight: '28px',
+        fontWeight: "bold",
+      },
+      body: {
+        fontSize: "$4",
+        lineHeight: '24px',
+        fontWeight: "medium",
+      },
+      metadata: {
+        fontSize: "$2",
+        lineHeight: '18px',
+        fontWeight: "medium",
+      },
+      subline: {
+        fontSize: "$3",
+        lineHeight: '18px',
+        fontWeight: "bold",
+        textTransform: "capitalize"
+      },
+    },
     size: {
       1: { fontSize: "$1" },
       2: { fontSize: "$2" },
