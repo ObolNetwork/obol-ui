@@ -128,9 +128,17 @@ export const Button = styled("button", {
       true: {
         $$background: "transparent",
         color: "white",
+        "&:hover": {
+          $$background: "transparent",
+        },
       },
     },
-
+    icon: {
+      true: {
+        padding: "$sm",
+        border: 0
+      },
+    },
     fullWidth: {
       true: {
         width: "$full",
