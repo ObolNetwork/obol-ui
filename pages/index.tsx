@@ -1,10 +1,11 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import { Text, Box, Button } from "../components/atoms";
+import { Text, Box, Button, Link } from "../components/atoms";
 import { Card } from "../components/molecules";
 import { CodeIcon } from "../components/icons";
 import HeroSection from "../components/organisms/HeroSection/HeroSection";
+import { Navbar } from "../components/molecules/Navbar/Navbar";
 const Home: NextPage = () => {
   return (
     <div className={styles.container}>
@@ -14,6 +15,29 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
+        <Navbar>
+          <Link variant="docs" target="_blank" href="https://docs.obol.tech/">
+            Docs
+          </Link>
+          <Link variant="docs" target="_blank" href="https://blog.obol.tech/">
+            Blog
+          </Link>
+          <Link
+            variant="docs"
+            target="_blank"
+            href="https://jobs.lever.co/obol-tech/"
+          >
+            Jobs
+          </Link>
+          <Button
+            as="a"
+            target="_blank"
+            href="https://discord.com/invite/n6ebKsX46w"
+            variant="nav"
+          >
+            Join the Community
+          </Button>
+        </Navbar>
         <Text css={{ fontWeight: "$bold" }}>Test</Text>
         <h1 className={styles.title}>Welcome to Obol ui</h1>
         <Card
