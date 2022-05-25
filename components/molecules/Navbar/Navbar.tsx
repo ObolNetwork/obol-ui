@@ -7,44 +7,7 @@ import { ObolDarkBgH, ObolDarkBgMark, MenuIcon, CloseIcon } from "../../icons";
 import { useRouter } from "next/router";
 import React from "react";
 
-interface NavbarProps {}
-
-{
-  /* 
-Children
-<Box
-css={{
-  display: "flex",
-  flex: 1,
-  gap: "$2xl",
-  justifyContent: "flex-end",
-  alignItems: "center",
-}}
->
-<Link variant="docs" target="_blank" href="https://docs.obol.tech/">
-  Docs
-</Link>
-<Link variant="docs" target="_blank" href="https://blog.obol.tech/">
-  Blog
-</Link>
-<Link
-  variant="docs"
-  target="_blank"
-  href="https://jobs.lever.co/obol-tech/"
->
-  Jobs
-</Link>
-<Button
-  as="a"
-  target="_blank"
-  href="https://discord.com/invite/n6ebKsX46w"
-  variant="nav"
->
-  Join the Community
-</Button>
-</Box> */
-}
-export const Navbar: React.FC<NavbarProps> = ({ children }): JSX.Element => {
+export const Navbar: React.FC = ({ children }): JSX.Element => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const screenDownSm = useMediaQuery(MediaQueryKeys.sm);
 
