@@ -1,5 +1,4 @@
-import { Box, Button, Link, Text } from "../../atoms";
-import Image from "next/image";
+import { Box, Button, } from "../../atoms";
 import { useState } from "react";
 import { useMediaQuery, MediaQueryKeys } from "../../utils/hooks";
 import { ObolDarkBgH, ObolDarkBgMark, MenuIcon, CloseIcon } from "../../icons";
