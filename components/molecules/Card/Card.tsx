@@ -9,6 +9,7 @@ export interface CardProps {
   link?: string;
   variant?: "icon" | "image";
   subheading?: string;
+  contentAlign?: "start" | "end";
 }
 
 const CardImage = styled(Image, {
@@ -35,38 +36,41 @@ const GlowIconBox = styled("div", {
 });
 
 const Content = (props: any) => (
-  <>
-    <Box
-      css={{
-        display: "flex",
-        gap: "$xs",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        textAlign: "center",
-      }}
-    >
-      <Text css={{ fontWeight: "$bold" }} size="5" color="textLight">
-        {props.heading}
+  <Box
+    css={{
+      display: "flex",
+      gap: "$xs",
+      flexDirection: "column",
+      justifyContent: "center",
+      $$textAlign: props.contentAlign || "center",
+      alignItems: "$$textAlign",
+      textAlign: "$$textAlign",
+      "& span": {
+        textAlign: "$$textAlign",
+      },
+    }}
+  >
+    <Text css={{ fontWeight: "$bold" }} size="5" color="textLight">
+      {props.heading}
+    </Text>
+    {props.subheading && (
+      <Text css={{ lineHeight: "$base", color: "$body" }} size="4">
+        {props.subheading}
       </Text>
-      {props.subheading && (
-        <Text css={{ lineHeight: "$base", color: "$body" }} size="4">
-          {props.subheading}
-        </Text>
-      )}
-    </Box>
+    )}
     {props.link && (
       <Link href={props.link}>
         Learn More <ArrowForward />
       </Link>
     )}
-  </>
+  </Box>
 );
 
 export const Card: React.FC<CardProps> = ({
   variant = "icon",
   ...props
 }): JSX.Element => {
+  console.log(props);
   return (
     <Box
       css={{
