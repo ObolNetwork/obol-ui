@@ -20,7 +20,6 @@ jobs:
         run: yarn install
       - run: git config --global user.name "f1lander"
       - run: git config --global user.email "filanderuclez@gmail.com"
-      - run: npm run release
       # upgrade npm version in package.json to the tag used in the release.
       - run: npm version ${{ github.event.release.tag_name }}
 
