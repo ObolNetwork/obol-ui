@@ -69,53 +69,50 @@ const Content = (props: any) => (
 export const Card: React.FC<CardProps> = ({
   variant = "icon",
   ...props
-}): JSX.Element => {
-  console.log(props);
-  return (
+}): JSX.Element => (
+  <Box
+    css={{
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      background: "$bg03",
+      borderRadius: "$4",
+      width: "395px",
+      "@sm": {
+        width: "297px",
+      },
+    }}
+  >
+    {variant == "image" && (
+      <Box
+        css={{
+          position: "relative",
+          width: "395px",
+          height: "222px",
+          "@sm": {
+            width: "297px",
+          },
+        }}
+      >
+        <CardImage
+          src={props.image as string}
+          layout="fill"
+          objectFit="fill"
+          alt={props.heading}
+        />
+      </Box>
+    )}
     <Box
       css={{
         display: "flex",
+        p: "$xl",
+        gap: "$xl",
         flexDirection: "column",
         alignItems: "center",
-        background: "$bg03",
-        borderRadius: "$4",
-        width: "395px",
-        "@sm": {
-          width: "297px",
-        },
       }}
     >
-      {variant == "image" && (
-        <Box
-          css={{
-            position: "relative",
-            width: "395px",
-            height: "222px",
-            "@sm": {
-              width: "297px",
-            },
-          }}
-        >
-          <CardImage
-            src={props.image as string}
-            layout="fill"
-            objectFit="fill"
-            alt={props.heading}
-          />
-        </Box>
-      )}
-      <Box
-        css={{
-          display: "flex",
-          p: "$xl",
-          gap: "$xl",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
-        {variant == "icon" && <GlowIconBox>{props.image}</GlowIconBox>}
-        <Content {...props} />
-      </Box>
+      {variant == "icon" && <GlowIconBox>{props.image}</GlowIconBox>}
+      <Content {...props} />
     </Box>
-  );
-};
+  </Box>
+);

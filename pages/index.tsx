@@ -99,7 +99,7 @@ const Home: NextPage = () => {
       >
         <Button>Read the Docs</Button>
       </HeroSection>
-      <Container>
+      <Container column>
         <Text
           css={{ fontWeight: "$bold", lineHeight: "$taller" }}
           size="9"
