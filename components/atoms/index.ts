@@ -5,3 +5,4 @@ export * from "./Link/Link";
 export * from "./Text/Text";
 export * from "./Spin/Spin";
 export * as Tabs from "./Tabs/Tabs";
+export * from "./Container/Container";

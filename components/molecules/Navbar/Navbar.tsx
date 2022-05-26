@@ -68,7 +68,7 @@ export const Navbar: React.FC = ({ children }): JSX.Element => {
         flex: 1,
         justifyContent: "flex-start",
         alignItems: "center",
-        padding: "$sm",
+        pt: "$sm",
       }}
     >
       {!screenDownSm ? <ObolDarkBgH /> : <ObolDarkBgMark />}
