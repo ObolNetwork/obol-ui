@@ -29,6 +29,6 @@ jobs:
           scope: "@obolnetwork"
 
       - name: Publish package
-        run: npm publish
+        run: npm version patch && npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
