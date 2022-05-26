@@ -20,7 +20,7 @@ jobs:
         run: yarn install
 
       - name: Build package
-        run: yarn build
+        run: yarn ds:build
 
       - uses: actions/setup-node@v2
         with:
