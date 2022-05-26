@@ -21,7 +21,7 @@ jobs:
       - run: git config --global user.name "f1lander"
       - run: git config --global user.email "filanderuclez@gmail.com"
       # upgrade npm version in package.json to the tag used in the release.
-      - run: npm version ${{ github.event.release.tag_name }}
+      - run: npm version patch
 
       - name: Build package
         run: yarn ds:build
@@ -36,3 +36,4 @@ jobs:
         run: git push --follow-tags origin develop && npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: git push
