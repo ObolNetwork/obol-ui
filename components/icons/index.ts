@@ -10,3 +10,6 @@ export * from './static-icons/CodeIcon';
 export * from './static-icons/MenuIcon';
 export * from './static-icons/PublicGoodIcon';
 export * from './static-icons/TrustMinimisedIcon';
+export * from './static-icons/CreateIcon';
+export * from './static-icons/TestIcon';
+export * from './static-icons/RunIcon';
