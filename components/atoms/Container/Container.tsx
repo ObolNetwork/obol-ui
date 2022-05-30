@@ -33,9 +33,6 @@ export const Container = styled(Box, {
     alignItems: {
       start: {
         alignItems: "start",
-        "@sm": {
-          alignItems: "center",
-        },
       },
     },
     ghost: {

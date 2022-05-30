@@ -15,6 +15,7 @@ import { Navbar } from "../components/molecules/Navbar/Navbar";
 import { CreateIcon } from "../components/icons/static-icons/CreateIcon";
 import { TestIcon } from "../components/icons/static-icons/TestIcon";
 import { RunIcon } from "../components/icons/static-icons/RunIcon";
+import TwoColumnSection from "../components/organisms/TwoColumnSection/TwoColumnSection";
 const Home: NextPage = () => {
   return (
     <div className={styles.container}>
@@ -295,6 +296,51 @@ const Home: NextPage = () => {
           />
         </Container>
       </Container>
+      <TwoColumnSection
+        css={{
+          height: 645,
+        }}
+        preHeading={
+          <Text css={{ display: "inline-block" }} color="create" glow>
+            CREATE
+          </Text>
+        }
+        heading="Distribute your Validators"
+        content={
+          <>
+            Create an Obol Cluster with a group using the{" "}
+            <Text css={{ display: "inline-block" }} color="create" glow>
+              distributed validator launchpad.
+            </Text>
+          </>
+        }
+        image={{
+          basePath: "/assets/twocolumnsection.svg",
+        }}
+      >
+        <Button color="create">Learn More</Button>
+      </TwoColumnSection>
+      <TwoColumnSection
+        preHeading={
+          <Text css={{ display: "inline-block" }} color="create" glow>
+            CREATE
+          </Text>
+        }
+        heading="Distribute your Validators"
+        content={
+          <>
+            Create an Obol Cluster with a group using the{" "}
+            <Text css={{ display: "inline-block" }} color="create" glow>
+              distributed validator launchpad.
+            </Text>
+          </>
+        }
+        image={{
+          basePath: "/assets/twocolumnsection.svg",
+        }}
+      >
+        <Button color="create">Learn More</Button>
+      </TwoColumnSection>
       <footer className={styles.footer}>
         <a href="https://obol.tech" target="_blank" rel="noopener noreferrer">
           Powered by obol.tech
