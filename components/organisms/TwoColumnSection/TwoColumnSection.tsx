@@ -28,6 +28,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         display: "grid",
         gridAutoColumns: "1fr",
         gridAutoFlow: "column",
+        backgroundColor: "$bg03",
         "@sm": {
           display: "grid",
           gridTemplateColumns: "1fr",
