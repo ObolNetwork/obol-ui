@@ -10,12 +10,12 @@ import {
   PublicGoodIcon,
   TrustMinimisedIcon,
 } from "../components/icons";
-import HeroSection from "../components/organisms/HeroSection/HeroSection";
+import {HeroSection, TwoColumnSection} from "../components/organisms";
 import { Navbar } from "../components/molecules/Navbar/Navbar";
 import { CreateIcon } from "../components/icons/static-icons/CreateIcon";
 import { TestIcon } from "../components/icons/static-icons/TestIcon";
 import { RunIcon } from "../components/icons/static-icons/RunIcon";
-import TwoColumnSection from "../components/organisms/TwoColumnSection/TwoColumnSection";
+
 const Home: NextPage = () => {
   return (
     <div className={styles.container}>
@@ -166,7 +166,7 @@ const Home: NextPage = () => {
       </Container>
       <Container alignItems="start" layout="row">
         <Container alignItems="start" ghost layout="row">
-          <Container size="card" variant="textContent" ghost>
+          <Container variant="textContent" ghost>
             <Text variant="h3">How Distributed Validators work</Text>
             <Text variant="body">
               Distributed Validators are a technology for distributing the job
@@ -320,27 +320,7 @@ const Home: NextPage = () => {
       >
         <Button color="create">Learn More</Button>
       </TwoColumnSection>
-      <TwoColumnSection
-        preHeading={
-          <Text css={{ display: "inline-block" }} color="create" glow>
-            CREATE
-          </Text>
-        }
-        heading="Distribute your Validators"
-        content={
-          <>
-            Create an Obol Cluster with a group using the{" "}
-            <Text css={{ display: "inline-block" }} color="create" glow>
-              distributed validator launchpad.
-            </Text>
-          </>
-        }
-        image={{
-          basePath: "/assets/twocolumnsection.svg",
-        }}
-      >
-        <Button color="create">Learn More</Button>
-      </TwoColumnSection>
+  
       <footer className={styles.footer}>
         <a href="https://obol.tech" target="_blank" rel="noopener noreferrer">
           Powered by obol.tech

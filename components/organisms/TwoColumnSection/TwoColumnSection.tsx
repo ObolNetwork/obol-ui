@@ -15,7 +15,7 @@ export interface HeroSectionProps {
 const BASE_PATH = "/assets/hexapod.svg";
 const MOBILE_PATH = "/assets/hexapod-mobile.svg";
 
-export const HeroSection: React.FC<HeroSectionProps> = ({
+export const TwoColumnSection: React.FC<HeroSectionProps> = ({
   image,
   ...props
 }): JSX.Element => {
@@ -94,4 +94,4 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   );
 };
 
-export default HeroSection;
+export default TwoColumnSection;
