@@ -20,7 +20,7 @@ export const Text = styled("span", {
   fontWeight: 400,
   fontVariantNumeric: "tabular-nums",
   display: "block",
-  $$color: "$colors$black",
+  $$color: "$colors$textLight",
   color: "$$color",
 
   variants: {
@@ -54,6 +54,7 @@ export const Text = styled("span", {
         fontSize: "$4",
         lineHeight: '24px',
         fontWeight: "medium",
+        $$color: "$colors$body"
       },
       metadata: {
         fontSize: "$2",

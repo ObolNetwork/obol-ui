@@ -16,7 +16,6 @@ const StyledTrigger = styled(TabsPrimitive.Trigger, {
     fontFamily: "inherit",
     padding: "0 20px",
     height: 45,
-    flex: 1,
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -32,7 +31,7 @@ const StyledTrigger = styled(TabsPrimitive.Trigger, {
     '&[data-state="active"]': {
       color: "$textLight",
       boxShadow: "inset 0 -2px 0 0 currentColor"
-    }
+    },
 });
 
 const StyledContent = styled(TabsPrimitive.Content, {
