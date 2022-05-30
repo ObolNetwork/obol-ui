@@ -3,7 +3,7 @@ import { mediaQueryKeys, CSS } from "../../../stitches.config";
 import Image from "next/image";
 import { useMediaQuery } from "../../utils/hooks";
 
-export interface HeroSectionProps {
+export interface TwoColumnSectionProps {
   heading: JSX.Element | string;
   content: JSX.Element | string;
   image: { basePath: string; mobilePath?: string };
@@ -12,10 +12,7 @@ export interface HeroSectionProps {
   css?: CSS;
 }
 
-const BASE_PATH = "/assets/hexapod.svg";
-const MOBILE_PATH = "/assets/hexapod-mobile.svg";
-
-export const TwoColumnSection: React.FC<HeroSectionProps> = ({
+export const TwoColumnSection: React.FC<TwoColumnSectionProps> = ({
   image,
   ...props
 }): JSX.Element => {
@@ -76,14 +73,14 @@ export const TwoColumnSection: React.FC<HeroSectionProps> = ({
       >
         {!screenDownSm ? (
           <Image
-            src={image.basePath || BASE_PATH}
+            src={image.basePath}
             alt="Obol Logo"
             objectFit="fill"
             layout="fill"
           />
         ) : (
           <Image
-            src={image.basePath || MOBILE_PATH}
+            src={image.mobilePath || image.basePath}
             alt="Obol Logo"
             objectFit="fill"
             layout="fill"
