@@ -321,7 +321,16 @@ const Home: NextPage = () => {
       >
         <Button color="create">Learn More</Button>
       </TwoColumnSection>
-      <Footer />
+      <Box
+        css={{
+          px: "calc($3xl * 2)",
+          py: "calc($2xl * 2)",
+          backgroundColor: "$bg03",
+          "@sm": { px: "$xl", py: "$2xl" },
+        }}
+      >
+        <Footer />
+      </Box>
       <footer className={styles.footer}>
         <a href="https://obol.tech" target="_blank" rel="noopener noreferrer">
           Powered by obol.tech

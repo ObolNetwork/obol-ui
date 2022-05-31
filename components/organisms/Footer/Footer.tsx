@@ -39,8 +39,8 @@ export const Footer: React.FC<{ links?: FooterLinksProps[] }> = ({
       display: "flex",
       "@sm": {
         flexDirection: "column",
+        gap: "$xl",
       },
-      alignContent: "center",
     }}
   >
     <Box
@@ -48,7 +48,6 @@ export const Footer: React.FC<{ links?: FooterLinksProps[] }> = ({
         display: "flex",
         flexDirection: "column",
         gap: "$xxs",
-        alignContent: "center",
         flex: 1,
       }}
     >
@@ -65,9 +64,7 @@ export const Footer: React.FC<{ links?: FooterLinksProps[] }> = ({
         "@sm": {
           gridTemplateColumns: "repeat(2, 1fr)",
           gap: "$xl",
-          alignContent: "center",
         },
-        minHeight: "312px",
         flex: 2,
       }}
     >
