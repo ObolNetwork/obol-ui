@@ -10,11 +10,12 @@ import {
   PublicGoodIcon,
   TrustMinimisedIcon,
 } from "../components/icons";
-import {HeroSection, TwoColumnSection} from "../components/organisms";
+import { HeroSection, TwoColumnSection } from "../components/organisms";
 import { Navbar } from "../components/molecules/Navbar/Navbar";
 import { CreateIcon } from "../components/icons/static-icons/CreateIcon";
 import { TestIcon } from "../components/icons/static-icons/TestIcon";
 import { RunIcon } from "../components/icons/static-icons/RunIcon";
+import { Footer } from "../components/organisms";
 
 const Home: NextPage = () => {
   return (
@@ -320,7 +321,7 @@ const Home: NextPage = () => {
       >
         <Button color="create">Learn More</Button>
       </TwoColumnSection>
-  
+      <Footer />
       <footer className={styles.footer}>
         <a href="https://obol.tech" target="_blank" rel="noopener noreferrer">
           Powered by obol.tech
