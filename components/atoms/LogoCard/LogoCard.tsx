@@ -28,7 +28,7 @@ export const LogoCard = (props: {
     >
       {!screenDownSm ? (
         <Image
-          priority
+          
           src={props.image}
           layout="fill"
           objectFit="scale-down"
@@ -36,7 +36,7 @@ export const LogoCard = (props: {
         />
       ) : (
         <Image
-          priority
+          
           src={props.image}
           layout="responsive"
           objectFit="fill"

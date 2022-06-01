@@ -40,7 +40,7 @@ export const TeamMemberCard: React.FC<EcosystemCardProps> = (props) => (
       }}
     >
       <Image
-        priority
+        
         alt={props.heading}
         css={{ borderRadius: "$round" }}
         src={props.image}

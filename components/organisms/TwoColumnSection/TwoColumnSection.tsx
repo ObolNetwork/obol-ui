@@ -73,7 +73,7 @@ export const TwoColumnSection: React.FC<TwoColumnSectionProps> = ({
       >
         {!screenDownSm ? (
           <Image
-          priority
+          
             src={image.basePath}
             alt="Obol Logo"
             objectFit="fill"
@@ -81,7 +81,7 @@ export const TwoColumnSection: React.FC<TwoColumnSectionProps> = ({
           />
         ) : (
           <Image
-          priority
+          
             src={image.mobilePath || image.basePath}
             alt="Obol Logo"
             objectFit="fill"

@@ -81,7 +81,7 @@ export const Card: React.FC<CardProps> = ({
         }}
       >
         <CardImage
-          priority
+          
           src={props.image as string}
           layout="fill"
           objectFit="fill"
