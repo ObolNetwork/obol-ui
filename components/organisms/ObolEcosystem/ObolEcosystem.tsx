@@ -283,23 +283,25 @@ export const ObolEcosystem = () => {
       }}
     >
       {props?.items?.map((card: any, idxCard: number) => (
-        <TeamMemberCard key={`card-${card.heading}-${idxCard}`} {...card} />
+        <TeamMemberCard key={`team-member-card-${card.heading}-${idxCard}`} {...card} />
       ))}
     </Box>
   );
 
   const LogoCardContent = (props: any) => (
     <Box
+      className="logo-card-content"
       css={{
-        display: "grid",
-        gridTemplateColumns: "1fr 1fr",
+        display: "flex",
+        flexWrap: "wrap",
         gap: "$sm",
         pt: "$lg",
       }}
     >
       {props?.items?.map((card: any, idxCard: number) => (
         <LogoCard
-          key={`card-${card.heading}-${idxCard}`}
+          className="logo-card"
+          key={`logo-card-${card.heading}-${idxCard}`}
           width="288px"
           height="120px"
           {...card}
@@ -330,7 +332,7 @@ export const ObolEcosystem = () => {
       <Tabs.Tabs defaultValue={tabs[0].tab}>
         <Tabs.TabsList aria-label="Obol Ecosystem">
           {tabs.map((item, idx) => (
-            <Tabs.TabsTrigger key={`tab-${idx}`} value={item.tab}>
+            <Tabs.TabsTrigger key={`tab-trigger-${idx}`} value={item.tab}>
               {item.tab}
             </Tabs.TabsTrigger>
           ))}
@@ -349,12 +351,12 @@ export const ObolEcosystem = () => {
                 <>
                   {item.component === "TeamMemberCard" ? (
                     <TeamMemberCard
-                      key={`card-${card.heading}-${idxCard}`}
+                      key={`tabs-team-member-card-${card.heading}-${idxCard}`}
                       {...card}
                     />
                   ) : (
                     <LogoCard
-                      key={`card-${card.heading}-${idxCard}`}
+                      key={`tabs-logo-card-${card.heading}-${idxCard}`}
                       width="288px"
                       height="120px"
                       {...card}
@@ -368,5 +370,6 @@ export const ObolEcosystem = () => {
       </Tabs.Tabs>
     </Box>
   );
+
   return screenDownSm ? <AccordionSection /> : <TabsSection />;
 };

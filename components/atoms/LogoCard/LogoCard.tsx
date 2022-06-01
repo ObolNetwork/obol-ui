@@ -11,6 +11,7 @@ export const LogoCard = (props: {
   const screenDownSm = useMediaQuery(MediaQueryKeys.sm);
   return (
     <Box
+      className="logo-card"
       css={{
         position: "relative",
         width: "288px",
@@ -19,7 +20,7 @@ export const LogoCard = (props: {
         backgroundColor: "$bg04",
         p: "$sm",
         "@sm": {
-          width: "$full",
+          width: "42%",
           height: "auto",
           p: "$xxs",
         },
