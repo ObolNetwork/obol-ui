@@ -4,8 +4,8 @@ import { Box, Text, Link, Container } from "../../atoms";
 import { ArrowForward } from "../../icons";
 
 export interface CardProps {
-  heading: string;
   image: JSX.Element | string;
+  heading?: string;
   imageWidth?: number | string;
   imageHeight?: number | string;
   link?: string;
@@ -23,10 +23,16 @@ const CardImage = styled(Image, {
 
 const Content = (props: any) => (
   <Container alignItems={props.contentAlign || "center"} ghost>
-    <Container alignItems={props.contentAlign || "center"} css={{ gap: "$xs" }} ghost>
-      <Text css={{ fontWeight: "$bold" }} size="5" color="textLight">
-        {props.heading}
-      </Text>
+    <Container
+      alignItems={props.contentAlign || "center"}
+      css={{ gap: "$xs" }}
+      ghost
+    >
+      {props.heading && (
+        <Text css={{ fontWeight: "$bold" }} size="5" color="textLight">
+          {props.heading}
+        </Text>
+      )}
       {props.subheading && (
         <Text css={{ lineHeight: "$base", color: "$body" }} size="4">
           {props.subheading}
@@ -75,6 +81,7 @@ export const Card: React.FC<CardProps> = ({
         }}
       >
         <CardImage
+          priority
           src={props.image as string}
           layout="fill"
           objectFit="fill"

@@ -19,6 +19,7 @@
     "ds:release": "yarn ds:build && np"
   },
   "dependencies": {
+    "@radix-ui/react-accordion": "^0.1.6",
     "@radix-ui/react-tabs": "^0.1.5",
     "@stitches/react": "~1.2.8",
     "next": "12.1.0",

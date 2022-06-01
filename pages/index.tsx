@@ -16,6 +16,8 @@ import { CreateIcon } from "../components/icons/static-icons/CreateIcon";
 import { TestIcon } from "../components/icons/static-icons/TestIcon";
 import { RunIcon } from "../components/icons/static-icons/RunIcon";
 import { Footer } from "../components/organisms";
+import { ObolEcosystem } from "../components/organisms/ObolEcosystem/ObolEcosystem";
+import { TeamMemberCard } from "../components/atoms/TeamMemberCard/TeamMemberCard";
 
 const Home: NextPage = () => {
   return (
@@ -331,6 +333,16 @@ const Home: NextPage = () => {
       >
         <Footer />
       </Box>
+      <Box
+        css={{
+          py: "calc($2xl * 2)",
+        
+          backgroundColor: "$bg03",
+          "@sm": { px: "$xl", py: "$2xl" },
+        }}
+      >
+        <ObolEcosystem />
+      </Box> 
       <footer className={styles.footer}>
         <a href="https://obol.tech" target="_blank" rel="noopener noreferrer">
           Powered by obol.tech

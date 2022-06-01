@@ -85,6 +85,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             >
               {!screenDownSm ? (
                 <Image
+                  priority
                   src={image?.basePath || BASE_PATH}
                   alt="Obol Logo"
                   width={912}
@@ -92,6 +93,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 />
               ) : (
                 <Image
+                  priority
                   src={image?.basePath || MOBILE_PATH}
                   alt="Obol Logo"
                   width={343}
@@ -128,6 +130,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           }}
         >
           <Image
+            priority
             src={image?.basePath || MOBILE_PATH}
             alt="Obol Logo"
             width={912}

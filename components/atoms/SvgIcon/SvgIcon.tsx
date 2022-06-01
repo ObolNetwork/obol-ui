@@ -22,6 +22,7 @@ export const SvgIcon = styled("svg", {
       ...colorVariants,
     },
     size: {
+      inherit: { $$size: "auto" },
       sm: {
         $$size: "$space$sm",
       },
@@ -35,10 +36,23 @@ export const SvgIcon = styled("svg", {
         $$size: "$space$xl",
       },
     },
+    fillColor: {
+      true: {
+        "& path": {
+          fill: "$$color",
+        },
+      },
+      false: {
+        "& path": {
+          fill: "none",
+        },
+      },
+    },
   },
   defaultVariants: {
     size: "sm",
     color: "inherit",
+    fillColor: true,
   },
 });
 

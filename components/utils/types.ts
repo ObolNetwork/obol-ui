@@ -28,3 +28,18 @@ export function modifyVariantsForStory<
 
   return component as unknown as (props: ComponentStoryProps) => JSX.Element;
 }
+
+type SocialNetwork = { network: "github" | "twitter"; link: string };
+
+export interface EcosystemCardProps {
+  image: string;
+  heading: string;
+  subheading?: string;
+  links?: SocialNetwork[];
+}
+
+export interface EcosystemTabsProps {
+  tab: string;
+  component?: "TeamMemberCard";
+  items: EcosystemCardProps[];
+}

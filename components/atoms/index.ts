@@ -7,3 +7,5 @@ export * from "./Spin/Spin";
 export * as Tabs from "./Tabs/Tabs";
 export * from "./Container/Container";
 export * from "./Image/Image";
+export * from "./TeamMemberCard/TeamMemberCard";
+export * from "./LogoCard/LogoCard";

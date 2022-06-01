@@ -1,4 +1,4 @@
-import { Box, Button, } from "../../atoms";
+import { Box, Button } from "../../atoms";
 import { useState } from "react";
 import { useMediaQuery, MediaQueryKeys } from "../../utils/hooks";
 import { ObolDarkBgH, ObolDarkBgMark, MenuIcon, CloseIcon } from "../../icons";
@@ -68,7 +68,9 @@ export const Navbar: React.FC = ({ children }): JSX.Element => {
         flex: 1,
         justifyContent: "flex-start",
         alignItems: "center",
-        pt: "$sm",
+        "@sm": {
+          pl: "$sm",
+        },
       }}
     >
       {!screenDownSm ? <ObolDarkBgH /> : <ObolDarkBgMark />}

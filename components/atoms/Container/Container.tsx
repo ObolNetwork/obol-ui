@@ -41,7 +41,7 @@ export const Container = styled(Box, {
         border: "2px solid transparent",
         p: 0,
       },
-    },
+    },    
     variant: {
       textContent: {
         gap: "$xs",
