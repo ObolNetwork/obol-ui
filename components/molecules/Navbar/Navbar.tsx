@@ -95,16 +95,17 @@ export const Navbar: React.FC = ({ children }): JSX.Element => {
         <LogoIcon />
         <MenuButton />
       </Box>
-
-      <Box
-        css={{
-          display: isMobileMenuOpen ? "flex" : "none",
-          height: "auto",
-          width: "$full",
-        }}
-      >
-        <ContentMenu />
-      </Box>
+      {isMobileMenuOpen && (
+        <Box
+          css={{
+            display: isMobileMenuOpen ? "block" : "none",
+            height: "auto",
+            width: "$full",
+          }}
+        >
+          <ContentMenu />
+        </Box>
+      )}
     </Box>
   );
 
