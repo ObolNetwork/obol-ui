@@ -37,6 +37,7 @@ export const {
   theme,
   createTheme,
   config,
+  reset
 } = createStitches({
   theme: {
     colors: {
