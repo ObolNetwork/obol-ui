@@ -5,6 +5,7 @@ export type { VariantProps } from "@stitches/react";
 export const mediaQueryKeys = {
   xs: "(max-width: 520px)",
   sm: "(max-width: 900px)",
+  bp2: "(min-width: 900px)",
   md: "(max-width: 1200px)",
   lg: "(max-width: 1800px)",
 } as const;
