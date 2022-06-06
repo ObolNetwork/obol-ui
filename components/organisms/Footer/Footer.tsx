@@ -12,7 +12,7 @@ const defaultLinks: FooterLinksProps[] = [
     links: [
       { title: "Intro to Obol", link: "obol.tech" },
       { title: "Charon", link: "obol.tech" },
-      { title: "Dv Launchpad", link: "obol.tech" },
+      { title: "DV Launchpad", link: "obol.tech" },
     ],
   },
   {
