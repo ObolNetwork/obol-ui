@@ -1,5 +1,7 @@
-import { Box, Container, Text, Image } from "../../atoms";
-import { CSS } from "../../../stitches.config";
+import { Box, Container, Text } from "../../atoms";
+import { mediaQueryKeys, CSS } from "../../../stitches.config";
+import Image from "next/image";
+import { useMediaQuery } from "../../utils/hooks";
 
 export interface TwoColumnSectionProps {
   heading: JSX.Element | string;
@@ -14,9 +16,11 @@ export const TwoColumnSection: React.FC<TwoColumnSectionProps> = ({
   image,
   ...props
 }): JSX.Element => {
+  const screenDownSm = useMediaQuery(mediaQueryKeys.sm);
+
   return (
     <Box
-      className="box-two-column-section"
+    className="box-two-column-section"
       css={{
         width: "$full",
         display: "grid",
@@ -68,24 +72,21 @@ export const TwoColumnSection: React.FC<TwoColumnSectionProps> = ({
           },
         }}
       >
-        <Image
-          css={{ "@sm": { display: "none" } }}
-          src={image.basePath}
-          alt="Obol Logo"
-          objectFit="fill"
-          width={387}
-          height={317}
-          layout="responsive"
-        />
-
-        <Image
-          css={{ "@bp2": { display: "none" } }}
-          src={image.mobilePath || image.basePath}
-          alt="Obol Logo"
-          width={248}
-          height={203}
-          layout="responsive"
-        />
+        {!screenDownSm ? (
+          <Image
+            src={image.basePath}
+            alt="Obol Logo"
+            objectFit="fill"
+            layout="fill"
+          />
+        ) : (
+          <Image
+            src={image.mobilePath || image.basePath}
+            alt="Obol Logo"
+            objectFit="fill"
+            layout="fill"
+          />
+        )}
       </Box>
     </Box>
   );
