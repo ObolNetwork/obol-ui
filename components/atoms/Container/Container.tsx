@@ -12,7 +12,7 @@ export const Container = styled(Box, {
   background: "$bg02",
   border: "2px solid $bg03",
   borderRadius: "$3",
-  width: "auto",
+  width: "-webkit-fill-available",
   variants: {
     layout: {
       colum: {

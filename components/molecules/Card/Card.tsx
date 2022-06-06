@@ -54,6 +54,7 @@ export const Card: React.FC<CardProps> = ({
   ...props
 }): JSX.Element => (
   <Box
+    className="box-card"
     css={{
       display: "flex",
       flexDirection: "column",
@@ -70,6 +71,7 @@ export const Card: React.FC<CardProps> = ({
   >
     {variant == "image" && (
       <Box
+        className="box-card-image"
         css={{
           position: "relative",
           width: props.imageWidth || "395px",
@@ -81,7 +83,6 @@ export const Card: React.FC<CardProps> = ({
         }}
       >
         <CardImage
-          
           src={props.image as string}
           layout="fill"
           objectFit="fill"
@@ -90,6 +91,7 @@ export const Card: React.FC<CardProps> = ({
       </Box>
     )}
     <Box
+      className="box-card-icon"
       css={{
         display: "flex",
         p: "$xl",

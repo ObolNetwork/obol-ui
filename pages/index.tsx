@@ -18,6 +18,7 @@ import { RunIcon } from "../components/icons/static-icons/RunIcon";
 import { Footer } from "../components/organisms";
 import { ObolEcosystem } from "../components/organisms/ObolEcosystem/ObolEcosystem";
 import { TeamMemberCard } from "../components/atoms/TeamMemberCard/TeamMemberCard";
+import { Planet, PlanetIcon } from "../components/icons/Planet";
 
 const Home: NextPage = () => {
   return (
@@ -51,7 +52,19 @@ const Home: NextPage = () => {
             Join the Community
           </Button>
         </Navbar>
-        <Text css={{ fontWeight: "$bold" }}>Test</Text>
+        <Text css={{ fontWeight: "$bold" }}>planets</Text>
+
+        
+
+        
+       
+        
+
+
+        <PlanetIcon color1="#3CD2DD" color2="#E3EA5C" />
+        <PlanetIcon color1="#DD033C" color2="#A4EA3C" />
+        
+
         <h1 className={styles.title}>Welcome to Obol ui</h1>
         <Card
           heading="Heading"
@@ -336,13 +349,13 @@ const Home: NextPage = () => {
       <Box
         css={{
           py: "calc($2xl * 2)",
-        
+
           backgroundColor: "$bg03",
           "@sm": { px: "$xl", py: "$2xl" },
         }}
       >
         <ObolEcosystem />
-      </Box> 
+      </Box>
       <footer className={styles.footer}>
         <a href="https://obol.tech" target="_blank" rel="noopener noreferrer">
           Powered by obol.tech

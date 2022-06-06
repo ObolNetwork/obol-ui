@@ -64,6 +64,7 @@ SingleArrowDownLeftIcon.args = {
   ),
 };
 
+
 const Template2: ComponentStory<typeof Box> = (args) => (
   <Box
     css={{
