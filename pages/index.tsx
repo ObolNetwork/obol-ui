@@ -53,14 +53,6 @@ const Home: NextPage = () => {
           </Button>
         </Navbar>
         <Text css={{ fontWeight: "$bold" }}>planets</Text>
-
-        
-
-        
-       
-        
-
-
         <PlanetIcon color1="#3CD2DD" color2="#E3EA5C" />
         <PlanetIcon color1="#DD033C" color2="#A4EA3C" />
         

@@ -17,3 +17,4 @@ export * from './static-icons/TestIcon';
 export * from './static-icons/RunIcon';
 export * from './static-icons/TwitterIcon';
 export * from './static-icons/GithubIcon';
+export * from './static-icons/planets';
