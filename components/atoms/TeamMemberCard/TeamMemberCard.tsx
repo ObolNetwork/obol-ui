@@ -15,7 +15,7 @@ export const TeamMemberCard: React.FC<EcosystemCardProps> = (props) => (
       alignItems: "center",
       gap: "$lg",
       p: "$xl",
-      "@sm": { gridTemplateColumns: "1fr 1.5fr", p: "$sm" },      
+      "@sm": { gridTemplateColumns: "1fr 2fr", p: "$sm" },      
     }}
   >
     <Box

@@ -275,15 +275,27 @@ export const ObolEcosystem = () => {
 
   const TeamMemberCardContent = (props: any) => (
     <Box
+      className="team-member-card-content"
       css={{
         display: "flex",
         flexDirection: "column",
         gap: "$sm",
         pt: "$sm",
+        "@sm": {
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+        },
+        "@xs": {
+          display: "grid",
+          gridTemplateColumns: "1fr",
+        },
       }}
     >
       {props?.items?.map((card: any, idxCard: number) => (
-        <TeamMemberCard key={`team-member-card-${card.heading}-${idxCard}`} {...card} />
+        <TeamMemberCard
+          key={`team-member-card-${card.heading}-${idxCard}`}
+          {...card}
+        />
       ))}
     </Box>
   );
