@@ -52,26 +52,7 @@ const Home: NextPage = () => {
             Join the Community
           </Button>
         </Navbar>
-        <Text css={{ fontWeight: "$bold" }}>planets</Text>
-        <PlanetIcon color1="#3CD2DD" color2="#E3EA5C" />
-        <PlanetIcon color1="#DD033C" color2="#A4EA3C" />
-        
-
-        <h1 className={styles.title}>Welcome to Obol ui</h1>
-        <Card
-          heading="Heading"
-          image="/image-card.png"
-          variant="image"
-          subheading="The Obol Network will forever be open source and permissionless. The impact of distributed validators lies in their accessibility."
-          link="https://obol.tech"
-        />
-        <Box css={{ mt: "$xl" }} />
-        <Card
-          heading="Heading"
-          image={<CodeIcon />}
-          subheading="The Obol Network will forever be open source and permissionless. The impact of distributed validators lies in their accessibility."
-          link="https://obol.tech"
-        />
+      
         <HeroSection
           css={{
             "& #heading-text": {
@@ -323,7 +304,7 @@ const Home: NextPage = () => {
           </>
         }
         image={{
-          basePath: "/assets/twocolumnsection.svg",
+          basePath: "/assets/twocolumnsection.png",
         }}
       >
         <Button color="create">Learn More</Button>

@@ -2,6 +2,7 @@ import { Box, Text } from "../../atoms";
 import { mediaQueryKeys, CSS } from "../../../stitches.config";
 import Image from "next/image";
 import { useMediaQuery } from "../../utils/hooks";
+import { Hexapod, HexapodMobile } from "../../icons";
 
 export interface HeroSectionProps {
   heading: string;
@@ -10,9 +11,6 @@ export interface HeroSectionProps {
   image?: { basePath: string; mobilePath?: string };
   css?: CSS;
 }
-
-const BASE_PATH = "/assets/hexapod.svg";
-const MOBILE_PATH = "/assets/hexapod-mobile.svg";
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
   image,
@@ -84,21 +82,31 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               }}
             >
               {!screenDownSm ? (
-                <Image
-                  
-                  src={image?.basePath || BASE_PATH}
-                  alt="Obol Logo"
-                  width={912}
-                  height={597}
-                />
+                <>
+                  {image?.basePath ? (
+                    <Image
+                      src={image.basePath}
+                      alt="Obol Logo"
+                      width={912}
+                      height={597}
+                    />
+                  ) : (
+                    <Hexapod />
+                  )}
+                </>
               ) : (
-                <Image
-                  
-                  src={image?.basePath || MOBILE_PATH}
-                  alt="Obol Logo"
-                  width={343}
-                  height={226}
-                />
+                <>
+                  {image?.mobilePath ? (
+                    <Image
+                      src={image.mobilePath}
+                      alt="Obol Logo"
+                      width={912}
+                      height={597}
+                    />
+                  ) : (
+                    <HexapodMobile />
+                  )}
+                </>
               )}
             </Box>
           )}
@@ -129,13 +137,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             alignItems: "center",
           }}
         >
-          <Image
-            
-            src={image?.basePath || MOBILE_PATH}
-            alt="Obol Logo"
-            width={912}
-            height={597}
-          />
+          {image?.basePath ? (
+            <Image
+              src={image.basePath}
+              alt="Obol Logo"
+              width={912}
+              height={597}
+            />
+          ) : (
+            <Hexapod />
+          )}
         </Box>
       )}
     </Box>
