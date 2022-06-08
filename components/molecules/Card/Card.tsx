@@ -37,25 +37,39 @@ export const ToggleCardItem = styled(ToggleGroupItem, {
 });
 
 const Content = (props: any) => (
-  <Container alignItems={props.contentAlign || "center"} ghost>
+  <Container
+    className="card-container"
+    alignItems={props.contentAlign || "center"}
+    ghost
+  >
     <Container
+      className="card-container-text"
       alignItems={props.contentAlign || "center"}
       css={{ gap: "$xs" }}
       ghost
     >
       {props.heading && (
-        <Text css={{ fontWeight: "$bold" }} size="5" color="textLight">
+        <Text
+          className="card-heading"
+          css={{ fontWeight: "$bold" }}
+          size="5"
+          color="textLight"
+        >
           {props.heading}
         </Text>
       )}
       {props.subheading && (
-        <Text css={{ lineHeight: "$base", color: "$body" }} size="4">
+        <Text
+          className="card-subheading"
+          css={{ lineHeight: "$base", color: "$body" }}
+          size="4"
+        >
           {props.subheading}
         </Text>
       )}
     </Container>
     {props.link && (
-      <Link href={props.link}>
+      <Link className="card-link" href={props.link}>
         Learn More <ArrowForward />
       </Link>
     )}
