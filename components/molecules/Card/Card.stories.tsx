@@ -2,6 +2,10 @@ import { Box, ToggleGroup } from "../../atoms";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { CodeIcon } from "../../icons";
 import { Card, CardProps, ToggleCardItem } from "./Card";
+import { AloneIcon } from "../../icons/static-icons/AloneIcon";
+import { MigrateIcon } from "../../icons/static-icons/MigrateIcon";
+import { GroupIcon } from "../../icons/static-icons/GroupIcon";
+import { ExistingGroupIcon } from "../../icons/static-icons/ExistingGroupIcon";
 
 export default {
   title: "Design System/Molecules/Card",
@@ -27,15 +31,18 @@ const TemplateToggle: ComponentStory<typeof Card> = (args: CardProps) => (
     <ToggleCardItem value="left" aria-label="Left aligned">
       <Card
         toggle
-        image={<CodeIcon />}
+        image={<AloneIcon />}
         heading="Create a Distributed Validator alone"
       />
     </ToggleCardItem>
     <ToggleCardItem value="center" aria-label="Left aligned">
-      <Card toggle image={<CodeIcon />} heading="Open Source" />
+      <Card toggle image={<MigrateIcon />} heading="Open Source" />
     </ToggleCardItem>
     <ToggleCardItem value="right" aria-label="Left aligned">
-      <Card toggle image={<CodeIcon />} heading="Open Source" />
+      <Card toggle image={<GroupIcon />} heading="Open Source" />
+    </ToggleCardItem>
+    <ToggleCardItem value="last" aria-label="last aligned">
+      <Card toggle image={<ExistingGroupIcon />} heading="Open Source" />
     </ToggleCardItem>
   </ToggleGroup>
 );

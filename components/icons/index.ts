@@ -18,4 +18,8 @@ export * from "./static-icons/RunIcon";
 export * from "./static-icons/TwitterIcon";
 export * from "./static-icons/GithubIcon";
 export * from "./static-icons/planets";
+export * from "./static-icons/AloneIcon";
+export * from "./static-icons/MigrateIcon";
+export * from "./static-icons/GroupIcon";
+export * from "./static-icons/ExistingGroupIcon";
 export * from "./Hexapod";
