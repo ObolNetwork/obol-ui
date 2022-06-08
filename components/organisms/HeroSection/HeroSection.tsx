@@ -78,28 +78,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 display: "flex",
                 justifyContent: "flex-end",
                 alignItems: "center",
-                "@sm": {
-                  width: "350px",
-                },
               }}
             >
-              {!screenDownSm ? (
-                <Image
-                  priority
-                  src={image?.basePath || BASE_PATH}
-                  alt="Obol Logo"
-                  width={912}
-                  height={597}
-                />
-              ) : (
-                <Image
-                  priority
-                  src={image?.basePath || MOBILE_PATH}
-                  alt="Obol Logo"
-                  width={343}
-                  height={226}
-                />
-              )}
+              <Image
+                priority
+                src={image?.basePath || MOBILE_PATH}
+                alt="Obol Logo"
+                width={343}
+                height={226}
+              />
             </Box>
           )}
           <Text
@@ -131,7 +118,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         >
           <Image
             priority
-            src={image?.basePath || MOBILE_PATH}
+            src={image?.basePath || BASE_PATH}
             alt="Obol Logo"
             width={912}
             height={597}
