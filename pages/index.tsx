@@ -1,14 +1,11 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { HeroSection } from "../components/organisms";
-import {
-  Text,
-  Button,
-  ToggleGroup,
-} from "../components/atoms";
+import { Text, Button, ToggleGroup } from "../components/atoms";
 import styles from "../styles/Home.module.css";
-import { Card, ToggleCardItem } from "../components/molecules";
+import { Card, Navbar, ToggleCardItem } from "../components/molecules";
 import { CodeIcon } from "../components/icons";
+import { Box } from "../dist";
 
 const Home: NextPage = () => {
   return (
@@ -18,6 +15,17 @@ const Home: NextPage = () => {
         <meta name="description" content="Obol ui library" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Navbar>
+        <Button
+          as="a"
+          target="_blank"
+          href="https://discord.com/invite/n6ebKsX46w"
+          variant="nav"
+        >
+          Validator Docs
+        </Button>
+        <Button color="secondary">Connect Wallet</Button>
+      </Navbar>
       <HeroSection
         heading="Building Distributed Validators for Ethereum"
         content={
@@ -58,7 +66,7 @@ const Home: NextPage = () => {
       >
         <Button>Read the Docs</Button>
       </HeroSection>
-   
+
       <a href="https://obol.dev">Obol</a>
       <footer className={styles.footer}>
         <a href="https://obol.dev" target="_blank" rel="noopener noreferrer">

@@ -51,9 +51,7 @@ const Content = (props: any) => (
       {props.heading && (
         <Text
           className="card-heading"
-          css={{ fontWeight: "$bold" }}
-          size="5"
-          color="textLight"
+          variant="h5"
         >
           {props.heading}
         </Text>

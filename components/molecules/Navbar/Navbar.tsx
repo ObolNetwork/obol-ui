@@ -1,11 +1,14 @@
-import { Box, Button } from "../../atoms";
+import { Box, Button, Text } from "../../atoms";
 import { useState } from "react";
 import { ObolDarkBgH, ObolDarkBgMark, MenuIcon, CloseIcon } from "../../icons";
 
 import { useRouter } from "next/router";
 import React from "react";
 
-export const Navbar: React.FC = ({ children }): JSX.Element => {
+export const Navbar: React.FC<{ logoText?: string }> = ({
+  children,
+  logoText = "DV Launchpad",
+}): JSX.Element => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const router = useRouter();
@@ -23,10 +26,11 @@ export const Navbar: React.FC = ({ children }): JSX.Element => {
 
   const ContentMenu = () => (
     <Box
+      className="navbar-content-menu"
       css={{
         display: "flex",
         flex: 1,
-        gap: "$2xl",
+        gap: logoText ? "$lg" : "$2xl",
         justifyContent: "flex-end",
         alignItems: "center",
         padding: "$xxs",
@@ -34,7 +38,7 @@ export const Navbar: React.FC = ({ children }): JSX.Element => {
           justifyContent: "center",
           flexDirection: "column",
         },
-        "& a": {
+        "& a & button": {
           "@sm": {
             width: "$full",
             justifyContent: "center",
@@ -58,8 +62,26 @@ export const Navbar: React.FC = ({ children }): JSX.Element => {
         },
       }}
     >
-      <Box css={{ "@sm": { display: "none" } }}>
+      <Box
+        css={{
+          display: "flex",
+          alignItems: "center",
+          "@sm": { display: "none" },
+        }}
+      >
         <ObolDarkBgH />
+        {logoText && (
+          <Text
+            css={{
+              fontSize: "28px",
+              color: "$muted",
+              fontWeight: "bold",
+              ml: "$xxs",
+            }}
+          >
+            {logoText}
+          </Text>
+        )}
       </Box>
       <Box css={{ "@bp2": { display: "none" } }}>
         <ObolDarkBgMark />

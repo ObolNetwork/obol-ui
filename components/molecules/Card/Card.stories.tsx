@@ -14,12 +14,22 @@ const Template: ComponentStory<typeof Card> = (args: CardProps) => (
 
 const TemplateToggle: ComponentStory<typeof Card> = (args: CardProps) => (
   <ToggleGroup
-    css={{ display: "flex", gap: "$xl" }}
+    css={{
+      display: "flex",
+      gap: "$xl",
+      "& .card-heading": {
+        textAlign: "center",
+      },
+    }}
     type="single"
     aria-label="Text alignment"
   >
     <ToggleCardItem value="left" aria-label="Left aligned">
-      <Card toggle image={<CodeIcon />} heading="Open Source" />
+      <Card
+        toggle
+        image={<CodeIcon />}
+        heading="Create a Distributed Validator alone"
+      />
     </ToggleCardItem>
     <ToggleCardItem value="center" aria-label="Left aligned">
       <Card toggle image={<CodeIcon />} heading="Open Source" />
