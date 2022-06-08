@@ -7,7 +7,7 @@ import React from "react";
 
 export const Navbar: React.FC<{ logoText?: string }> = ({
   children,
-  logoText = "DV Launchpad",
+  logoText,
 }): JSX.Element => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
