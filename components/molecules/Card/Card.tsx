@@ -1,6 +1,7 @@
+import { ToggleGroupItemProps } from "@radix-ui/react-toggle-group";
 import Image from "next/image";
 import { CSS, styled } from "../../../stitches.config";
-import { Box, Text, Link, Container } from "../../atoms";
+import { Box, Text, Link, Container, ToggleGroupItem } from "../../atoms";
 import { ArrowForward } from "../../icons";
 
 export interface CardProps {
@@ -13,12 +14,26 @@ export interface CardProps {
   subheading?: string;
   contentAlign?: "start" | "end";
   gradientBg?: boolean;
+  toggle?: boolean;
   css?: CSS;
+  value?: ToggleGroupItemProps["value"];
 }
 
 const CardImage = styled(Image, {
   btrr: "$4",
   btlr: "$4",
+});
+
+export const ToggleCardItem = styled(ToggleGroupItem, {
+  all: "unset",
+  background: "$bg03",
+  borderRadius: "$4",
+  border: "2px solid transparent",
+  "&:hover": { backgroundColor: "$bg05" },
+  "&[data-state=on]": {
+    backgroundColor: "$bg05",
+    border: "2px solid $obolGreen",
+  },
 });
 
 const Content = (props: any) => (
@@ -47,27 +62,42 @@ const Content = (props: any) => (
   </Container>
 );
 
+const BoxCard = styled(Box, {
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  borderRadius: "$4",
+  width: "auto",
+  height: "100%",
+  background: "$bg03",
+  flex: 1,
+  variants: {
+    toggle: {
+      true: {
+        border: "2px solid transparent",
+        background: "transparent",
+      },
+    },
+    gradientBg: {
+      true: {
+        background:
+          "linear-gradient(180deg, hsla(161, 77%, 54%, 0.2) 0%, hsla(82, 77%, 64%, 0.2) 100%)",
+      },
+    },
+  },
+});
+
 export const Card: React.FC<CardProps> = ({
   css,
   gradientBg,
   variant = "icon",
   ...props
 }): JSX.Element => (
-  <Box
+  <BoxCard
     className="box-card"
-    css={{
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      background: gradientBg
-        ? "linear-gradient(180deg, hsla(161, 77%, 54%, 0.2) 0%, hsla(82, 77%, 64%, 0.2) 100%)"
-        : "$bg03",
-      borderRadius: "$4",
-      width: "auto",
-      height: "100%",
-      flex: 1,
-      ...css,
-    }}
+    css={css}
+    gradientBg={gradientBg}
+    toggle={props.toggle}
   >
     {variant == "image" && (
       <Box
@@ -103,5 +133,5 @@ export const Card: React.FC<CardProps> = ({
       {variant == "icon" && props.image}
       <Content {...props} />
     </Box>
-  </Box>
+  </BoxCard>
 );

@@ -1,8 +1,14 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { HeroSection } from "../components/organisms";
-import { Text, Button } from "../components/atoms";
+import {
+  Text,
+  Button,
+  ToggleGroup,
+} from "../components/atoms";
 import styles from "../styles/Home.module.css";
+import { Card, ToggleCardItem } from "../components/molecules";
+import { CodeIcon } from "../components/icons";
 
 const Home: NextPage = () => {
   return (
@@ -52,6 +58,7 @@ const Home: NextPage = () => {
       >
         <Button>Read the Docs</Button>
       </HeroSection>
+   
       <a href="https://obol.dev">Obol</a>
       <footer className={styles.footer}>
         <a href="https://obol.dev" target="_blank" rel="noopener noreferrer">
