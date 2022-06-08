@@ -9,3 +9,4 @@ export * from "./Container/Container";
 export * from "./Image/Image";
 export * from "./TeamMemberCard/TeamMemberCard";
 export * from "./LogoCard/LogoCard";
+export * from "./Toggle/Toggle";
