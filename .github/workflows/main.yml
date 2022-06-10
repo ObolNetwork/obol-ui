@@ -3,7 +3,7 @@ name: Publishing my-pkg
 on:
   push:
     branches:
-      - develop
+      - main
 
 jobs:
   publish-gpr:
