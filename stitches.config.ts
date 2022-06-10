@@ -5,19 +5,28 @@ export type { VariantProps } from "@stitches/react";
 export const mediaQueryKeys = {
   xs: "(max-width: 520px)",
   sm: "(max-width: 900px)",
+  bp2: "(min-width: 900px)",
   md: "(max-width: 1200px)",
   lg: "(max-width: 1800px)",
 } as const;
 
-// TODO: discuss the nomenclature of sizes & spaces
+// NOTE: since there is not sizes defined, spaces will be reuse on sizes definitions
 const spaces = {
-  xs: "4px",
-  sm: "8px",
-  md: "16px",
+  1: "1px",
+  2: "2px",
+  "xxxs": "4px",
+  "xxs": "8px",
+  xs: "12px",
+  sm: "16px",
+  md: "20px",
   lg: "24px",
   xl: "32px",
-  "1xl": "40px",
-  "2xl": "48px",
+  "2xl": "40px",
+  "3xl": "48px",
+  "4xl": "64px",
+  "5xl": "80px",
+  "6xl": "96px",
+  "7xl": "120px",
 };
 
 export const {
@@ -29,14 +38,73 @@ export const {
   theme,
   createTheme,
   config,
+  reset
 } = createStitches({
   theme: {
     colors: {
-      // TODO: gather colors from figma with an script
       white: "#fff",
       black: "#000",
       lightBackground: "#E1E1E1",
       obolBlue: "#162A40",
+
+      // background
+      primaryBgDefault: "#CCE1E6",
+      primaryBgDefaultHover: "#EFF4F6",
+      primaryTextDefault: "#3B6F7D",
+      secondaryBgDefault: "rgba(255, 255, 255, 0.05)",
+      secondaryBgHover: "hsla(0, 0%, 100%, 0.1)",
+      grayBgDefault: "hsla(190, 42%, 9%, 0.05)",
+      gray2BgDefault: "hsla(190, 42%, 9%, 0.1)",
+      neutralDark: "#0D1D21",
+      navButtonBgDefault: "#132A2F",
+      navButtonBgHover: "#1A3A42",
+      cardBackgroundDark: "#25383C",
+      cardBackgroundLight: "hsla(150, 20%, 99%, 0.2)",
+      // text
+      textMiddle: "#ABB7BA",
+      textLight: "#DFEAED",
+      textTabHover: "#DFEAED66",
+      textTabInactive: "#DFEAED4D",
+      textGreenDark: "#16968E",
+      textGreenLight: "#DDFFEE",
+      textGreen1: "#18AF6B",
+      textGreen2: "#27CAA1",
+      textGreen3: "#9DBFC8",
+      textGreenHover: "#045062",
+      textCreateHover: "#067089",
+      textGrayHover: "#1F3337",
+
+      txButton: "#B7F6E2",
+
+      // new colors      
+      obolGreen: "#2FE4AB",
+      obolGreenHover: "#82EDCC",
+      obolGreenLight: "#B6EA5C",
+      obolDarkDark: "#16968E",
+      obolDisabled: "#1A292D",
+      linkButtonHover: '#A0F3D9',
+
+      //secondary
+      coordinate: "#9167E4",
+      coordinateHover: "#BB99FF",
+      test: "#DD603C",
+      testHover: "#E89C87",
+      create: "#3CD2DD",     
+      createHover: "#85E3EA",
+
+      // type
+      light: "#D9EEF3",
+      body: "#9CC2C9",
+      muted: "#475E64",
+      menu: "#DAEEF3",
+
+      // backgrounds
+      bg01: "#091011",
+      bg02: "#111F22",
+      bg03: "#182D32",
+      bg04: "#243D42",
+      bg05: "#2D4D53",
+
     },
     space: {
       ...spaces,
@@ -61,12 +129,13 @@ export const {
       2: "12px",
       3: "14px",
       4: "16px",
-      5: "19px",
+      5: "18px",
       6: "20px",
       7: "21px",
       8: "24px",
       9: "32px",
-      10: "59px",
+      10: "45px",
+      11: "52px",
     },
     fontWeights: {
       hairline: 100,
