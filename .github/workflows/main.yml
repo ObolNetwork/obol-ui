@@ -33,7 +33,7 @@ jobs:
           scope: "@obolnetwork"
 
       - name: Publish package
-        run: git push --follow-tags origin develop && npm publish
+        run: git push --follow-tags origin main && npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: git push
