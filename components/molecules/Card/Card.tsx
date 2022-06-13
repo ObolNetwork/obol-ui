@@ -79,7 +79,7 @@ const BoxCard = styled(Box, {
   flexDirection: "column",
   alignItems: "center",
   borderRadius: "$4",
-  width: "auto",
+  width: "stretch",
   height: "100%",
   background: "$bg03",
   flex: 1,

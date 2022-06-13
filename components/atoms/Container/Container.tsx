@@ -12,7 +12,7 @@ export const Container = styled(Box, {
   background: "$bg02",
   border: "2px solid $bg03",
   borderRadius: "$3",
-  width: "-webkit-fill-available",
+  width: "stretch",
   variants: {
     layout: {
       colum: {
@@ -41,7 +41,7 @@ export const Container = styled(Box, {
         border: "2px solid transparent",
         p: 0,
       },
-    },    
+    },
     variant: {
       textContent: {
         gap: "$xs",
