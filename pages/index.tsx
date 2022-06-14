@@ -1,12 +1,9 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { HeroSection } from "../components/organisms";
-import { Text, Button, ToggleGroup } from "../components/atoms";
+import { Text, Button } from "../components/atoms";
 import styles from "../styles/Home.module.css";
-import { Card, Navbar, ToggleCardItem } from "../components/molecules";
-import { CodeIcon } from "../components/icons";
-import { Box } from "../dist";
-
+import { Navbar } from "../components/molecules";
 const Home: NextPage = () => {
   return (
     <div className={styles.container}>
