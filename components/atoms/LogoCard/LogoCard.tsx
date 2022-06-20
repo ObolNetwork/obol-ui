@@ -5,12 +5,14 @@ import { useMediaQuery, MediaQueryKeys } from "../../utils/hooks";
 export const LogoCard = (props: {
   image: string;
   heading: string;
+  logoCardLink?: string;
   width?: string;
   height?: string;
 }) => {
   const screenDownSm = useMediaQuery(MediaQueryKeys.sm);
   return (
     <Box
+      as="a"
       className="logo-card"
       css={{
         position: "relative",
@@ -18,6 +20,7 @@ export const LogoCard = (props: {
         height: "120px",
         borderRadius: "$4",
         backgroundColor: "$bg04",
+        "&:hover": { cursor: "pointer", backgroundColor: "$bg05" },
         p: "$sm",
         "@sm": {
           width: "42%",
@@ -25,10 +28,11 @@ export const LogoCard = (props: {
           p: "$xxs",
         },
       }}
+      target="_blank"
+      href={props.logoCardLink}
     >
       {!screenDownSm ? (
         <Image
-          
           src={props.image}
           layout="fill"
           objectFit="scale-down"
@@ -36,7 +40,6 @@ export const LogoCard = (props: {
         />
       ) : (
         <Image
-          
           src={props.image}
           layout="responsive"
           objectFit="fill"

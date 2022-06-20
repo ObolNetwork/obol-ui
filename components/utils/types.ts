@@ -36,6 +36,7 @@ export interface EcosystemCardProps {
   heading: string;
   subheading?: string;
   links?: SocialNetwork[];
+  logoCardLink?: string;
 }
 
 export interface EcosystemTabsProps {
