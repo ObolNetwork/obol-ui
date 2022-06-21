@@ -1,6 +1,4 @@
-import { Box } from "../Box/Box";
-import Image from "next/image";
-import { useMediaQuery, MediaQueryKeys } from "../../utils/hooks";
+import { Box, Image } from "../index";
 
 export const LogoCard = (props: {
   image: string;
@@ -9,45 +7,40 @@ export const LogoCard = (props: {
   width?: string;
   height?: string;
 }) => {
-  const screenDownSm = useMediaQuery(MediaQueryKeys.sm);
   return (
     <Box
       as="a"
       className="logo-card"
       css={{
-        position: "relative",
         width: "288px",
         height: "120px",
+        maxWidth: "288px",
+        maxHeight: "120px",
         borderRadius: "$4",
         backgroundColor: "$bg04",
-        "&:hover": { cursor: "pointer", backgroundColor: "$bg05" },
         p: "$sm",
+        "&:hover": { cursor: "pointer", backgroundColor: "$bg05" },
         "@sm": {
-          width: "42%",
-          height: "auto",
-          p: "$xxs",
+          width: "100%",
+          height: "120px",
+        },
+        "@xs": {
+          width: "auto",
+          height: "60px",
         },
       }}
       target="_blank"
       href={props.logoCardLink}
     >
-      {!screenDownSm ? (
+      <Box css={{ position: "relative", width: "100%", height: "100%" }}>
         <Image
           src={props.image}
           layout="fill"
-          objectFit="scale-down"
+          objectFit="contain"
           alt={props.heading}
+          quality={100}
         />
-      ) : (
-        <Image
-          src={props.image}
-          layout="responsive"
-          objectFit="fill"
-          width={props.width}
-          height={props.height}
-          alt={props.heading}
-        />
-      )}
+      </Box>
     </Box>
   );
 };
