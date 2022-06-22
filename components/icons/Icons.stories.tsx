@@ -21,6 +21,7 @@ import {
   ObolSolidLightBgMark,
 } from "./static-icons/obol/mark";
 import { ObolDarkCircle, ObolLightCircle } from "./static-icons/obol/circle";
+import { AlertIcon } from "./AlertIcon";
 
 export default {
   title: "Design System/Atoms/SvgIcon",
@@ -60,10 +61,17 @@ SingleArrowDownLeftIcon.args = {
         <p>lg (24px)</p>
         <ArrowForward size="xl" color="obolBlue" />
       </Box>
+      <Box css={{ display: "flex", gap: "$xxs" }}>
+        <p>lg (24px)</p>
+        <AlertIcon size="xl" color="body" />
+      </Box>
+      <Box css={{ display: "flex", gap: "$xxs" }}>
+        <p>lg (24px)</p>
+        <AlertIcon size="sm" color="body" />
+      </Box>
     </>
   ),
 };
-
 
 const Template2: ComponentStory<typeof Box> = (args) => (
   <Box
