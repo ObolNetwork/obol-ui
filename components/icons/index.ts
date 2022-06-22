@@ -23,3 +23,4 @@ export * from "./static-icons/MigrateIcon";
 export * from "./static-icons/GroupIcon";
 export * from "./static-icons/ExistingGroupIcon";
 export * from "./Hexapod";
+export * from "./AlertIcon";

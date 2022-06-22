@@ -227,7 +227,7 @@ export const {
       marginBottom: value,
     }),
     ta: (value: Stitches.PropertyValue<"textAlign">) => ({ textAlign: value }),
-
+    
     fd: (value: Stitches.PropertyValue<"flexDirection">) => ({
       flexDirection: value,
     }),
