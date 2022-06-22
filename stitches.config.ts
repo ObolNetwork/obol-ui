@@ -104,6 +104,11 @@ export const {
       bg03: "#182D32",
       bg04: "#243D42",
       bg05: "#2D4D53",
+      
+
+      // tooltip colors
+      tooltip: "#F4F3EC",
+      tooltip2: "#E3E0CF"
 
     },
     space: {
