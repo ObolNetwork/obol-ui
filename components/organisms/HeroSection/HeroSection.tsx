@@ -11,7 +11,7 @@ export interface HeroSectionProps {
   css?: CSS;
 }
 
-const BASE_PATH = "/assets/hexapod.svg";
+const BASE_PATH = "/assets/cluster.svg";
 const MOBILE_PATH = "/assets/hexapod-mobile.svg";
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
