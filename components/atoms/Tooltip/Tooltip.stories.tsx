@@ -17,7 +17,7 @@ const Template: ComponentStory<typeof TooltipComponent> = (args) => (
 export const Default = Template.bind({});
 
 Default.args = {
-  triggerElement: <Button css={{ ml: "10rem" }}>Tooltip</Button>,
+  children: <Button css={{ ml: "10rem" }}>Tooltip</Button>,
   side: "bottom",
-  children: `An ENR is an "Ethereum Node Record", and is used to identify your client to the other clients in the cluster.`,
+  content: `An ENR is an "Ethereum Node Record", and is used to identify your client to the other clients in the cluster.`,
 };
