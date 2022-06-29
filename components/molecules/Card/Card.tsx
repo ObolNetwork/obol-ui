@@ -67,7 +67,7 @@ const Content = (props: any) => (
       )}
     </Container>
     {props.link && (
-      <Link className="card-link" href={props.link}>
+      <Link className="card-link" href={props.link} target="_blank">
         Learn More <ArrowForward />
       </Link>
     )}

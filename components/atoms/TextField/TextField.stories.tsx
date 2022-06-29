@@ -1,15 +1,15 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
 
-import { TextField, TextFieldWithCopy, TextFieldStory } from "./TextField";
+import { TextField, TextFieldWithCopy } from "./TextField";
 
 export default {
   title: "Design System/Atoms/TextField",
   component: TextField,
   decorators: [withDesign],
-} as ComponentMeta<typeof TextFieldStory>;
+} as ComponentMeta<typeof TextField>;
 
-const Template: ComponentStory<typeof TextFieldStory> = (args) => (
+const Template: ComponentStory<typeof TextField> = (args) => (
   <TextField placeholder="Placehodlre" {...args}></TextField>
 );
 

@@ -10,3 +10,6 @@ export * from "./Image/Image";
 export * from "./TeamMemberCard/TeamMemberCard";
 export * from "./LogoCard/LogoCard";
 export * from "./Toggle/Toggle";
+export * from "./IconButton/IconButton"
+export * from "./TextField/TextField"
+export * from "./NumberField/NumberField"

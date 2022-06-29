@@ -1,10 +1,17 @@
 import * as Stitches from "@stitches/react";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import {
+  forwardRef,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 
 import { CSS, styled } from "../../../stitches.config";
 import { CopyIcon, CheckIcon } from "../../icons";
 import { modifyVariantsForStory } from "../../utils/types";
 import { Box } from "../Box/Box";
+import { IconButton } from "../IconButton/IconButton";
 import {
   Tooltip,
   TooltipArrow,
@@ -52,33 +59,8 @@ export const TextField = styled("input", {
     },
   },
 });
-interface TextFieldWithCopyProps {
-  css?: CSS;
-}
 
-const IconButton = styled("button", {
-  //reset
-  all: "unset",
-  alignItems: "center",
-  boxSizing: "border-box",
-  userSelect: "none",
-  "&::before": {
-    boxSizing: "border-box",
-  },
-  "&::after": {
-    boxSizing: "border-box",
-  },
-  display: "flex",
-  btrr: "$1",
-  bbrr: "$1",
-  p: "10px",
-  backgroundColor: "$bg04",
-  "&:hover": {
-    backgroundColor: "$bg05",
-    cursor: "pointer",
-  },
-});
-
+type TextFieldType = Stitches.ComponentProps<typeof TextField>;
 const useIsomorphicLayoutEffect =
   typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
@@ -111,18 +93,23 @@ const Content = styled(TooltipContent, {
   fontWeight: "$bold",
   color: "white",
   fontSize: "$2",
-  "& svg":{
-    fill: "$bg05"
-  }
+  "& svg": {
+    fill: "$bg05",
+  },
 });
 
-export const TextFieldWithCopy: React.FC<TextFieldWithCopyProps> = (props) => {
-  const textRef: any = useRef();
+export const TextFieldWithCopy = forwardRef<
+  HTMLInputElement,
+  TextFieldType
+>((props, ref) => {
+  const [inputValue, setInputValue] = useState<string>();
   const [isCopied, setIsCopied] = useState(false);
 
-  const copyToClipBoard = (content: string) => {
-    navigator.clipboard.writeText(content);
-    setIsCopied(true);
+  const copyToClipBoard = (content: string | undefined) => {
+    if (content) {
+      navigator.clipboard.writeText(content);
+      setIsCopied(true);
+    }
   };
 
   useTimeout(
@@ -134,11 +121,16 @@ export const TextFieldWithCopy: React.FC<TextFieldWithCopyProps> = (props) => {
 
   return (
     <Box css={{ display: "flex" }}>
-      <TextField withCopy ref={textRef} />
-
+      <TextField        
+        withCopy
+        ref={ref}
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+        {...props}
+      />
       <Tooltip open={isCopied}>
         <TooltipTrigger asChild>
-          <IconButton onClick={() => copyToClipBoard(textRef.current.value)}>
+          <IconButton onClick={() => copyToClipBoard(inputValue)}>
             {!isCopied ? <CopyIcon /> : <CheckIcon />}
           </IconButton>
         </TooltipTrigger>
@@ -149,20 +141,6 @@ export const TextFieldWithCopy: React.FC<TextFieldWithCopyProps> = (props) => {
       </Tooltip>
     </Box>
   );
-};
+});
 
 TextFieldWithCopy.displayName = "TextFieldWithCopy";
-
-/* Storybook utility for stitches variant props
-
-NOTE: this can't live in the stories file because the storybook navigator will take a story and will crash
-      I can't figure out why it can't be defined without being exported.
-*/
-
-type ComponentVariants = Stitches.VariantProps<typeof TextField>;
-export type ComponentProps = ComponentVariants;
-
-export const TextFieldStory =
-  modifyVariantsForStory<ComponentVariants, ComponentProps, typeof TextField>(
-    TextField
-  );
