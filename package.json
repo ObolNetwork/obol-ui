@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^0.1.6",
+    "@radix-ui/react-radio-group": "^0.1.5",
     "@radix-ui/react-tabs": "^0.1.5",
     "@radix-ui/react-toggle-group": "^0.1.5",
     "@radix-ui/react-tooltip": "^0.1.7",
