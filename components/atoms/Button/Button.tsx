@@ -136,7 +136,7 @@ export const Button = styled("button", {
     icon: {
       true: {
         padding: "$sm",
-        border: 0
+        border: 0,
       },
     },
     fullWidth: {
@@ -168,6 +168,15 @@ export const Button = styled("button", {
         fontWeight: "$bold",
         $$background: "$colors$txButton",
       },
+      wallet: {
+        $$background: "$colors$bg03",
+        border: "2px solid $bg03",
+        color: "$body",
+        "&:hover": {
+          $$background: "$colors$bg04",
+          border: "2px solid $bg04",         
+        },
+      },
     },
   },
   defaultVariants: {
@@ -188,3 +197,6 @@ export const ButtonStory =
   modifyVariantsForStory<ButtonComponentVariants, ButtonComponentProps, typeof Button>(
     Button
   );
+
+
+// export const WalletButton = 
