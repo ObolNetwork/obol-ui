@@ -1,0 +1,111 @@
+import * as Stitches from "@stitches/react";
+import { forwardRef, useState } from "react";
+import { modifyVariantsForStory } from "../../utils";
+import { Box, IconButton, TextField } from "../index";
+
+interface NumberFieldProps {
+  // sets the max value to increase number field value
+  max?: number;
+  // sets the min value to increase number field value
+  min?: number;
+}
+
+export const NumberField = forwardRef<HTMLInputElement, NumberFieldProps>(
+  ({ max = 10, min = 1 }, ref) => {
+    const [qty, setQty] = useState(min);
+
+    const handleOnDec = () => {
+      if (qty <= min) {
+        setQty(min);
+      } else {
+        setQty(qty - 1);
+      }
+    };
+    const handleOnInc = () => {
+      if (qty >= max) {
+        setQty(max);
+      } else {
+        setQty(qty + 1);
+      }
+    };
+
+    const handleOnChange = (e: any) => {
+      const value = (e.target.value as number)
+      if( value > max) {
+        setQty(max)
+      } else if(value < min) {
+        setQty(min);
+      } else {
+        setQty(value);
+      }
+    }
+
+    return (
+      <Box
+        css={{
+          display: "flex",
+          "input::-webkit-inner-spin-button": {
+            "-webkit-appearance": "none",
+            margin: 0,
+          },
+
+          /* Firefox */
+          "input[type=number]": {
+            "-moz-appearance": "textfield",
+          },
+
+          "& .dec-button": {
+            btlr: "2px",
+            bblr: "2px",
+            btrr: 0,
+            bbrr: 0,
+          },
+
+          "& .inc-button": {
+            btlr: 0,
+            bblr: 0,
+            btrr: "2px",
+            bbrr: "2px",
+          },
+
+          "& button": {
+            display: "grid",
+            placeItems: "center",
+            color: "$textLight",
+            width: "48px",
+            fontSize: "$8",
+          },
+
+          "& input": {
+            borderRadius: 0,
+            width: "95px",
+          },
+        }}
+      >
+        <IconButton
+          disabled={qty <= min}
+          className="dec-button"
+          onClick={() => handleOnDec()}
+        >
+          -
+        </IconButton>
+        <TextField
+          css={{ borderRightStyle: "none", borderLeftStyle: "none" }}
+          type="number"
+          ref={ref}
+          value={qty}
+          onChange={handleOnChange}
+        />
+        <IconButton
+          disabled={qty >= max}
+          className="inc-button"
+          onClick={() => handleOnInc()}
+        >
+          +
+        </IconButton>
+      </Box>
+    );
+  }
+);
+
+NumberField.displayName = "NumberField";

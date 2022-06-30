@@ -190,11 +190,11 @@ NOTE: this can't live in the stories file because the storybook navigator will t
       I can't figure out why it can't be defined without being exported.
 */
 
-type ComponentVariants = Stitches.VariantProps<typeof Button>;
-export type ComponentProps = ComponentVariants & { loading?: boolean };
+type ButtonComponentVariants = Stitches.VariantProps<typeof Button>;
+export type ButtonComponentProps = ButtonComponentVariants & { loading?: boolean };
 
 export const ButtonStory =
-  modifyVariantsForStory<ComponentVariants, ComponentProps, typeof Button>(
+  modifyVariantsForStory<ButtonComponentVariants, ButtonComponentProps, typeof Button>(
     Button
   );
 
