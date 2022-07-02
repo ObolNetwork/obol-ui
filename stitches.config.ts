@@ -63,6 +63,7 @@ export const {
       // text
       textMiddle: "#ABB7BA",
       textLight: "#DFEAED",
+      textLighter: "#F5F5FF",
       textTabHover: "#DFEAED66",
       textTabInactive: "#DFEAED4D",
       textGreenDark: "#16968E",
