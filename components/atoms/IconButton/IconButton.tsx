@@ -19,24 +19,24 @@ export const IconButton = styled("button", {
   btrr: "$1",
   bbrr: "$1",
   p: "10px",
-  $$background: "$bg04",
-  backgroundColor: "$$background",
+
+  backgroundColor: "$bg04",
   "&:hover": {
-    $$background: "$bg05",
+    backgroundColor: "$bg05",
     cursor: "pointer",
   },
   "&:disabled": {
-    $$background: "$bg02",
+    backgroundColor: "$bg02",
     color: "$muted",
   },
   margin: 0,
   variants: {
     ghost: {
       true: {
-        $$background: "transparent",
+        backgroundColor: "transparent",
         color: "white",
         "&:hover": {
-          $$background: "transparent",
+          backgroundColor: "transparent",
         },
         p: "10px",
       },

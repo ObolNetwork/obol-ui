@@ -56,6 +56,9 @@ export const Button = styled("button", {
   },
   variants: {
     color: {
+      ghost: {
+        $$background: "transparent",      
+      },
       primary: {
         $$background: "$colors$obolGreen",
         "&:hover": {
@@ -174,11 +177,12 @@ export const Button = styled("button", {
         color: "$body",
         "&:hover": {
           $$background: "$colors$bg04",
-          border: "2px solid $bg04",         
+          border: "2px solid $bg04",
         },
       },
     },
   },
+
   defaultVariants: {
     color: "primary",
   },
@@ -191,12 +195,15 @@ NOTE: this can't live in the stories file because the storybook navigator will t
 */
 
 type ButtonComponentVariants = Stitches.VariantProps<typeof Button>;
-export type ButtonComponentProps = ButtonComponentVariants & { loading?: boolean };
+export type ButtonComponentProps = ButtonComponentVariants & {
+  loading?: boolean;
+};
 
 export const ButtonStory =
-  modifyVariantsForStory<ButtonComponentVariants, ButtonComponentProps, typeof Button>(
-    Button
-  );
+  modifyVariantsForStory<
+    ButtonComponentVariants,
+    ButtonComponentProps,
+    typeof Button
+  >(Button);
 
-
-// export const WalletButton = 
+// export const WalletButton =

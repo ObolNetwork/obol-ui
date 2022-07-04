@@ -79,6 +79,7 @@ export const {
 
       // new colors      
       obolGreen: "#2FE4AB",
+      obolMidGreen: "#1D5249",
       obolGreenHover: "#82EDCC",
       obolGreenLight: "#B6EA5C",
       obolDarkDark: "#16968E",
