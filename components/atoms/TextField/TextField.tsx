@@ -7,9 +7,8 @@ import {
   useState,
 } from "react";
 
-import { CSS, styled } from "../../../stitches.config";
+import { styled } from "../../../stitches.config";
 import { CopyIcon, CheckIcon } from "../../icons";
-import { modifyVariantsForStory } from "../../utils/types";
 import { Box } from "../Box/Box";
 import { IconButton } from "../IconButton/IconButton";
 import {
@@ -56,7 +55,7 @@ export const TextField = styled("input", {
         btrr: 0,
         bbrr: 0,
       },
-    },
+    },   
   },
 });
 

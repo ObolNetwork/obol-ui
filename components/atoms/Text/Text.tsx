@@ -27,45 +27,49 @@ export const Text = styled("span", {
     variant: {
       h1: {
         fontSize: "$11",
-        lineHeight: '64px',
+        lineHeight: "64px",
         fontWeight: "bold",
       },
       h2: {
         fontSize: "$10",
-        lineHeight: '56px',
+        lineHeight: "56px",
         fontWeight: "bold",
       },
       h3: {
         fontSize: "$9",
-        lineHeight: '48px',
+        lineHeight: "48px",
         fontWeight: "bold",
       },
       h4: {
         fontSize: "$8",
-        lineHeight: '32px',
+        lineHeight: "32px",
         fontWeight: "bold",
       },
       h5: {
         fontSize: "$5",
-        lineHeight: '28px',
+        lineHeight: "28px",
         fontWeight: "bold",
       },
       body: {
         fontSize: "$4",
-        lineHeight: '24px',
+        lineHeight: "24px",
         fontWeight: "medium",
-        $$color: "$colors$body"
+        $$color: "$colors$body",
       },
       metadata: {
         fontSize: "$2",
-        lineHeight: '18px',
+        lineHeight: "18px",
         fontWeight: "medium",
       },
       subline: {
         fontSize: "$3",
-        lineHeight: '18px',
+        lineHeight: "18px",
         fontWeight: "bold",
-        textTransform: "capitalize"
+        textTransform: "capitalize",
+      },
+      ens: {
+        fontSize: "$2",
+        color: "$textMuted",
       },
     },
     size: {
@@ -85,14 +89,14 @@ export const Text = styled("span", {
     },
     glow: {
       true: {
-        textShadow: "0px 0px $$color, 0 0 30px $$color, 0 0 20px $$color;"
+        textShadow: "0px 0px $$color, 0 0 30px $$color, 0 0 20px $$color;",
       },
     },
-    inline:{
-      true:{
-        display: 'inline'
-      }
-    }
+    inline: {
+      true: {
+        display: "inline",
+      },
+    },
   },
 });
 

@@ -19,15 +19,34 @@ export const IconButton = styled("button", {
   btrr: "$1",
   bbrr: "$1",
   p: "10px",
-  backgroundColor: "$bg04",
+  $$background: "$bg04",
+  backgroundColor: "$$background",
   "&:hover": {
-    backgroundColor: "$bg05",
+    $$background: "$bg05",
     cursor: "pointer",
   },
-  "&:disabled":{
-    backgroundColor: "$bg02",
-    color: "$muted"
-  }
+  "&:disabled": {
+    $$background: "$bg02",
+    color: "$muted",
+  },
+  margin: 0,
+  variants: {
+    ghost: {
+      true: {
+        $$background: "transparent",
+        color: "white",
+        "&:hover": {
+          $$background: "transparent",
+        },
+        p: "10px",
+      },
+    },
+    fullWidth: {
+      true: {
+        width: "$full",
+      },
+    },
+  },
 });
 /* Storybook utility for stitches variant props
 
@@ -39,6 +58,8 @@ type IconButtonComponentVariants = Stitches.VariantProps<typeof IconButton>;
 export type IconButtonComponentProps = IconButtonComponentVariants;
 
 export const IconButtonStory =
-  modifyVariantsForStory<IconButtonComponentVariants, IconButtonComponentProps, typeof IconButton>(
-    IconButton
-  );
+  modifyVariantsForStory<
+    IconButtonComponentVariants,
+    IconButtonComponentProps,
+    typeof IconButton
+  >(IconButton);

@@ -4,6 +4,8 @@ export * from "./OpenInNew";
 export * from "./CloseIcon";
 export * from "./ChevronDownIcon";
 export * from "./ChevronUpIcon";
+export * from "./Hexapod";
+export * from "./AlertIcon";
 export * from "./static-icons/obol/circle";
 export * from "./static-icons/obol/horizontal";
 export * from "./static-icons/obol/mark/";
@@ -24,5 +26,5 @@ export * from "./static-icons/GroupIcon";
 export * from "./static-icons/ExistingGroupIcon";
 export * from "./static-icons/CopyIcon";
 export * from "./static-icons/CheckIcon";
-export * from "./Hexapod";
-export * from "./AlertIcon";
+export * from "./static-icons/TrashIcon";
+
