@@ -2,7 +2,7 @@ import { styled } from "../../../stitches.config";
 import { Box, Text, Button, ToggleGroupItem } from "../../atoms";
 import { BulletCheckIcon } from "../../icons";
 
-interface AdvisoryBulletProps {
+interface AdvisoryToggleBulletProps {
   state: BulletState;
   rank?: number;
   onClick(): void;
@@ -19,7 +19,7 @@ export const AdvisoryToggleItem = styled(ToggleGroupItem, {
     "& .advisory-bullet": { borderLeft: "2px solid $obolGreen" },
   },
 });
-export const AdvisoryBullet: React.FC<AdvisoryBulletProps> = (props) => {
+export const AdvisoryToggleBullet: React.FC<AdvisoryToggleBulletProps> = (props) => {
   let color: "light" | "body" | "muted" = "light";
 
   if (props.state === "completed") {
@@ -40,6 +40,7 @@ export const AdvisoryBullet: React.FC<AdvisoryBulletProps> = (props) => {
         minHeight: "$2xl",
         pl: "calc($2xl - 2px)",
         ml: "-2px",
+        borderLeft: "2px solid transparent"
       }}
     >
       {props.state === "completed" ? (

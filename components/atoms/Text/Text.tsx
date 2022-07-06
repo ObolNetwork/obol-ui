@@ -98,6 +98,15 @@ export const Text = styled("span", {
       },
     },
   },
+  compoundVariants: [
+    {
+      variant: "h5",
+      color: "body",
+      css: {
+        fontWeight: "$normal",
+      },
+    },
+  ],
 });
 
 export default Text;

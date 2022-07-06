@@ -1,7 +1,9 @@
-import { MouseEventHandler, useEffect, useState } from "react";
-import { Box, Container, ToggleGroup } from "../../atoms";
+import { useState } from "react";
+import { styled } from "../../../stitches.config";
+import { Box, ToggleGroup } from "../../atoms";
+
 import {
-  AdvisoryBullet,
+  AdvisoryToggleBullet,
   AdvisoryToggleItem,
   BulletState,
 } from "../../molecules/AdvisoryToggle/AdvisoryToggle";
@@ -13,10 +15,12 @@ export interface AdvisoryItemProps {
   state: BulletState;
   content(
     value: number,
-    onBack?: (value: number) => void,
+    enableNextStep: boolean,
     onAccept?: (value: number) => void,
+    onBack?: (value: number) => void,
     onComplete?: (value: string) => void
   ): JSX.Element;
+  enableNextStep: boolean;
 }
 
 export interface AdvisoryProps {
@@ -25,23 +29,22 @@ export interface AdvisoryProps {
   onItemChange(value: AdvisoryItemProps): void;
   onUpdateState(rank: number): void;
   onComplete(value: string): void;
+  onBack(rank: number): void;
 }
 
 export const Advisory: React.FC<AdvisoryProps> = ({
   onUpdateState,
   onItemChange,
   onComplete,
+  onBack,
   itemSelected,
   ...props
 }) => {
   const handleOnBack = (value: number) => {
-    console.log("onBack", value);
+    onBack(value);
   };
 
   const handleOnAccept = (value: number) => {
-    console.log("onAccept", value);
-    //TODO: enable the next item
-
     onUpdateState(value);
   };
 
@@ -70,13 +73,13 @@ export const Advisory: React.FC<AdvisoryProps> = ({
           css={{
             display: "flex",
             fd: "column",
-            gap: "$xl",
+            gap: "$xxs",
           }}
           type="single"
           aria-label="Text alignment"
+          value={itemSelected.value}
           onValueChange={(value) => {
             if (value !== "") {
-              debugger;
               const content = props.items.find((item) => item.value === value);
               if (content) {
                 onItemChange(content);
@@ -95,14 +98,14 @@ export const Advisory: React.FC<AdvisoryProps> = ({
                 item.value === itemSelected.value ? "selected" : ""
               }
             >
-              <AdvisoryBullet
+              <AdvisoryToggleBullet
                 key={`:ab${index}:`}
                 state={item.state}
                 rank={item.rank}
                 onClick={() => console.log("enable next, complete this")}
               >
                 {item.title}
-              </AdvisoryBullet>
+              </AdvisoryToggleBullet>
             </AdvisoryToggleItem>
           ))}
         </ToggleGroup>
@@ -112,14 +115,16 @@ export const Advisory: React.FC<AdvisoryProps> = ({
           display: "flex",
           flex: 2,
           fd: "column",
-          p: "$xl",
+          p: "$2xl",
           backgroundColor: "$bg01",
           btrr: "$2",
           bbrr: "$2",
         }}
       >
-        {itemSelected.content(itemSelected.rank, handleOnBack, handleOnAccept)}
+        {itemSelected.content(itemSelected.rank, itemSelected.enableNextStep, handleOnAccept, handleOnBack, onComplete)}
       </Box>
     </Box>
   );
 };
+
+export const Flex = styled(Box, { display: "flex", fd: "column" });

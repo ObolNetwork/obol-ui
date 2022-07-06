@@ -31,7 +31,6 @@ const TemplateSplitter: ComponentStory<typeof SplitterTable> = (args) => {
   };
 
   const handleOnRemove = (id: string) => {
-    debugger;
     setData(data.filter((o) => o.id !== id));
   };
 

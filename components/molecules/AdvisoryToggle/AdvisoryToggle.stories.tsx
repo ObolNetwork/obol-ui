@@ -1,21 +1,21 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Box } from "../../atoms";
-import { AdvisoryBullet } from "./AdvisoryToggle";
+import { AdvisoryToggleBullet } from "./AdvisoryToggle";
 
 export default {
   title: "Design System/Atoms/AdvisoryToggle",
-  component: AdvisoryBullet,
-} as ComponentMeta<typeof AdvisoryBullet>;
+  component: AdvisoryToggleBullet,
+} as ComponentMeta<typeof AdvisoryToggleBullet>;
 
-const Template: ComponentStory<typeof AdvisoryBullet> = (args) => (
+const Template: ComponentStory<typeof AdvisoryToggleBullet> = (args) => (
   <Box css={{ backgroundColor: "$bg03" }}>
-    <AdvisoryBullet {...args}>{args.children}</AdvisoryBullet>
+    <AdvisoryToggleBullet {...args}>{args.children}</AdvisoryToggleBullet>
   </Box>
 );
 
-export const DefaultAdvisoryBullet = Template.bind({});
+export const DefaultAdvisoryToggleBullet = Template.bind({});
 
-DefaultAdvisoryBullet.args = {
+DefaultAdvisoryToggleBullet.args = {
   state: "completed",
   children: "Proof of Stake Ethereum",
 };
