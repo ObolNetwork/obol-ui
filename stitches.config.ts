@@ -14,8 +14,8 @@ export const mediaQueryKeys = {
 const spaces = {
   1: "1px",
   2: "2px",
-  "xxxs": "4px",
-  "xxs": "8px",
+  xxxs: "4px",
+  xxs: "8px",
   xs: "12px",
   sm: "16px",
   md: "20px",
@@ -38,7 +38,7 @@ export const {
   theme,
   createTheme,
   config,
-  reset
+  reset,
 } = createStitches({
   theme: {
     colors: {
@@ -77,21 +77,22 @@ export const {
 
       txButton: "#B7F6E2",
 
-      // new colors      
+      // new colors
       obolGreen: "#2FE4AB",
       obolMidGreen: "#1D5249",
       obolGreenHover: "#82EDCC",
       obolGreenLight: "#B6EA5C",
       obolDarkDark: "#16968E",
       obolDisabled: "#1A292D",
-      linkButtonHover: '#A0F3D9',
+      linkButtonHover: "#A0F3D9",
+      progressTrackerGreen: "#1D5249",
 
       //secondary
       coordinate: "#9167E4",
       coordinateHover: "#BB99FF",
       test: "#DD603C",
       testHover: "#E89C87",
-      create: "#3CD2DD",     
+      create: "#3CD2DD",
       createHover: "#85E3EA",
 
       // type
@@ -106,12 +107,10 @@ export const {
       bg03: "#182D32",
       bg04: "#243D42",
       bg05: "#2D4D53",
-      
 
       // tooltip colors
       tooltip: "#F4F3EC",
-      tooltip2: "#E3E0CF"
-
+      tooltip2: "#E3E0CF",
     },
     space: {
       ...spaces,
@@ -234,7 +233,7 @@ export const {
       marginBottom: value,
     }),
     ta: (value: Stitches.PropertyValue<"textAlign">) => ({ textAlign: value }),
-    
+
     fd: (value: Stitches.PropertyValue<"flexDirection">) => ({
       flexDirection: value,
     }),
