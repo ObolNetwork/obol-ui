@@ -41,6 +41,12 @@ export const Link = styled("a", {
         },
       },
     },
+    disabled: {
+      true: {
+        pointerEvents: "none",
+        color: "$muted",
+      },
+    },
   },
   defaultVariants: {
     variant: "default",
