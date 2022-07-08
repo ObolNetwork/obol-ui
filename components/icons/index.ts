@@ -28,4 +28,5 @@ export * from "./static-icons/CopyIcon";
 export * from "./static-icons/CheckIcon";
 export * from "./static-icons/TrashIcon";
 export * from "./static-icons/BulletCheckIcon";
+export * from "./static-icons/HelpIcon";
 

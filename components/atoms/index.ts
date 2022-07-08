@@ -13,3 +13,4 @@ export * from "./Toggle/Toggle";
 export * from "./IconButton/IconButton"
 export * from "./TextField/TextField"
 export * from "./NumberField/NumberField"
+export * from './Tooltip/Tooltip';

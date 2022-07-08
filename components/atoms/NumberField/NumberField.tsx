@@ -1,9 +1,11 @@
 import * as Stitches from "@stitches/react";
-import { forwardRef, useState } from "react";
+import { forwardRef, useEffect, useState } from "react";
 import { modifyVariantsForStory } from "../../utils";
 import { Box, IconButton, TextField } from "../index";
 
 interface NumberFieldProps {
+  value: number;
+  onChangeValue(value: number): void;
   // sets the max value to increase number field value
   max?: number;
   // sets the min value to increase number field value
@@ -11,8 +13,8 @@ interface NumberFieldProps {
 }
 
 export const NumberField = forwardRef<HTMLInputElement, NumberFieldProps>(
-  ({ max = 10, min = 1 }, ref) => {
-    const [qty, setQty] = useState(min);
+  ({ max = 10, min = 1, value, onChangeValue }, ref) => {
+    const [qty, setQty] = useState(value | min);
 
     const handleOnDec = () => {
       if (qty <= min) {
@@ -30,16 +32,21 @@ export const NumberField = forwardRef<HTMLInputElement, NumberFieldProps>(
     };
 
     const handleOnChange = (e: any) => {
-      const value = (e.target.value as number)
-      if( value > max) {
-        setQty(max)
-      } else if(value < min) {
+      const value = e.target.value as number;
+      if (value > max) {
+        setQty(max);
+      } else if (value < min) {
         setQty(min);
       } else {
         setQty(value);
       }
-    }
+    };
 
+    useEffect(() => {
+      if (qty && onChangeValue) {
+        onChangeValue(qty);
+      }
+    }, [qty, onChangeValue]);
     return (
       <Box
         css={{

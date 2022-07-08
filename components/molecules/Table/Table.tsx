@@ -1,25 +1,6 @@
-import { CSS, css, styled } from "../../../stitches.config";
+import { styled } from "../../../stitches.config";
 import { Button, IconButton, TextField, Box } from "../../atoms";
 import { TrashIcon } from "../../icons";
-
-export interface RowItem {
-  id: string;
-  value: string;
-}
-
-export type RowTableType = Record<string, string | React.ReactNode>;
-export type RowsTableType = RowItem[];
-interface TableProps {
-  rows: RowsTableType;
-  columns: string[];
-}
-
-interface SplitterTableProps extends TableProps {
-  renderComponentValue?: "TextField" | "Text";
-  onAddRow(item: string): void;
-  onRemoveRow(item: string | number): void;
-  onUpdateRow(id: string, value: string): void;
-}
 
 const StyledTable = styled("table", {
   borderCollapse: "collapse",
@@ -74,36 +55,6 @@ const Td = styled("td", {
 
 const Tr = styled("tr", {});
 
-export const Table: React.FC<TableProps> = ({
-  rows,
-  columns,
-  variant = "simple",
-}): JSX.Element => {
-  return (
-    <StyledTable>
-      <thead>
-        {columns.map((column, index) => (
-          <Td key={`header-${index}`}>{column}</Td>
-        ))}
-      </thead>
-      <tbody>
-        {rows.map((row, rowIndex) => (
-          <tr key={`row ${rowIndex}`}>
-            {Object.keys(row).map((data, cellIndex) => {
-              const noString = typeof row[data] !== "string";
-              return (
-                <Td noString={noString} key={`cell ${cellIndex}`}>
-                  {row[data]}
-                </Td>
-              );
-            })}
-          </tr>
-        ))}
-      </tbody>
-    </StyledTable>
-  );
-};
-
 const BoxBorderTop = styled(Box, {
   borderTop: "2px solid $bg04",
   marginTop: "$2",
@@ -140,6 +91,28 @@ const AddNewRow: React.FC<any> = (props) => {
     </Tr>
   );
 };
+
+// Types
+export interface RowItem {
+  id: string;
+  value: string;
+}
+
+export type RowTableType = Record<string, string | React.ReactNode>;
+export type RowsTableType = RowItem[];
+export interface TableProps {
+  rows: RowsTableType;
+  columns: string[];
+}
+
+export interface SplitterTableProps extends TableProps {
+  renderComponentValue?: "TextField" | "Text";
+  onAddRow(item: string): void;
+  onRemoveRow(item: string | number): void;
+  onUpdateRow(id: string, value: string): void;
+}
+
+// Components
 
 export const SplitterTable: React.FC<SplitterTableProps> = ({
   rows,
@@ -188,6 +161,34 @@ export const SplitterTable: React.FC<SplitterTableProps> = ({
           </tr>
         ))}
         <AddNewRow handleOnClick={() => onAddRow("")} />
+      </tbody>
+    </StyledTable>
+  );
+};
+
+export const Table: React.FC<TableProps> = ({
+  rows,
+  columns,
+}): JSX.Element => {
+  return (
+    <StyledTable>
+      <thead>
+        {columns.map((column, index) => (
+          <Td key={`header-${index}`}>{column}</Td>
+        ))}
+      </thead>
+      <tbody>
+        {rows.map((row, rowIndex) => (
+          <tr key={`row ${rowIndex}`}>
+            {Object.keys(row).map((data, cellIndex) => {
+              return (
+                <Td key={`cell ${cellIndex}`}>
+                  {row.value}
+                </Td>
+              );
+            })}
+          </tr>
+        ))}
       </tbody>
     </StyledTable>
   );

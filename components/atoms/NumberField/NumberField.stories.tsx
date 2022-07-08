@@ -1,4 +1,5 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { useState } from "react";
 import { withDesign } from "storybook-addon-designs";
 import { NumberField } from "./NumberField";
 
@@ -15,3 +16,21 @@ const Template: ComponentStory<typeof NumberField> = (args) => (
 export const Default = Template.bind({});
 
 Default.args = {};
+
+const TemplateState: ComponentStory<typeof NumberField> = (args) => {
+  const [value, setValue] = useState(1);
+  return (
+    <NumberField
+      {...args}
+      value={value}
+      onChangeValue={(value) => {
+        debugger;
+        setValue(value);
+      }}
+    ></NumberField>
+  );
+};
+
+export const DefaultState = TemplateState.bind({});
+
+DefaultState.args = {};
