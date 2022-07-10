@@ -24,7 +24,6 @@ const TemplateState: ComponentStory<typeof NumberField> = (args) => {
       {...args}
       value={value}
       onChangeValue={(value) => {
-        debugger;
         setValue(value);
       }}
     ></NumberField>
