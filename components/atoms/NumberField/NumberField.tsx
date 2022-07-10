@@ -16,14 +16,16 @@ export const NumberField = forwardRef<HTMLInputElement, NumberFieldProps>(
   ({ max = 10, min = 1, value, onChangeValue }, ref) => {
     const [qty, setQty] = useState(value || min);
 
-    const handleOnDec = () => {
+    const handleOnDec = (e: React.MouseEvent<HTMLButtonElement>) => {
+      e.preventDefault();
       if (qty <= min) {
         setQty(min);
       } else {
         setQty(qty - 1);
       }
     };
-    const handleOnInc = () => {
+    const handleOnInc = (e: React.MouseEvent<HTMLButtonElement>) => {
+      e.preventDefault();
       if (qty >= max) {
         setQty(max);
       } else {
@@ -31,8 +33,8 @@ export const NumberField = forwardRef<HTMLInputElement, NumberFieldProps>(
       }
     };
 
-    const handleOnChange = (e: any) => {
-      const value = e.target.value as number;
+    const handleOnChange = (e: any) => {      
+      const value = e.target as number;
       if (value > max) {
         setQty(max);
       } else if (value < min) {
@@ -92,7 +94,7 @@ export const NumberField = forwardRef<HTMLInputElement, NumberFieldProps>(
         <IconButton
           disabled={qty <= min}
           className="dec-button"
-          onClick={() => handleOnDec()}
+          onClick={handleOnDec}
         >
           -
         </IconButton>
@@ -106,7 +108,7 @@ export const NumberField = forwardRef<HTMLInputElement, NumberFieldProps>(
         <IconButton
           disabled={qty >= max}
           className="inc-button"
-          onClick={() => handleOnInc()}
+          onClick={handleOnInc}
         >
           +
         </IconButton>
