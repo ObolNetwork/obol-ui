@@ -33,7 +33,7 @@ export const NumberField = forwardRef<HTMLInputElement, NumberFieldProps>(
       }
     };
 
-    const handleOnChange = (e: any) => {      
+    const handleOnChange = (e: any) => {
       const value = e.target as number;
       if (value > max) {
         setQty(max);
@@ -95,6 +95,7 @@ export const NumberField = forwardRef<HTMLInputElement, NumberFieldProps>(
           disabled={qty <= min}
           className="dec-button"
           onClick={handleOnDec}
+          borderDisabled={qty <= min}
         >
           -
         </IconButton>
@@ -109,6 +110,7 @@ export const NumberField = forwardRef<HTMLInputElement, NumberFieldProps>(
           disabled={qty >= max}
           className="inc-button"
           onClick={handleOnInc}
+          borderDisabled={qty >= max}
         >
           +
         </IconButton>

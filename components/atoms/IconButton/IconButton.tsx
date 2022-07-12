@@ -30,6 +30,7 @@ export const IconButton = styled("button", {
     color: "$muted",
   },
   margin: 0,
+  border: "2px solid transparent",
   variants: {
     ghost: {
       true: {
@@ -44,6 +45,11 @@ export const IconButton = styled("button", {
     fullWidth: {
       true: {
         width: "$full",
+      },
+    },
+    borderDisabled: {
+      true: {
+        border: "2px solid $bg04",
       },
     },
   },
