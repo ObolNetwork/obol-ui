@@ -1,9 +1,10 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { HeroSection } from "../components/organisms";
-import { Text, Button } from "../components/atoms";
+import { Text, Button, TooltipComponent } from "../components/atoms";
 import styles from "../styles/Home.module.css";
 import { Navbar } from "../components/molecules";
+import { HelpIcon } from "../dist";
 const Home: NextPage = () => {
   return (
     <div className={styles.container}>
@@ -62,6 +63,10 @@ const Home: NextPage = () => {
         }}
       >
         <Button>Read the Docs</Button>
+
+        <TooltipComponent content="Threshold: The number of nodes that need to be functioning for the validator to stay active.">
+          <Button css={{ ml: "10rem" }}>Tooltip</Button>
+        </TooltipComponent>
       </HeroSection>
 
       <a href="https://obol.dev">Obol</a>

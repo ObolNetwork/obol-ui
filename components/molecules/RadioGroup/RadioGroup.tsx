@@ -6,8 +6,8 @@ import { Box } from "../../atoms";
 const StyledRadio = styled(RadioGroupPrimitive.Item, {
   all: "unset",
   backgroundColor: "$obolGreen",
-  width: 25,
-  height: 25,
+  width: 22,
+  height: 22,
   borderRadius: "100%",
   "&:hover": { filter: "brightness(90%)", cursor: "pointer" },
 });
@@ -23,10 +23,10 @@ const StyledIndicator = styled(RadioGroupPrimitive.Indicator, {
     content: '""',
     display: "absolute",
     position: "absolute",
-    width: 11,
-    height: 11,
+    width: 10,
+    height: 10,
     borderRadius: "50%",
-    boxShadow: `0 0 0 4px #0E1E22`,
+    boxShadow: `0 0 0 3px #0E1E22`,
     backgroundColor: "#2FE4AB",
   },
 });
@@ -38,6 +38,7 @@ export const RadioGroupIndicator = StyledIndicator;
 
 export const RadioGroupItemLabel = styled("label", {
   color: "$textLight",
+  fontWeight: "$bold",
   fontSize: "$3",
   lineHeight: 1,
   userSelect: "none",
@@ -63,7 +64,7 @@ export const RadioGroupItem: React.FC<RadioGroupItemProps> = ({
   return (
     <Box css={{ display: "flex", margin: "10px 0", alignItems: "center" }}>
       <RadioGroupRadio value={value} id={id}>
-        <RadioGroupPrimitive.RadioGroupIndicator />
+        <RadioGroupPrimitive.RadioGroupIndicator className="indicator" />
       </RadioGroupRadio>
       <RadioGroupItemLabel htmlFor={id}>{label}</RadioGroupItemLabel>
     </Box>

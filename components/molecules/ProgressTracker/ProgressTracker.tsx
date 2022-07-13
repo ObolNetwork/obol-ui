@@ -85,7 +85,7 @@ export const ProgressTracker: React.FC<ProgressTrackerProps> = (props) => {
             <Link
               disabled={item.status === "incomplete"}
               href={
-                item.status === "incomplete" ? "javascript:void(0)" : item.href
+                item.status === "incomplete" ? "#" : item.href
               }
               key={`:l${index}`}
             >
