@@ -39,10 +39,12 @@ const Td = styled("td", {
     borderRadius: 0,
     width: "100%",
   },
+
   variants: {
     noPadding: {
       true: {
         p: 0,
+        backgroundColor: "$bg03",
       },
     },
     size: {
@@ -123,9 +125,9 @@ export interface TableProps {
 }
 
 export interface SplitterTableProps extends TableProps {
-  onAddRow(item: string): void;
+  onAddRow(item?: unknown): void;
   onRemoveRow(item: string | number): void;
-  onUpdateRow(id: string, value: string, accessorKey: unknown): void;
+  onUpdateRow(id: string, value: string | number, accessorKey: unknown): void;
   removeButton?: boolean;
 }
 
@@ -155,7 +157,6 @@ export const SplitterTable: React.FC<SplitterTableProps> = ({
           <tr key={row.id}>
             <Td size="sm">{rowIndex + 1}</Td>
             {columns.map((column, cellIndex) => {
-              // if (column === "id") return null;
               const isTextField = !!column.cell;
               return (
                 <Td
@@ -176,9 +177,16 @@ export const SplitterTable: React.FC<SplitterTableProps> = ({
                   {isTextField ? (
                     <TextField
                       defaultValue={row[column.accessorKey]}
-                      onChange={(e) =>
-                        onUpdateRow(row.id, e.target.value, column.accessorKey)
-                      }
+                      onInput={(e: any) => {
+                        if (Number(e.target.value) > 100) e.target.value = 100;                      
+                      }}
+                      onChange={(e) => {
+                        const value =
+                          column.cell?.config?.type === "number"
+                            ? Number(e.target.value)
+                            : e.target.value;
+                        onUpdateRow(row.id, value, column.accessorKey);
+                      }}
                       {...column.cell?.config}
                     />
                   ) : (
@@ -196,7 +204,7 @@ export const SplitterTable: React.FC<SplitterTableProps> = ({
             )}
           </tr>
         ))}
-        <AddNewRow handleOnClick={() => onAddRow("")} />
+        <AddNewRow handleOnClick={() => onAddRow()} />
       </tbody>
     </StyledTable>
   );

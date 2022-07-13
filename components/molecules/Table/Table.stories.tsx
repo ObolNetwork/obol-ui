@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { useEffect, useState } from "react";
 import { uuid } from "uuidv4";
-import { Table, SplitterTable, RowsTableType, ColumnDef } from "./Table";
+import { Table, SplitterTable, ColumnDef } from "./Table";
 
 const defaultData: SplitterType[] = [
   {
@@ -40,8 +40,10 @@ Default.args = {
 const TemplateSplitter: ComponentStory<typeof SplitterTable> = (args) => {
   const [data, setData] = useState(args.rows);
 
-  const handleOnAddRow = (item: string) => {
-    setData([...data, { id: uuid(), value: item }]);
+  const handleOnAddRow = (
+    item: SplitterType = { id: uuid(), operator: null, split: null }
+  ) => {
+    setData([...data, item]);
   };
 
   const handleOnRemove = (id: string) => {
@@ -50,7 +52,9 @@ const TemplateSplitter: ComponentStory<typeof SplitterTable> = (args) => {
 
   const handleOnUpdateRow = (id: string, value: string, accessorKey: any) => {
     setData(
-      data.map((item) => (item.id === id ? { ...item, [accessorKey]: value } : { ...item }))
+      data.map((item) =>
+        item.id === id ? { ...item, [accessorKey]: value } : { ...item }
+      )
     );
   };
 
@@ -73,8 +77,8 @@ export const Splitter = TemplateSplitter.bind({});
 
 type SplitterType = {
   id: string;
-  operator: string;
-  split: number;
+  operator: string | null;
+  split: number | null;
 };
 
 const defaultColumns: ColumnDef<SplitterType>[] = [

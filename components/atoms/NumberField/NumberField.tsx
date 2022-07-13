@@ -1,24 +1,26 @@
 import * as Stitches from "@stitches/react";
-import { forwardRef, useEffect, useState } from "react";
+import { FocusEventHandler, forwardRef, useEffect, useState } from "react";
 import { modifyVariantsForStory } from "../../utils";
 import { Box, IconButton, TextField } from "../index";
 
 interface NumberFieldProps {
-  value?: number;
-  onChangeValue?(value: number): void;
   // sets the max value to increase number field value
   max?: number;
   // sets the min value to increase number field value
   min?: number;
+  value?: number;
+  onChangeValue?(value: number): void;
+  onBlur?: FocusEventHandler<HTMLInputElement> | undefined;
+  name?: string;
 }
 
 export const NumberField = forwardRef<HTMLInputElement, NumberFieldProps>(
-  ({ max = 10, min = 1, value, onChangeValue }, ref) => {
+  ({ max = 10, min = 0, value, onChangeValue, onBlur, name }, ref) => {
     const [qty, setQty] = useState(value || min);
 
     const handleOnDec = (e: React.MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
-      if (qty <= min) {
+      if (qty < min) {
         setQty(min);
       } else {
         setQty(qty - 1);
@@ -34,7 +36,7 @@ export const NumberField = forwardRef<HTMLInputElement, NumberFieldProps>(
     };
 
     const handleOnChange = (e: any) => {
-      const value = e.target as number;
+      const value = e.target.value as number;
       if (value > max) {
         setQty(max);
       } else if (value < min) {
@@ -53,6 +55,7 @@ export const NumberField = forwardRef<HTMLInputElement, NumberFieldProps>(
       <Box
         css={{
           display: "flex",
+          maxHeight: "$3xl",
           "input::-webkit-inner-spin-button": {
             "-webkit-appearance": "none",
             margin: 0,
@@ -105,6 +108,8 @@ export const NumberField = forwardRef<HTMLInputElement, NumberFieldProps>(
           ref={ref}
           value={qty}
           onChange={handleOnChange}
+          onBlur={onBlur}
+          name={name}
         />
         <IconButton
           disabled={qty >= max}
