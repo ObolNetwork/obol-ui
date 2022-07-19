@@ -1,6 +1,5 @@
-import { Box, Text } from "../../atoms";
+import { Box, Text, Image } from "../../atoms";
 import { mediaQueryKeys, CSS } from "../../../stitches.config";
-import Image from "next/image";
 import { useMediaQuery } from "../../utils/hooks";
 
 export interface HeroSectionProps {
@@ -81,7 +80,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               }}
             >
               <Image
-                priority
                 src={image?.basePath || MOBILE_PATH}
                 alt="Obol Logo"
                 width={343}
@@ -117,7 +115,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           }}
         >
           <Image
-            priority
             src={image?.basePath || BASE_PATH}
             alt="Obol Logo"
             width={912}

@@ -6,8 +6,8 @@ import { Box } from "../../atoms";
 const StyledRadio = styled(RadioGroupPrimitive.Item, {
   all: "unset",
   backgroundColor: "$obolGreen",
-  width: 22,
-  height: 22,
+  width: 18,
+  height: 18,
   borderRadius: "100%",
   "&:hover": { filter: "brightness(90%)", cursor: "pointer" },
 });
@@ -26,7 +26,7 @@ const StyledIndicator = styled(RadioGroupPrimitive.Indicator, {
     width: 10,
     height: 10,
     borderRadius: "50%",
-    boxShadow: `0 0 0 3px #0E1E22`,
+    boxShadow: `0 0 0 2px #0E1E22`,
     backgroundColor: "#2FE4AB",
   },
 });

@@ -1,7 +1,13 @@
 import { ToggleGroupItemProps } from "@radix-ui/react-toggle-group";
-import Image from "next/image";
 import { CSS, styled } from "../../../stitches.config";
-import { Box, Text, Link, Container, ToggleGroupItem } from "../../atoms";
+import {
+  Box,
+  Text,
+  Link,
+  Container,
+  ToggleGroupItem,
+  Image,
+} from "../../atoms";
 import { ArrowForward } from "../../icons";
 
 export interface CardProps {
@@ -22,6 +28,8 @@ export interface CardProps {
 const CardImage = styled(Image, {
   btrr: "$4",
   btlr: "$4",
+  width: "100%",
+  height: "100%",
 });
 
 export const ToggleCardItem = styled(ToggleGroupItem, {
@@ -49,10 +57,7 @@ const Content = (props: any) => (
       ghost
     >
       {props.heading && (
-        <Text
-          className="card-heading"
-          variant="h5"
-        >
+        <Text className="card-heading" variant="h5">
           {props.heading}
         </Text>
       )}
@@ -124,12 +129,7 @@ export const Card: React.FC<CardProps> = ({
           },
         }}
       >
-        <CardImage
-          src={props.image as string}
-          layout="fill"
-          objectFit="fill"
-          alt={props.heading}
-        />
+        <CardImage src={props.image as string} alt={props.heading} />
       </Box>
     )}
     <Box

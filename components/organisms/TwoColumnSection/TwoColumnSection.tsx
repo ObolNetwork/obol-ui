@@ -1,6 +1,5 @@
-import { Box, Container, Text } from "../../atoms";
+import { Box, Container, Text, Image } from "../../atoms";
 import { mediaQueryKeys, CSS } from "../../../stitches.config";
-import Image from "next/image";
 import { useMediaQuery } from "../../utils/hooks";
 
 export interface TwoColumnSectionProps {
@@ -20,7 +19,7 @@ export const TwoColumnSection: React.FC<TwoColumnSectionProps> = ({
 
   return (
     <Box
-    className="box-two-column-section"
+      className="box-two-column-section"
       css={{
         width: "$full",
         display: "grid",
@@ -75,16 +74,16 @@ export const TwoColumnSection: React.FC<TwoColumnSectionProps> = ({
         {!screenDownSm ? (
           <Image
             src={image.basePath}
+            width="100%"
+            height="100%"
             alt="Obol Logo"
-            objectFit="fill"
-            layout="fill"
           />
         ) : (
           <Image
             src={image.mobilePath || image.basePath}
+            width="100%"
+            height="100%"
             alt="Obol Logo"
-            objectFit="fill"
-            layout="fill"
           />
         )}
       </Box>

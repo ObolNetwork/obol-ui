@@ -40,8 +40,7 @@ export const TeamMemberCard: React.FC<EcosystemCardProps> = (props) => (
       }}
     >
       <Image
-        placeholder='blur'
-        blurDataURL="/assets/team/Collin.png"
+        placeholder='blur'       
         alt={props.heading}
         css={{ borderRadius: "$round" }}
         src={props.image}

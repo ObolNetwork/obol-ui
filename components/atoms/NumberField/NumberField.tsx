@@ -1,6 +1,4 @@
-import * as Stitches from "@stitches/react";
 import { FocusEventHandler, forwardRef, useEffect, useState } from "react";
-import { modifyVariantsForStory } from "../../utils";
 import { Box, IconButton, TextField } from "../index";
 
 interface NumberFieldProps {
@@ -50,7 +48,7 @@ export const NumberField = forwardRef<HTMLInputElement, NumberFieldProps>(
       if (qty && onChangeValue) {
         onChangeValue(qty);
       }
-    }, [qty, onChangeValue]);
+    }, [qty]);
     return (
       <Box
         css={{
