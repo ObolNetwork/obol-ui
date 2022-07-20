@@ -15,7 +15,7 @@ export const TeamMemberCard: React.FC<EcosystemCardProps> = (props) => (
       alignItems: "center",
       gap: "$lg",
       p: "$xl",
-      "@sm": { gridTemplateColumns: "1fr 2fr", p: "$sm" },      
+      "@sm": { gridTemplateColumns: "1fr 2fr", p: "$sm" },
     }}
   >
     <Box
@@ -26,7 +26,7 @@ export const TeamMemberCard: React.FC<EcosystemCardProps> = (props) => (
         "@sm": { $$size: "100px" },
         "&::after": {
           position: "absolute",
-          marginTop: "-163.5px",
+          marginTop: "-160px",
           borderRadius: "$round",
           display: "block",
           content: "",
@@ -34,15 +34,15 @@ export const TeamMemberCard: React.FC<EcosystemCardProps> = (props) => (
           height: "$$size",
           background: "hsla(161, 77%, 54%, 0.2)",
           "@sm": {
-            marginTop: "-103.5px",
+            marginTop: "-100px",
           },
         },
       }}
     >
       <Image
-        placeholder='blur'       
+        placeholder="blur"
         alt={props.heading}
-        css={{ borderRadius: "$round" }}
+        css={{ borderRadius: "$round"}}
         src={props.image}
         width={160}
         height={160}

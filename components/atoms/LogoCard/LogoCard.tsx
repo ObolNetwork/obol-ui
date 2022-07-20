@@ -32,8 +32,20 @@ export const LogoCard = (props: {
       target="_blank"
       href={props.logoCardLink}
     >
-      <Box css={{ position: "relative", width: "100%", height: "100%" }}>
-        <Image src={props.image} alt={props.heading} />
+      <Box
+        css={{
+          display: "flex",
+          justifyContent: "center",
+          position: "relative",
+          width: "100%",
+          height: "100%",
+        }}
+      >
+        <Image
+          css={{ objectFit: "contain" }}
+          src={props.image}
+          alt={props.heading}
+        />
       </Box>
     </Box>
   );
