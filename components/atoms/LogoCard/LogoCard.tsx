@@ -33,6 +33,7 @@ export const LogoCard = (props: {
       href={props.logoCardLink}
     >
       <Box
+        className="logo-card-container"
         css={{
           display: "flex",
           justifyContent: "center",
