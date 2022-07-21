@@ -55,6 +55,21 @@ const Td = styled("td", {
   },
 });
 
+const Th = styled("th", {
+  border: "2px solid $bg04",
+  py: "$sm",
+  px: "$sm",
+  textAlign: "center",
+  color: "$body",
+  fontWeight: "$bold",
+  fontSize: "$4",
+  "& input": {
+    border: "none",
+    borderRadius: 0,
+    width: "100%",
+  },
+});
+
 const Tr = styled("tr", {});
 
 const BoxBorderTop = styled(Box, {
@@ -108,8 +123,8 @@ export type CellDef = {
   component: "TextField" | "NumberField";
   config?: {
     type: "text" | "number";
-    max: number;
-    min: number;
+    max?: number;
+    min?: number;
   };
 };
 
@@ -144,13 +159,15 @@ export const SplitterTable: React.FC<SplitterTableProps> = ({
   return (
     <StyledTable>
       <thead>
-        <Td></Td>
-        {columns.map((column, index) => (
-          <Td css={{ textAlign: "start" }} key={`header-${index}`}>
-            {column.header}
-          </Td>
-        ))}
-        <Td></Td>
+        <tr>
+          <Th></Th>
+          {columns.map((column, index) => (
+            <Th css={{ textAlign: "start" }} key={`header-${index}`}>
+              {column.header}
+            </Th>
+          ))}
+          <Th></Th>
+        </tr>
       </thead>
       <tbody>
         {rows.map((row, rowIndex) => (
@@ -178,7 +195,14 @@ export const SplitterTable: React.FC<SplitterTableProps> = ({
                     <TextField
                       defaultValue={row[column.accessorKey]}
                       onInput={(e: any) => {
-                        if (Number(e.target.value) > 100) e.target.value = 100;                      
+                        if (column.cell?.config?.type === "number") {
+                          if (column.cell?.config?.max) {
+                            if (
+                              Number(e.target.value) > column.cell?.config?.max
+                            )
+                              e.target.value = column.cell?.config?.max;
+                          }
+                        }
                       }}
                       onChange={(e) => {
                         const value =
