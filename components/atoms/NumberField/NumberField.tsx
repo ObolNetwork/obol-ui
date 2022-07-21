@@ -1,5 +1,7 @@
 import { FocusEventHandler, forwardRef, useEffect, useState } from "react";
-import { Box, IconButton, TextField } from "../index";
+import { Box } from "../Box/Box";
+import { IconButton } from "../IconButton/IconButton";
+import { TextField } from "../TextField/TextField";
 
 interface NumberFieldProps {
   // sets the max value to increase number field value

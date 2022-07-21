@@ -1,4 +1,5 @@
-import { Box, Image } from "../index";
+import { Box } from "../Box/Box";
+import { Image } from "../Image/Image";
 
 export const LogoCard = (props: {
   image: string;
