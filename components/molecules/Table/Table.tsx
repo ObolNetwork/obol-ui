@@ -87,6 +87,7 @@ const AddNewRow: React.FC<any> = (props) => {
       <Td noPadding css={{ backgroundColor: "$bg03" }}>
         <BoxBorderTop>
           <Button
+            type="button"
             css={{
               color: "$obolGreen",
               justifyContent: "start",
@@ -228,7 +229,12 @@ export const SplitterTable: React.FC<SplitterTableProps> = ({
             )}
           </tr>
         ))}
-        <AddNewRow handleOnClick={() => onAddRow()} />
+        <AddNewRow
+          handleOnClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+            e.preventDefault();
+            onAddRow();
+          }}
+        />
       </tbody>
     </StyledTable>
   );
