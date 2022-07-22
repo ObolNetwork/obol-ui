@@ -1,19 +1,21 @@
-import { useState } from "react";
 import { Box, Link } from "../../atoms";
 
-interface LinkItemProps {
+export interface StepProps {
+  id: string | number;
   title: string;
   href: string;
-  status: "complete" | "incomplete";
+  status: "complete" | "incomplete" | "current";
+  rank: number;
 }
 
 interface ProgressTrackerProps {
-  items: LinkItemProps[];
+  items: StepProps[];
 }
 
-export const ProgressTracker: React.FC<ProgressTrackerProps> = (props) => {
-  const [items, setItems] = useState<LinkItemProps[]>(props.items);
-
+export const ProgressTracker: React.FC<ProgressTrackerProps> = ({ items }) => {
+  let count = items.filter((item) => item.status === "complete").length;
+  const offset = 100 / items.length / 2;
+  const width = (100 / items.length) * count + offset;
   return (
     <Box css={{ backgroundColor: "$bg02", py: "$3xl", px: "$6xl" }}>
       <Box css={{ display: "flex", fd: "column", gap: "$md" }}>
@@ -34,7 +36,7 @@ export const ProgressTracker: React.FC<ProgressTrackerProps> = (props) => {
               height: "$xxs",
               borderRadius: "$3",
               position: "relative",
-              width: `calc(100% / ${items.length - 1})`,
+              width: `${width > 100 ? 100 : width}%`,
             }}
           >
             <Box
@@ -76,18 +78,22 @@ export const ProgressTracker: React.FC<ProgressTrackerProps> = (props) => {
         <Box
           className="link-items"
           css={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
+            display: "grid",
+            gridTemplateColumns: `repeat(${items.length || 1}, 1fr)`,
           }}
         >
           {items.map((item, index) => (
             <Link
               disabled={item.status === "incomplete"}
-              href={
-                item.status === "incomplete" ? "#" : item.href
-              }
+              href={item.status === "incomplete" ? "#" : item.href}
               key={`:l${index}`}
+              css={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                height: "auto",
+                textAlign: "center",
+              }}
             >
               {item.title}
             </Link>
