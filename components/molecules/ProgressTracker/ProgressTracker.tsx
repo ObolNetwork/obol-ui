@@ -5,7 +5,7 @@ export interface StepProps {
   title: string;
   href: string;
   status: "complete" | "incomplete" | "current";
-  rank: number;
+  rank?: number;
 }
 
 interface ProgressTrackerProps {
