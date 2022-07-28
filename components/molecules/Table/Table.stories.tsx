@@ -1,13 +1,20 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { useEffect, useState } from "react";
 import { uuid } from "uuidv4";
-import { Table, SplitterTable, ColumnDef } from "./Table";
+import { Table, SplitterTable, ColumnDef, RowDef } from "./Table";
 
-const defaultData: SplitterType[] = [
+type SplitterType = {
+  id: string;
+  operator: string | null;
+  split: number | null;
+};
+
+const defaultData: RowDef<SplitterType>[] = [
   {
     id: uuid(),
     operator: "0x34234234236",
     split: 1,
+    removable: false
   },
   {
     id: uuid(),
@@ -18,6 +25,22 @@ const defaultData: SplitterType[] = [
     id: uuid(),
     operator: "0x34234234236",
     split: 1,
+  },
+];
+
+const defaultColumns: ColumnDef<SplitterType>[] = [
+  {
+    accessorKey: "operator",
+    header: "Operator Address",
+    cell: { component: "TextField" },
+  },
+  {
+    accessorKey: "split",
+    header: "Split %",
+    cell: {
+      component: "TextField",
+      config: { type: "number", min: 1, max: 100, totalCell: true },
+    },
   },
 ];
 
@@ -34,11 +57,12 @@ export const Default = Template.bind({});
 
 Default.args = {
   rows: defaultData,
-  columns: [{ header: "Operator Address", accessorKey: "operator" }],
+  columns: defaultColumns,
 };
 
 const TemplateSplitter: ComponentStory<typeof SplitterTable> = (args) => {
   const [data, setData] = useState(args.rows);
+  const [maxSplit, setMaxSplit] = useState(100);
 
   const handleOnAddRow = (
     item: SplitterType = { id: uuid(), operator: null, split: null }
@@ -59,8 +83,19 @@ const TemplateSplitter: ComponentStory<typeof SplitterTable> = (args) => {
   };
 
   useEffect(() => {
-    console.log(data);
+    if (data) {
+      const totalValue = data.reduce(
+        (prev, curr) =>
+          curr["split"] ? parseFloat(curr["split"]) + prev : prev,
+        0
+      );
+
+      setMaxSplit(totalValue);
+
+    }
   }, [data]);
+
+  console.log(maxSplit);
   return (
     <SplitterTable
       {...args}
@@ -68,34 +103,13 @@ const TemplateSplitter: ComponentStory<typeof SplitterTable> = (args) => {
       onAddRow={handleOnAddRow}
       onRemoveRow={handleOnRemove}
       onUpdateRow={handleOnUpdateRow}
+      totalSplitFooter={maxSplit}
     >
       {args.children}
     </SplitterTable>
   );
 };
 export const Splitter = TemplateSplitter.bind({});
-
-type SplitterType = {
-  id: string;
-  operator: string | null;
-  split: number | null;
-};
-
-const defaultColumns: ColumnDef<SplitterType>[] = [
-  {
-    accessorKey: "operator",
-    header: "Operator Address",
-    cell: { component: "TextField" },
-  },
-  {
-    accessorKey: "split",
-    header: "Split %",
-    cell: {
-      component: "TextField",
-      config: { type: "number", min: 1, max: 100 },
-    },
-  },
-];
 
 Splitter.args = {
   rows: defaultData,

@@ -1,4 +1,5 @@
 import { Box, Link } from "../../atoms";
+import { useEffect, useState } from "react";
 
 export interface StepProps {
   id: string | number;
@@ -13,9 +14,16 @@ interface ProgressTrackerProps {
 }
 
 export const ProgressTracker: React.FC<ProgressTrackerProps> = ({ items }) => {
-  let count = items.filter((item) => item.status === "complete").length;
-  const offset = 100 / items.length / 2;
-  const width = (100 / items.length) * count + offset;
+  const [steps, setSteps] = useState(items);
+  const [width, setWidth] = useState(0);
+
+  useEffect(() => {
+    const _count = items.filter((item) => item.status === "complete").length;
+    const offset = 100 / items.length / 2;
+    const width = (100 / items.length) * _count + offset;
+    setWidth(width);
+    setSteps(items);
+  }, [items]);
   return (
     <Box css={{ backgroundColor: "$bg02", py: "$3xl", px: "$6xl" }}>
       <Box css={{ display: "flex", fd: "column", gap: "$md" }}>
@@ -79,13 +87,13 @@ export const ProgressTracker: React.FC<ProgressTrackerProps> = ({ items }) => {
           className="link-items"
           css={{
             display: "grid",
-            gridTemplateColumns: `repeat(${items.length || 1}, 1fr)`,
+            gridTemplateColumns: `repeat(${steps.length || 1}, 1fr)`,
           }}
         >
-          {items.map((item, index) => (
+          {steps.map((item, index) => (
             <Link
               disabled={item.status === "incomplete"}
-              href={item.status === "incomplete" ? "#" : item.href}
+              href={item.href}
               key={`:l${index}`}
               css={{
                 display: "flex",

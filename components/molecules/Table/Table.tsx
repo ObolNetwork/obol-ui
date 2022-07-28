@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { styled } from "../../../stitches.config";
 import { Button, IconButton, TextField, Box } from "../../atoms";
 import { TrashIcon } from "../../icons";
@@ -76,56 +77,67 @@ const BoxBorderTop = styled(Box, {
   borderTop: "2px solid $bg04",
   marginTop: "$2",
   height: "$3xl",
+  display: "flex",
+  alignItems: "center",
+  px: "$sm",
 });
 
-const AddNewRow: React.FC<any> = (props) => {
+const AddNewRow: React.FC<any> = ({ onAddRow, totalSplitFooter }) => {
   return (
     <Tr>
       <Td noPadding>
-        <BoxBorderTop>{""}</BoxBorderTop>
+        <BoxBorderTop />
       </Td>
       <Td noPadding css={{ backgroundColor: "$bg03" }}>
         <BoxBorderTop>
-          <Button
-            type="button"
-            css={{
-              color: "$obolGreen",
-              justifyContent: "start",
-              borderRadius: 0,
-              "&:hover": {
-                backgroundColor: "#2FE4AB10",
-              },
-            }}
-            fullWidth
-            ghost
-            onClick={props.handleOnClick}
-          >
-            + Add Signer
-          </Button>
+          {onAddRow && (
+            <Button
+              type="button"
+              css={{
+                color: "$obolGreen",
+                justifyContent: "start",
+                borderRadius: 0,
+                "&:hover": {
+                  backgroundColor: "#2FE4AB10",
+                },
+
+                "&:disabled": {
+                  borderColor: "transparent",
+                },
+              }}
+              fullWidth
+              ghost
+              onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+                e.preventDefault();
+                onAddRow();
+              }}
+              disabled={totalSplitFooter === 100}
+            >
+              + Add Signer
+            </Button>
+          )}
         </BoxBorderTop>
       </Td>
       <Td noPadding css={{ backgroundColor: "$bg03" }}>
-        <BoxBorderTop />
+        <BoxBorderTop>
+          {totalSplitFooter && `${totalSplitFooter}%`}
+        </BoxBorderTop>
       </Td>
     </Tr>
   );
 };
 
 // Types
-export interface RowItem {
-  id: string;
-  value: string;
-}
 
-export type RowTableType = Record<string, string | React.ReactNode>;
-export type RowsTableType = RowItem[];
+export type RowDef<T> = { id: string; removable?: boolean } & T;
 
 export type CellDef = {
-  component: "TextField" | "NumberField";
+  component: "TextField";
   config?: {
     type: "text" | "number";
     max?: number;
     min?: number;
+    totalCell?: boolean;
   };
 };
 
@@ -136,15 +148,15 @@ export type ColumnDef<T> = {
 };
 
 export interface TableProps {
-  rows: any[];
+  rows: RowDef<any>[];
   columns: ColumnDef<any>[];
 }
 
 export interface SplitterTableProps extends TableProps {
-  onAddRow(item?: unknown): void;
-  onRemoveRow(item: string | number): void;
-  onUpdateRow(id: string, value: string | number, accessorKey: unknown): void;
-  removeButton?: boolean;
+  onAddRow?(item?: unknown): void;
+  onRemoveRow?(item: string | number): void;
+  onUpdateRow?(id: string, value: string | number, accessorKey: unknown): void;
+  totalSplitFooter?: number;
 }
 
 // Components
@@ -155,7 +167,7 @@ export const SplitterTable: React.FC<SplitterTableProps> = ({
   onAddRow,
   onRemoveRow,
   onUpdateRow,
-  removeButton = true,
+  totalSplitFooter = 100,
 }): JSX.Element => {
   return (
     <StyledTable>
@@ -171,7 +183,7 @@ export const SplitterTable: React.FC<SplitterTableProps> = ({
         </tr>
       </thead>
       <tbody>
-        {rows.map((row, rowIndex) => (
+        {rows.map(({ removable = true, ...row }, rowIndex) => (
           <tr key={row.id}>
             <Td size="sm">{rowIndex + 1}</Td>
             {columns.map((column, cellIndex) => {
@@ -197,20 +209,27 @@ export const SplitterTable: React.FC<SplitterTableProps> = ({
                       defaultValue={row[column.accessorKey]}
                       onInput={(e: any) => {
                         if (column.cell?.config?.type === "number") {
-                          if (column.cell?.config?.max) {
-                            if (
-                              Number(e.target.value) > column.cell?.config?.max
-                            )
-                              e.target.value = column.cell?.config?.max;
+                          if (column.cell?.config?.totalCell) {
+                            const value = rows.reduce(
+                              (prev, curr, indx) =>
+                                curr[column.accessorKey] && indx !== rowIndex
+                                  ? parseFloat(curr[column.accessorKey]) + prev
+                                  : prev,
+                              0
+                            );
+                            const maxValue = 100 - value;
+                            if (parseFloat(e.target.value) > maxValue)
+                              e.target.value = maxValue;
                           }
                         }
                       }}
                       onChange={(e) => {
                         const value =
                           column.cell?.config?.type === "number"
-                            ? Number(e.target.value)
+                            ? parseFloat(e.target.value)
                             : e.target.value;
-                        onUpdateRow(row.id, value, column.accessorKey);
+                        if (onUpdateRow)
+                          onUpdateRow(row.id, value, column.accessorKey);
                       }}
                       {...column.cell?.config}
                     />
@@ -220,7 +239,7 @@ export const SplitterTable: React.FC<SplitterTableProps> = ({
                 </Td>
               );
             })}
-            {removeButton && (
+            {onRemoveRow && removable && (
               <Td size="sm">
                 <IconButton ghost onClick={() => onRemoveRow(row.id)}>
                   <TrashIcon />
@@ -229,12 +248,8 @@ export const SplitterTable: React.FC<SplitterTableProps> = ({
             )}
           </tr>
         ))}
-        <AddNewRow
-          handleOnClick={(e: React.MouseEvent<HTMLButtonElement>) => {
-            e.preventDefault();
-            onAddRow();
-          }}
-        />
+
+        <AddNewRow onAddRow={onAddRow} totalSplitFooter={totalSplitFooter} />
       </tbody>
     </StyledTable>
   );
@@ -244,9 +259,11 @@ export const Table: React.FC<TableProps> = ({ rows, columns }): JSX.Element => {
   return (
     <StyledTable>
       <thead>
-        {columns.map((column, index) => (
-          <Td key={`header-${index}`}>{column}</Td>
-        ))}
+        <tr>
+          {columns.map((column, index) => (
+            <Th key={`header-${index}`}>{column}</Th>
+          ))}
+        </tr>
       </thead>
       <tbody>
         {rows.map((row, rowIndex) => (
