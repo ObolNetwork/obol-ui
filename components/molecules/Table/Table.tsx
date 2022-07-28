@@ -29,9 +29,8 @@ const StyledTable = styled("table", {
 
 const Td = styled("td", {
   border: "2px solid $bg04",
-  py: 0,
+  py: "$sm",
   px: "$sm",
-  textAlign: "center",
   color: "$body",
   fontWeight: "$bold",
   fontSize: "$4",
@@ -42,15 +41,21 @@ const Td = styled("td", {
   },
 
   variants: {
-    noPadding: {
+    splitter: {
       true: {
-        p: 0,
+        py: 0,
+        px: 0,
         backgroundColor: "$bg03",
       },
     },
     size: {
       sm: {
         width: "$3xl",
+      },
+    },
+    textCenter: {
+      true: {
+        textAlign: "center",
       },
     },
   },
@@ -85,10 +90,10 @@ const BoxBorderTop = styled(Box, {
 const AddNewRow: React.FC<any> = ({ onAddRow, totalSplitFooter }) => {
   return (
     <Tr>
-      <Td noPadding>
+      <Td splitter>
         <BoxBorderTop />
       </Td>
-      <Td noPadding css={{ backgroundColor: "$bg03" }}>
+      <Td splitter css={{ backgroundColor: "$bg03" }}>
         <BoxBorderTop>
           {onAddRow && (
             <Button
@@ -118,9 +123,11 @@ const AddNewRow: React.FC<any> = ({ onAddRow, totalSplitFooter }) => {
           )}
         </BoxBorderTop>
       </Td>
-      <Td noPadding css={{ backgroundColor: "$bg03" }}>
+      <Td splitter css={{ backgroundColor: "$bg03" }}>
         <BoxBorderTop>
-          {totalSplitFooter && `${totalSplitFooter}%`}
+          <Box css={{ pl: "$sm" }}>
+            {totalSplitFooter && `${totalSplitFooter}%`}
+          </Box>
         </BoxBorderTop>
       </Td>
     </Tr>
@@ -128,8 +135,11 @@ const AddNewRow: React.FC<any> = ({ onAddRow, totalSplitFooter }) => {
 };
 
 // Types
-
-export type RowDef<T> = { id: string; removable?: boolean } & T;
+export type RowDef<T> = {
+  id: string;
+  isRemovable?: boolean;
+  isEditable?: boolean;
+} & T;
 
 export type CellDef = {
   component: "TextField";
@@ -143,7 +153,7 @@ export type CellDef = {
 
 export type ColumnDef<T> = {
   accessorKey: keyof T;
-  header: string;
+  header: string | React.ReactNode;
   cell?: CellDef;
 };
 
@@ -158,8 +168,6 @@ export interface SplitterTableProps extends TableProps {
   onUpdateRow?(id: string, value: string | number, accessorKey: unknown): void;
   totalSplitFooter?: number;
 }
-
-// Components
 
 export const SplitterTable: React.FC<SplitterTableProps> = ({
   rows,
@@ -183,72 +191,76 @@ export const SplitterTable: React.FC<SplitterTableProps> = ({
         </tr>
       </thead>
       <tbody>
-        {rows.map(({ removable = true, ...row }, rowIndex) => (
-          <tr key={row.id}>
-            <Td size="sm">{rowIndex + 1}</Td>
-            {columns.map((column, cellIndex) => {
-              const isTextField = !!column.cell;
-              return (
-                <Td
-                  noPadding
-                  key={`cell ${cellIndex}`}
-                  css={{
-                    "input::-webkit-inner-spin-button": {
-                      "-webkit-appearance": "none",
-                      margin: 0,
-                    },
-
-                    /* Firefox */
-                    "input[type=number]": {
-                      "-moz-appearance": "textfield",
-                    },
-                  }}
-                >
-                  {isTextField ? (
-                    <TextField
-                      defaultValue={row[column.accessorKey]}
-                      onInput={(e: any) => {
-                        if (column.cell?.config?.type === "number") {
-                          if (column.cell?.config?.totalCell) {
-                            const value = rows.reduce(
-                              (prev, curr, indx) =>
-                                curr[column.accessorKey] && indx !== rowIndex
-                                  ? parseFloat(curr[column.accessorKey]) + prev
-                                  : prev,
-                              0
-                            );
-                            const maxValue = 100 - value;
-                            if (parseFloat(e.target.value) > maxValue)
-                              e.target.value = maxValue;
-                          }
-                        }
-                      }}
-                      onChange={(e) => {
-                        const value =
-                          column.cell?.config?.type === "number"
-                            ? parseFloat(e.target.value)
-                            : e.target.value;
-                        if (onUpdateRow)
-                          onUpdateRow(row.id, value, column.accessorKey);
-                      }}
-                      {...column.cell?.config}
-                    />
-                  ) : (
-                    row[column.accessorKey]
-                  )}
-                </Td>
-              );
-            })}
-            {onRemoveRow && removable && (
-              <Td size="sm">
-                <IconButton ghost onClick={() => onRemoveRow(row.id)}>
-                  <TrashIcon />
-                </IconButton>
+        {rows.map(
+          ({ isRemovable = true, isEditable = true, ...row }, rowIndex) => (
+            <tr key={row.id}>
+              <Td textCenter size="sm">
+                {rowIndex + 1}
               </Td>
-            )}
-          </tr>
-        ))}
-
+              {columns.map((column, cellIndex) => {
+                const isTextField = column.cell?.component === "TextField";
+                return (
+                  <Td
+                    splitter
+                    key={`cell ${cellIndex}`}
+                    css={{
+                      "input::-webkit-inner-spin-button": {
+                        "-webkit-appearance": "none",
+                        margin: 0,
+                      },
+                      /* Firefox */
+                      "input[type=number]": {
+                        "-moz-appearance": "textfield",
+                      },
+                    }}
+                  >
+                    {isTextField && isEditable ? (
+                      <TextField
+                        css={{ color: "$body", fontWeight: "$bold" }}
+                        defaultValue={row[column.accessorKey]}
+                        onInput={(e: any) => {
+                          if (column.cell?.config?.type === "number") {
+                            if (column.cell?.config?.totalCell) {
+                              const value = rows.reduce(
+                                (prev, curr, indx) =>
+                                  curr[column.accessorKey] && indx !== rowIndex
+                                    ? parseFloat(curr[column.accessorKey]) +
+                                      prev
+                                    : prev,
+                                0
+                              );
+                              const maxValue = 100 - value;
+                              if (parseFloat(e.target.value) > maxValue)
+                                e.target.value = maxValue;
+                            }
+                          }
+                        }}
+                        onChange={(e) => {
+                          const value =
+                            column.cell?.config?.type === "number"
+                              ? parseFloat(e.target.value)
+                              : e.target.value;
+                          if (onUpdateRow)
+                            onUpdateRow(row.id, value, column.accessorKey);
+                        }}
+                        {...column.cell?.config}
+                      />
+                    ) : (
+                      <Box css={{ p: "$sm" }}>{row[column.accessorKey]}</Box>
+                    )}
+                  </Td>
+                );
+              })}
+              {onRemoveRow && isRemovable && (
+                <Td splitter size="sm" css={{ p: "$2" }}>
+                  <IconButton ghost onClick={() => onRemoveRow(row.id)}>
+                    <TrashIcon />
+                  </IconButton>
+                </Td>
+              )}
+            </tr>
+          )
+        )}
         <AddNewRow onAddRow={onAddRow} totalSplitFooter={totalSplitFooter} />
       </tbody>
     </StyledTable>
@@ -261,7 +273,9 @@ export const Table: React.FC<TableProps> = ({ rows, columns }): JSX.Element => {
       <thead>
         <tr>
           {columns.map((column, index) => (
-            <Th key={`header-${index}`}>{column}</Th>
+            <Th css={{ textAlign: "start" }} key={`header-${index}`}>
+              {column.header}
+            </Th>
           ))}
         </tr>
       </thead>
@@ -270,7 +284,9 @@ export const Table: React.FC<TableProps> = ({ rows, columns }): JSX.Element => {
           <tr key={`row ${rowIndex}`}>
             {columns.map((column, cellIndex) => {
               return (
-                <Td key={`cell ${cellIndex}`}>{row[column.accessorKey]}</Td>
+                <Td key={`cell ${cellIndex}`} css={{ color: "$light" }}>
+                  {row[column.accessorKey]}
+                </Td>
               );
             })}
           </tr>

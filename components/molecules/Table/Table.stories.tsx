@@ -1,6 +1,8 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { uuid } from "uuidv4";
+import { TooltipComponent, Box, Text } from "../../atoms";
+import { AlertIcon, CheckIcon, WaitingIcon } from "../../icons";
 import { Table, SplitterTable, ColumnDef, RowDef } from "./Table";
 
 type SplitterType = {
@@ -14,7 +16,8 @@ const defaultData: RowDef<SplitterType>[] = [
     id: uuid(),
     operator: "0x34234234236",
     split: 1,
-    removable: false
+    isRemovable: false,
+    isEditable: false,
   },
   {
     id: uuid(),
@@ -44,6 +47,36 @@ const defaultColumns: ColumnDef<SplitterType>[] = [
   },
 ];
 
+type SimpleType = { operator: string; split?: number | React.ReactNode };
+
+const defaultRowsSimple: RowDef<SimpleType>[] = [
+  {
+    id: uuid(),
+    operator: "0x34234234236",
+    split: (
+      <Box css={{ display: "flex", gap: "$xxs", alignItems: "center" }}>
+        <WaitingIcon /> <Text color="muted">Waiting</Text>
+      </Box>
+    ),
+  },
+  {
+    id: uuid(),
+    operator: "0x34234234236",
+    split: (
+      <Box css={{ display: "flex", gap: "$xxs", alignItems: "center" }}>
+        <CheckIcon /> Accepted
+      </Box>
+    ),
+  },
+];
+
+const defaultColumnsSimple: ColumnDef<SimpleType>[] = [
+  {
+    accessorKey: "operator",
+    header: "Operator Address",
+  },
+];
+
 export default {
   title: "Design System/Molecules/Table",
   component: Table,
@@ -56,8 +89,38 @@ const Template: ComponentStory<typeof Table> = (args) => (
 export const Default = Template.bind({});
 
 Default.args = {
-  rows: defaultData,
-  columns: defaultColumns,
+  rows: defaultRowsSimple,
+  columns: defaultColumnsSimple,
+};
+
+const defaultColumnsSimpleWithHeaderComponents: ColumnDef<SimpleType>[] = [
+  {
+    accessorKey: "operator",
+    header: "Operator Address",
+  },
+  {
+    accessorKey: "split",
+    header: (
+      <Box css={{ display: "flex", gap: "$xxs", alignItems: "center" }}>
+        Split
+        <TooltipComponent
+          side="top"
+          content={`An ENR is an "Ethereum Node Record", and is used to identify your client to the other clients in the cluster.`}
+        >
+          <Box>
+            <AlertIcon size="sm" color="body" />
+          </Box>
+        </TooltipComponent>
+      </Box>
+    ),
+  },
+];
+
+export const WithComponentInHeader = Template.bind({});
+
+WithComponentInHeader.args = {
+  rows: defaultRowsSimple,
+  columns: defaultColumnsSimpleWithHeaderComponents,
 };
 
 const TemplateSplitter: ComponentStory<typeof SplitterTable> = (args) => {
@@ -91,7 +154,6 @@ const TemplateSplitter: ComponentStory<typeof SplitterTable> = (args) => {
       );
 
       setMaxSplit(totalValue);
-
     }
   }, [data]);
 
