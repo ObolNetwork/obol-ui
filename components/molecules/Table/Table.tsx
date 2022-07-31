@@ -259,7 +259,7 @@ export const SplitterTable: React.FC<SplitterTableProps> = ({
                             : parseFloat(e.target.value);
                           const value =
                             column.cell?.config?.type === "number"
-                              ? inputValue.toFixed(2)
+                              ? inputValue
                               : e.target.value;
                           if (onUpdateRow)
                             onUpdateRow(row.id, value, column.accessorKey);
