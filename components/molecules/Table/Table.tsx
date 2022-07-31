@@ -133,9 +133,7 @@ const AddNewRow: React.FC<AddNewRowProps> = ({
       </Td>
       <Td splitter css={{ backgroundColor: "$bg03" }}>
         <BoxBorderTop>
-          <Box>
-            {totalSplitFooter && `${totalSplitFooter}%`}
-          </Box>
+          <Box>{totalSplitFooter && `${totalSplitFooter}%`}</Box>
         </BoxBorderTop>
       </Td>
     </Tr>
@@ -231,7 +229,8 @@ export const SplitterTable: React.FC<SplitterTableProps> = ({
                           const inputValue =
                             e.target.value === ""
                               ? 0
-                              : parseFloat(e.target.value);
+                              : parseFloat(e.target.value).toFixed(2);
+
                           if (column.cell?.config?.type === "number") {
                             if (column.cell?.config?.totalCell) {
                               const value = rows.reduce((prev, curr, indx) => {
@@ -247,6 +246,7 @@ export const SplitterTable: React.FC<SplitterTableProps> = ({
                                   : prev;
                               }, 0);
                               const maxValue = 100 - value;
+
                               if (inputValue > maxValue)
                                 e.target.value = maxValue.toFixed(2);
                             }
@@ -254,9 +254,10 @@ export const SplitterTable: React.FC<SplitterTableProps> = ({
                         }}
                         onChange={(e) => {
                           const inputValue =
-                          e.target.value === ""
-                            ? 0
-                            : parseFloat(e.target.value);
+                            e.target.value === ""
+                              ? 0
+                              : +parseFloat(e.target.value).toFixed(2);
+
                           const value =
                             column.cell?.config?.type === "number"
                               ? inputValue
