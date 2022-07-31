@@ -218,27 +218,28 @@ export const SplitterTable: React.FC<SplitterTableProps> = ({
                       <TextField
                         css={{ color: "$body", fontWeight: "$bold" }}
                         defaultValue={row[column.accessorKey]}
+                        step="any"
                         onInput={(e: any) => {
                           if (column.cell?.config?.type === "number") {
                             if (column.cell?.config?.totalCell) {
                               const value = rows.reduce(
                                 (prev, curr, indx) =>
                                   curr[column.accessorKey] && indx !== rowIndex
-                                    ? parseFloat(curr[column.accessorKey]) +
+                                    ? parseFloat(curr[column.accessorKey])+
                                       prev
                                     : prev,
                                 0
                               );
                               const maxValue = 100 - value;
                               if (parseFloat(e.target.value) > maxValue)
-                                e.target.value = maxValue;
+                                e.target.value = maxValue.toFixed(2);
                             }
                           }
                         }}
                         onChange={(e) => {
                           const value =
                             column.cell?.config?.type === "number"
-                              ? parseFloat(e.target.value)
+                              ? parseFloat(e.target.value).toFixed(2)
                               : e.target.value;
                           if (onUpdateRow)
                             onUpdateRow(row.id, value, column.accessorKey);
