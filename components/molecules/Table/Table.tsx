@@ -126,7 +126,7 @@ const AddNewRow: React.FC<any> = ({ onAddRow, totalSplitFooter }) => {
       <Td splitter css={{ backgroundColor: "$bg03" }}>
         <BoxBorderTop>
           <Box css={{ pl: "$sm" }}>
-            {totalSplitFooter && `${totalSplitFooter}%`}
+            {totalSplitFooter && `${totalSplitFooter.toFixed(2)}%`}
           </Box>
         </BoxBorderTop>
       </Td>
