@@ -87,7 +87,15 @@ const BoxBorderTop = styled(Box, {
   px: "$sm",
 });
 
-const AddNewRow: React.FC<any> = ({ onAddRow, totalSplitFooter }) => {
+type AddNewRowProps = {
+  onAddRow: ((item?: unknown) => void) | undefined;
+  totalSplitFooter: number;
+};
+
+const AddNewRow: React.FC<AddNewRowProps> = ({
+  onAddRow,
+  totalSplitFooter,
+}) => {
   return (
     <Tr>
       <Td splitter>
@@ -125,8 +133,8 @@ const AddNewRow: React.FC<any> = ({ onAddRow, totalSplitFooter }) => {
       </Td>
       <Td splitter css={{ backgroundColor: "$bg03" }}>
         <BoxBorderTop>
-          <Box css={{ pl: "$sm" }}>
-            {totalSplitFooter && `${totalSplitFooter.toFixed(2)}%`}
+          <Box>
+            {totalSplitFooter && `${totalSplitFooter}%`}
           </Box>
         </BoxBorderTop>
       </Td>
@@ -214,40 +222,51 @@ export const SplitterTable: React.FC<SplitterTableProps> = ({
                       },
                     }}
                   >
-                    {isTextField && isEditable ? (
+                    {isTextField && (
                       <TextField
                         css={{ color: "$body", fontWeight: "$bold" }}
                         defaultValue={row[column.accessorKey]}
                         step="any"
                         onInput={(e: any) => {
+                          const inputValue =
+                            e.target.value === ""
+                              ? 0
+                              : parseFloat(e.target.value);
                           if (column.cell?.config?.type === "number") {
                             if (column.cell?.config?.totalCell) {
-                              const value = rows.reduce(
-                                (prev, curr, indx) =>
-                                  curr[column.accessorKey] && indx !== rowIndex
-                                    ? parseFloat(curr[column.accessorKey])+
-                                      prev
-                                    : prev,
-                                0
-                              );
+                              const value = rows.reduce((prev, curr, indx) => {
+                                const floatNumber = parseFloat(
+                                  curr[column.accessorKey]
+                                );
+                                const parsedValue = isNaN(floatNumber)
+                                  ? 0
+                                  : floatNumber;
+                                return curr[column.accessorKey] &&
+                                  indx !== rowIndex
+                                  ? parsedValue + prev
+                                  : prev;
+                              }, 0);
                               const maxValue = 100 - value;
-                              if (parseFloat(e.target.value) > maxValue)
+                              if (inputValue > maxValue)
                                 e.target.value = maxValue.toFixed(2);
                             }
                           }
                         }}
                         onChange={(e) => {
+                          const inputValue =
+                          e.target.value === ""
+                            ? 0
+                            : parseFloat(e.target.value);
                           const value =
                             column.cell?.config?.type === "number"
-                              ? parseFloat(e.target.value).toFixed(2)
+                              ? inputValue.toFixed(2)
                               : e.target.value;
                           if (onUpdateRow)
                             onUpdateRow(row.id, value, column.accessorKey);
                         }}
                         {...column.cell?.config}
+                        readOnly={!isEditable}
                       />
-                    ) : (
-                      <Box css={{ p: "$sm" }}>{row[column.accessorKey]}</Box>
                     )}
                   </Td>
                 );

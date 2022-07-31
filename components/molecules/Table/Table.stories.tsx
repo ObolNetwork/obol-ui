@@ -15,19 +15,19 @@ const defaultData: RowDef<SplitterType>[] = [
   {
     id: uuid(),
     operator: "0x34234234236",
-    split: 1,
+    split: 1.9,
     isRemovable: false,
     isEditable: false,
   },
   {
     id: uuid(),
     operator: "0x34234234236",
-    split: 1,
+    split: 1.6,
   },
   {
     id: uuid(),
     operator: "0x34234234236",
-    split: 1,
+    split: 1.5,
   },
 ];
 
