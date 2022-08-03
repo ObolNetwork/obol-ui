@@ -7,7 +7,9 @@ export const NotificationContainer = styled(Box, {
   borderRadius: "$1",
   display: "flex",
   gap: "$xs",
-  p: "$md",
+  p: "$sm",
+  boxSizing: "border-box",
+  width: "100%",
 });
 
 export interface NotificationCardProps {
@@ -31,7 +33,9 @@ export const NotificationCard: React.FC<NotificationCardProps> = ({
       <Box css={{ display: "flex", fd: "column", gap: "$xs" }}>
         <Text variant="body">{heading}</Text>
         {subHeading && (
-          <Text css={{ color: "$textLight", fontSize: "$3" }}>
+          <Text
+            css={{ color: "$textLight", fontSize: "$3", lineHeight: "24px" }}
+          >
             {subHeading}
           </Text>
         )}
