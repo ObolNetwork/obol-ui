@@ -55,7 +55,7 @@ export const TextField = styled("input", {
         btrr: 0,
         bbrr: 0,
       },
-    },   
+    },
   },
 });
 
@@ -97,49 +97,49 @@ const Content = styled(TooltipContent, {
   },
 });
 
-export const TextFieldWithCopy = forwardRef<
-  HTMLInputElement,
-  TextFieldType
->((props, ref) => {
-  const [inputValue, setInputValue] = useState<string>();
-  const [isCopied, setIsCopied] = useState(false);
+export const TextFieldWithCopy = forwardRef<HTMLInputElement, TextFieldType>(
+  (props, ref) => {
+    const [inputValue, setInputValue] = useState<string>();
+    const [isCopied, setIsCopied] = useState(false);
 
-  const copyToClipBoard = (content: string | undefined) => {
-    if (content) {
-      navigator.clipboard.writeText(content);
-      setIsCopied(true);
-    }
-  };
+    const copyToClipBoard = (content: string | undefined) => {
+      if (content) {
+        navigator.clipboard.writeText(content);
+        setIsCopied(true);
+      }
+    };
 
-  useTimeout(
-    () => {
-      setIsCopied(false);
-    },
-    isCopied ? 3000 : null
-  );
+    useTimeout(
+      () => {
+        setIsCopied(false);
+      },
+      isCopied ? 3000 : null
+    );
 
-  return (
-    <Box css={{ display: "flex" }}>
-      <TextField        
-        withCopy
-        ref={ref}
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-        {...props}
-      />
-      <Tooltip open={isCopied}>
-        <TooltipTrigger asChild>
-          <IconButton onClick={() => copyToClipBoard(inputValue)}>
-            {!isCopied ? <CopyIcon /> : <CheckIcon />}
-          </IconButton>
-        </TooltipTrigger>
-        <Content side="bottom" sideOffset={5}>
-          Copied!
-          <TooltipArrow />
-        </Content>
-      </Tooltip>
-    </Box>
-  );
-});
+    return (
+      <Box css={{ display: "flex", width: "$full" }}>
+        <TextField
+          withCopy
+          ref={ref}
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          {...props}
+          css={{ width: "$full" }}
+        />
+        <Tooltip open={isCopied}>
+          <TooltipTrigger asChild>
+            <IconButton onClick={() => copyToClipBoard(inputValue)}>
+              {!isCopied ? <CopyIcon /> : <CheckIcon />}
+            </IconButton>
+          </TooltipTrigger>
+          <Content side="bottom" sideOffset={5}>
+            Copied!
+            <TooltipArrow />
+          </Content>
+        </Tooltip>
+      </Box>
+    );
+  }
+);
 
 TextFieldWithCopy.displayName = "TextFieldWithCopy";
