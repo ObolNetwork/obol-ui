@@ -9,7 +9,7 @@ export const NotificationContainer = styled(Box, {
   gap: "$xs",
   p: "$sm",
   boxSizing: "border-box",
-  width: "100%",
+  width: "$full",
 });
 
 export interface NotificationCardProps {
