@@ -98,11 +98,12 @@ const Content = styled(TooltipContent, {
 });
 
 export const TextFieldWithCopy = forwardRef<HTMLInputElement, TextFieldType>(
-  (props, ref) => {
+  (props) => {
     const [inputValue, setInputValue] = useState<string>();
     const [isCopied, setIsCopied] = useState(false);
+    const ref = useRef<HTMLInputElement>(null);
 
-    const copyToClipBoard = (content: string | undefined) => {
+    const copyToClipBoard = (content: string | undefined | null) => {
       if (content) {
         navigator.clipboard.writeText(content);
         setIsCopied(true);
@@ -128,7 +129,11 @@ export const TextFieldWithCopy = forwardRef<HTMLInputElement, TextFieldType>(
         />
         <Tooltip open={isCopied}>
           <TooltipTrigger asChild>
-            <IconButton onClick={() => copyToClipBoard(inputValue)}>
+            <IconButton
+              onClick={() =>
+                copyToClipBoard(ref && ref.current && ref.current.value)
+              }
+            >
               {!isCopied ? <CopyIcon /> : <CheckIcon />}
             </IconButton>
           </TooltipTrigger>
