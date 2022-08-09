@@ -265,7 +265,9 @@ export const SplitterTable: React.FC<SplitterTableProps> = ({
                           if (onUpdateRow)
                             onUpdateRow(row.id, value, column.accessorKey);
                         }}
-                        {...column.cell?.config}
+                        min={column.cell?.config?.min}
+                        max={column.cell?.config?.max}
+                        type={column.cell?.config?.type}
                         readOnly={!isEditable}
                       />
                     )}
