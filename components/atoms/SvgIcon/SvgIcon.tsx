@@ -60,6 +60,11 @@ export const SvgIcon = styled("svg", {
         },
       },
     },
+    transform: {
+      xAxis: {
+        transform: "scale(-1)",
+      },
+    },
   },
   defaultVariants: {
     size: "sm",

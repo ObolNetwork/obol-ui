@@ -1,5 +1,4 @@
 export * from "./ArrowForward";
-export * from "./ArrowBackword";
 export * from "./Download";
 export * from "./OpenInNew";
 export * from "./CloseIcon";
