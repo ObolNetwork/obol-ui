@@ -39,6 +39,10 @@ const Td = styled("td", {
     borderRadius: 0,
     width: "100%",
   },
+  textOverflow: 'ellipsis',
+  maxWidth: 0,
+  whiteSpace: 'nowrap',
+  overflow: 'hidden',
 
   variants: {
     splitter: {

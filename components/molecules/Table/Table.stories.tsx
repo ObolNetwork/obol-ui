@@ -52,7 +52,7 @@ type SimpleType = { operator: string; split?: number | React.ReactNode };
 const defaultRowsSimple: RowDef<SimpleType>[] = [
   {
     id: uuid(),
-    operator: "0x34234234236",
+    operator: "0x342342342360x342342342360x342342342360x34234234236",
     split: (
       <Box css={{ display: "flex", gap: "$xxs", alignItems: "center" }}>
         <WaitingIcon /> <Text color="muted">Waiting</Text>
@@ -61,7 +61,7 @@ const defaultRowsSimple: RowDef<SimpleType>[] = [
   },
   {
     id: uuid(),
-    operator: "0x34234234236",
+    operator: "0x342342342360x342342342360x342342342360x34234234236",
     split: (
       <Box css={{ display: "flex", gap: "$xxs", alignItems: "center" }}>
         <CheckIcon /> Accepted
