@@ -11,19 +11,34 @@ export interface StepProps {
 
 interface ProgressTrackerProps {
   items: StepProps[];
+  currentStep?: StepProps;
 }
 
-export const ProgressTracker: React.FC<ProgressTrackerProps> = ({ items }) => {
+export const ProgressTracker: React.FC<ProgressTrackerProps> = ({
+  items,
+  currentStep,
+}) => {
   const [steps, setSteps] = useState(items);
   const [width, setWidth] = useState(0);
 
   useEffect(() => {
-    const _count = items.filter((item) => item.status === "complete").length;
+    let _count = 0;
+
+    if (currentStep) {
+      items.every((item) => {
+        if (item.href === currentStep.href) return false;
+        _count++;
+
+        return true;
+      });
+    } else {
+      _count = items.filter((item) => item.status === "complete").length;
+    }
     const offset = 100 / items.length / 2;
     const width = (100 / items.length) * _count + offset;
     setWidth(width);
     setSteps(items);
-  }, [items]);
+  }, [items, currentStep]);
   return (
     <Box css={{ backgroundColor: "$bg02", py: "$3xl", px: "$6xl" }}>
       <Box css={{ display: "flex", fd: "column", gap: "$md" }}>

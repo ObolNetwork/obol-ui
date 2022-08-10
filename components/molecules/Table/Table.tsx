@@ -39,6 +39,10 @@ const Td = styled("td", {
     borderRadius: 0,
     width: "100%",
   },
+  textOverflow: 'ellipsis',
+  maxWidth: 0,
+  whiteSpace: 'nowrap',
+  overflow: 'hidden',
 
   variants: {
     splitter: {
@@ -265,7 +269,9 @@ export const SplitterTable: React.FC<SplitterTableProps> = ({
                           if (onUpdateRow)
                             onUpdateRow(row.id, value, column.accessorKey);
                         }}
-                        {...column.cell?.config}
+                        min={column.cell?.config?.min}
+                        max={column.cell?.config?.max}
+                        type={column.cell?.config?.type}
                         readOnly={!isEditable}
                       />
                     )}
