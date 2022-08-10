@@ -15,9 +15,7 @@ export const CheckboxRoot = styled(CheckboxPrimitive.Root, {
 
 export const CheckboxIndicator = CheckboxPrimitive.Indicator;
 
-interface CheckboxProps extends CheckboxPrimitive.CheckboxProps {}
-
-export const Checkbox: React.FC<CheckboxProps> = ({ ...props }) => {
+export const Checkbox: React.FC<CheckboxPrimitive.CheckboxProps> = ({ ...props }) => {
   return (
     <CheckboxRoot {...props}>
       <CheckboxIndicator>
