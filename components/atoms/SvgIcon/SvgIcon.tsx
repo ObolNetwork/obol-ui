@@ -48,6 +48,23 @@ export const SvgIcon = styled("svg", {
         },
       },
     },
+    strokeColor: {
+      true: {
+        "& path": {
+          stroke: "$$color",
+        },
+      },
+      false: {
+        "& path": {
+          stroke: "none",
+        },
+      },
+    },
+    transform: {
+      xAxis: {
+        transform: "scale(-1)",
+      },
+    },
   },
   defaultVariants: {
     size: "sm",
