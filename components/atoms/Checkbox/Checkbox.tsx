@@ -7,7 +7,7 @@ export const CheckboxRoot = styled(CheckboxPrimitive.Root, {
   bc: "$bg03",
   size: "$lg",
   border: "2px solid $body",
-  br: "$xxxs",
+  br: "$1",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
