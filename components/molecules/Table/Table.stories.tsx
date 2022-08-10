@@ -101,13 +101,13 @@ const defaultColumnsSimpleWithHeaderComponents: ColumnDef<SimpleType>[] = [
   {
     accessorKey: "split",
     header: (
-      <Box css={{ display: "flex", gap: "$xxs", alignItems: "center" }}>
+      <Box css={{ display: "flex", gap: "$xxs" }}>
         Split
         <TooltipComponent
           side="top"
           content={`An ENR is an "Ethereum Node Record", and is used to identify your client to the other clients in the cluster.`}
         >
-          <Box>
+          <Box css={{display: 'flex'}}>
             <AlertIcon size="sm" color="body" />
           </Box>
         </TooltipComponent>
