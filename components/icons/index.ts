@@ -1,4 +1,5 @@
 export * from "./ArrowForward";
+export * from "./ArrowBackword";
 export * from "./Download";
 export * from "./OpenInNew";
 export * from "./CloseIcon";
@@ -26,6 +27,7 @@ export * from "./static-icons/GroupIcon";
 export * from "./static-icons/ExistingGroupIcon";
 export * from "./static-icons/CopyIcon";
 export * from "./static-icons/CheckIcon";
+export * from "./static-icons/CheckboxIcon";
 export * from "./static-icons/TrashIcon";
 export * from "./static-icons/BulletCheckIcon";
 export * from "./static-icons/HelpIcon";
