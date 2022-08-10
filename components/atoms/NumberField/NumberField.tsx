@@ -1,4 +1,5 @@
 import { FocusEventHandler, forwardRef, useEffect, useState } from "react";
+import { MinusIcon, PlusIcon } from "../../icons";
 import { Box } from "../Box/Box";
 import { IconButton } from "../IconButton/IconButton";
 import { TextField } from "../TextField/TextField";
@@ -100,7 +101,7 @@ export const NumberField = forwardRef<HTMLInputElement, NumberFieldProps>(
           onClick={handleOnDec}
           borderDisabled={qty <= min}
         >
-          -
+          <MinusIcon />
         </IconButton>
         <TextField
           css={{ borderRightStyle: "none", borderLeftStyle: "none" }}
@@ -117,7 +118,7 @@ export const NumberField = forwardRef<HTMLInputElement, NumberFieldProps>(
           onClick={handleOnInc}
           borderDisabled={qty >= max}
         >
-          +
+          <PlusIcon />
         </IconButton>
       </Box>
     );

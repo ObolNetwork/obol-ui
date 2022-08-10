@@ -28,6 +28,10 @@ export const IconButton = styled("button", {
   "&:disabled": {
     backgroundColor: "$bg02",
     color: "$muted",
+    "& path": {
+      stroke: "$muted",
+      fill: "$muted",
+    },
   },
   margin: 0,
   border: "2px solid transparent",
