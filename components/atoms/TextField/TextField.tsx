@@ -2,6 +2,7 @@ import * as Stitches from "@stitches/react";
 import {
   forwardRef,
   useEffect,
+  useImperativeHandle,
   useLayoutEffect,
   useRef,
   useState,
@@ -98,12 +99,14 @@ const Content = styled(TooltipContent, {
 });
 
 export const TextFieldWithCopy = forwardRef<HTMLInputElement, TextFieldType>(
-  (props) => {
-    const [inputValue, setInputValue] = useState<string>();
+  (props, ref) => {
+    const [inputValue, setInputValue] = useState<string>("");
     const [isCopied, setIsCopied] = useState(false);
-    const ref = useRef<HTMLInputElement>(null);
+    const innerRef = useRef<HTMLInputElement>(null);
+    
+    useImperativeHandle(ref, () => innerRef.current as HTMLInputElement);
 
-    const copyToClipBoard = (content: string | undefined | null) => {
+    const copyToClipBoard = (content: string) => {
       if (content) {
         navigator.clipboard.writeText(content);
         setIsCopied(true);
@@ -121,7 +124,7 @@ export const TextFieldWithCopy = forwardRef<HTMLInputElement, TextFieldType>(
       <Box css={{ display: "flex", width: "$full" }}>
         <TextField
           withCopy
-          ref={ref}
+          ref={innerRef}
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           {...props}
@@ -131,7 +134,7 @@ export const TextFieldWithCopy = forwardRef<HTMLInputElement, TextFieldType>(
           <TooltipTrigger asChild>
             <IconButton
               onClick={() =>
-                copyToClipBoard(ref && ref.current && ref.current.value)
+                copyToClipBoard(inputValue)
               }
             >
               {!isCopied ? <CopyIcon /> : <CheckIcon />}

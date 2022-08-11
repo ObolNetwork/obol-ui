@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import React, { useEffect, useState } from "react";
-import { uuid } from "uuidv4";
+import { v4 as uuid } from "uuid";
 import { TooltipComponent, Box, Text } from "../../atoms";
 import { AlertIcon, CheckIcon, WaitingIcon } from "../../icons";
 import { Table, SplitterTable, ColumnDef, RowDef } from "./Table";

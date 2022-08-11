@@ -118,7 +118,7 @@ export interface IconProps extends React.SVGAttributes<SVGElement> {
 }
 // eslint-disable-next-line react/display-name
 export const PlanetIcon = React.forwardRef<SVGSVGElement, IconProps>(
-  ({ color1, color2, ...props }, forwardedRef) => {
+  ({ color1, color2, ...props }, ref) => {
     return (
       <svg
         width="96"
@@ -127,7 +127,7 @@ export const PlanetIcon = React.forwardRef<SVGSVGElement, IconProps>(
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         {...props}
-        ref={forwardedRef}
+        ref={ref}
       >
         <rect
           opacity="0.2"
