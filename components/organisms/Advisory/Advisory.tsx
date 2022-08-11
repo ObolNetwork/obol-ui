@@ -50,11 +50,12 @@ export const Advisory: React.FC<AdvisoryProps> = ({
 
   return (
     <Box
+      className="advisory-container"
       css={{
         display: "flex",
         border: "2px solid $bg04",
         borderRadius: "$3",
-        height: "752px",
+        minHeight: "752px",
       }}
     >
       <Box
@@ -121,7 +122,13 @@ export const Advisory: React.FC<AdvisoryProps> = ({
           bbrr: "$2",
         }}
       >
-        {itemSelected.content(itemSelected.rank, itemSelected.enableNextStep, handleOnAccept, handleOnBack, onComplete)}
+        {itemSelected.content(
+          itemSelected.rank,
+          itemSelected.enableNextStep,
+          handleOnAccept,
+          handleOnBack,
+          onComplete
+        )}
       </Box>
     </Box>
   );
