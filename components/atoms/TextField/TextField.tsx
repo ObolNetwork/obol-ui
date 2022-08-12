@@ -98,17 +98,19 @@ const Content = styled(TooltipContent, {
   },
 });
 
+type InputType = string | number | readonly string[] | undefined;
+
 export const TextFieldWithCopy = forwardRef<HTMLInputElement, TextFieldType>(
-  (props, ref) => {
-    const [inputValue, setInputValue] = useState<string>("");
+  ({ value, onChange, ...props }, ref) => {
+    const [inputValue, setInputValue] = useState<InputType>(value || "");
     const [isCopied, setIsCopied] = useState(false);
     const innerRef = useRef<HTMLInputElement>(null);
-    
+
     useImperativeHandle(ref, () => innerRef.current as HTMLInputElement);
 
-    const copyToClipBoard = (content: string) => {
+    const copyToClipBoard = (content: InputType) => {
       if (content) {
-        navigator.clipboard.writeText(content);
+        navigator.clipboard.writeText(content.toString());
         setIsCopied(true);
       }
     };
@@ -120,23 +122,26 @@ export const TextFieldWithCopy = forwardRef<HTMLInputElement, TextFieldType>(
       isCopied ? 3000 : null
     );
 
+    const handleOnChange = (e: any) => {
+      setInputValue(e.target.value);
+      if (onChange) {
+        onChange(e);
+      }
+    };
+
     return (
       <Box css={{ display: "flex", width: "$full" }}>
         <TextField
+          {...props}
           withCopy
           ref={innerRef}
           value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          {...props}
+          onChange={handleOnChange}
           css={{ width: "$full" }}
         />
         <Tooltip open={isCopied}>
           <TooltipTrigger asChild>
-            <IconButton
-              onClick={() =>
-                copyToClipBoard(inputValue)
-              }
-            >
+            <IconButton onClick={() => copyToClipBoard(inputValue)}>
               {!isCopied ? <CopyIcon /> : <CheckIcon />}
             </IconButton>
           </TooltipTrigger>
