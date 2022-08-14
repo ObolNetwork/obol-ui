@@ -107,7 +107,7 @@ const defaultColumnsSimpleWithHeaderComponents: ColumnDef<SimpleType>[] = [
           side="top"
           content={`An ENR is an "Ethereum Node Record", and is used to identify your client to the other clients in the cluster.`}
         >
-          <Box css={{display: 'flex'}}>
+          <Box css={{ display: "flex" }}>
             <AlertIcon size="sm" color="body" />
           </Box>
         </TooltipComponent>

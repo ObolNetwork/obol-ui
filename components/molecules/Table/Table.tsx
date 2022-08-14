@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { styled } from "../../../stitches.config";
+import { CSS, styled } from "../../../stitches.config";
 import { Button, IconButton, TextField, Box } from "../../atoms";
 import { TrashIcon } from "../../icons";
 
@@ -164,6 +163,7 @@ export type CellDef = {
 export type ColumnDef<T> = {
   accessorKey: keyof T;
   header: string | React.ReactNode;
+  css?: CSS;
   cell?: CellDef;
 };
 
@@ -192,8 +192,8 @@ export const SplitterTable: React.FC<SplitterTableProps> = ({
       <thead>
         <tr>
           <Th></Th>
-          {columns.map((column, index) => (
-            <Th css={{ textAlign: "start" }} key={`header-${index}`}>
+          {columns.map(({css, ...column}, index) => (
+            <Th css={{ textAlign: "start", ...css }} key={`header-${index}`}>
               {column.header}
             </Th>
           ))}
@@ -299,8 +299,8 @@ export const Table: React.FC<TableProps> = ({ rows, columns }): JSX.Element => {
     <StyledTable>
       <thead>
         <tr>
-          {columns.map((column, index) => (
-            <Th css={{ textAlign: "start" }} key={`header-${index}`}>
+          {columns.map(({css, ...column}, index) => (
+            <Th css={{ textAlign: "start", ...css }} key={`header-${index}`}>
               {column.header}
             </Th>
           ))}
