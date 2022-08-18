@@ -63,11 +63,13 @@ export const Navbar: React.FC<{ logoText?: string }> = ({
       }}
     >
       <Box
+        as="a"
         css={{
           display: "flex",
           alignItems: "center",
           "@sm": { display: "none" },
         }}
+        href="/"
       >
         <ObolDarkBgH />
         {logoText && (
