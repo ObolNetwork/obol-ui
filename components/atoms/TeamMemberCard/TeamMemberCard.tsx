@@ -13,6 +13,8 @@ export const TeamMemberCard: React.FC<EcosystemCardProps> = (props) => (
       borderRadius: "$3",
       backgroundColor: "$bg04",
       alignItems: "center",
+      justifyItems: "center",
+      width: "224px",
       gap: "$lg",
       p: "$xl",
       "@sm": { gridTemplateColumns: "1fr 2fr", p: "$sm" },
@@ -42,7 +44,7 @@ export const TeamMemberCard: React.FC<EcosystemCardProps> = (props) => (
       <Image
         placeholder="blur"
         alt={props.heading}
-        css={{ borderRadius: "$round"}}
+        css={{ borderRadius: "$round" }}
         src={props.image}
         width={160}
         height={160}
