@@ -1,5 +1,7 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { withDesign } from "storybook-addon-designs";
+import { EcosystemCardProps } from "../../utils";
+import { Box } from "../Box/Box";
 import { TeamMemberCard } from "./TeamMemberCard";
 
 export default {
@@ -12,10 +14,59 @@ const Template: ComponentStory<typeof TeamMemberCard> = (args) => (
   <TeamMemberCard {...args}>{args.children}</TeamMemberCard>
 );
 
-export const Default = Template.bind({});
+const listMembers: EcosystemCardProps[] = [
+  {
+    image: "https://obol.tech/assets/team/Edax.png",
+    heading: "Collin Myers",
+    subheading: "CEO Founder",
+    links: [
+      { link: "https://github.com/collin", network: "twitter" },
+      { link: "https://github.com/collin", network: "github" },
+    ],
+  },
+  {
+    image: "https://obol.tech/assets/team/Edax.png",
+    heading: "Collin Myers",
+    subheading: "Marketing Strategy Advisor",
+    links: [
+      { link: "https://github.com/collin", network: "twitter" },
+      { link: "https://github.com/collin", network: "github" },
+    ],
+  },
+  {
+    image: "https://obol.tech/assets/team/Edax.png",
+    heading: "Collin Myers",
+    subheading: "Technical Project Manager PM founder",
+    links: [
+      { link: "https://github.com/collin", network: "twitter" },
+      { link: "https://github.com/collin", network: "github" },
+    ],
+  },
+  {
+    image: "https://obol.tech/assets/team/Edax.png",
+    heading: "Collin Myers",
+    subheading: "Ceo Founder",
+    links: [
+      { link: "https://github.com/collin", network: "twitter" },
+      { link: "https://github.com/collin", network: "github" },
+    ],
+  },
+];
 
+const TemplateArray: ComponentStory<typeof TeamMemberCard> = (args) => {
+  return (
+    <Box css={{ display: "flex", gap: "$md" }}>
+      {listMembers.map((member, index) => (
+        <TeamMemberCard key={`o:card-${index}:`} {...member} />
+      ))}
+    </Box>
+  );
+};
+
+export const Default = Template.bind({});
+export const WithArray = TemplateArray.bind({});
 Default.args = {
-  image: "/assets/team/Collin.png",
+  image: "https://obol.tech/assets/team/Edax.png",
   heading: "Collin Myers",
   subheading: "CEO Founder",
   links: [

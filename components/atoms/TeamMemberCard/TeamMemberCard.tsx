@@ -7,6 +7,7 @@ import { EcosystemCardProps } from "../../utils/types";
 
 export const TeamMemberCard: React.FC<EcosystemCardProps> = (props) => (
   <Box
+    className="team-member-card"
     css={{
       display: "grid",
       gridTemplateColumns: "1fr",
@@ -14,9 +15,9 @@ export const TeamMemberCard: React.FC<EcosystemCardProps> = (props) => (
       backgroundColor: "$bg04",
       alignItems: "center",
       justifyItems: "center",
-      width: "224px",
+      width: "288px",
       gap: "$lg",
-      p: "$xl",
+      py: "$xl",
       "@sm": { gridTemplateColumns: "1fr 2fr", p: "$sm" },
     }}
   >
