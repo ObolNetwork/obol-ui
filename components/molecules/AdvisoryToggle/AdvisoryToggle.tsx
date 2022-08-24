@@ -34,7 +34,6 @@ export const AdvisoryToggleBullet: React.FC<AdvisoryToggleBulletProps> = (props)
       className="advisory-bullet"
       css={{
         display: "flex",
-        flexWrap: "wrap",
         alignItems: "center",
         gap: "$xs",
         minHeight: "$2xl",
@@ -44,23 +43,27 @@ export const AdvisoryToggleBullet: React.FC<AdvisoryToggleBulletProps> = (props)
       }}
     >
       {props.state === "completed" ? (
-        <BulletCheckIcon />
+        <Box>
+          <BulletCheckIcon />
+        </Box>
       ) : (
-        <Box
-          css={{
-            display: "grid",
-            placeItems: "center",
-            width: "$lg",
-            height: "$lg",
-            backgroundColor:
-              props.state === "upcoming" ? "$bg03" : "$obolMidGreen",
-            borderRadius: "$round",
-            fontSize: "$3",
-            fontWeight: "$bold",
-            color: props.state === "upcoming" ? "$muted" : "$obolGreen",
-          }}
-        >
-          {props.rank}
+        <Box>
+          <Box
+            css={{
+              display: "grid",
+              placeItems: "center",
+              width: "$lg",
+              height: "$lg",
+              backgroundColor:
+                props.state === "upcoming" ? "$bg03" : "$obolMidGreen",
+              borderRadius: "$round",
+              fontSize: "$3",
+              fontWeight: "$bold",
+              color: props.state === "upcoming" ? "$muted" : "$obolGreen",
+            }}
+          >
+            {props.rank}
+          </Box>
         </Box>
       )}
       <Text color={color}>{props.children}</Text>
