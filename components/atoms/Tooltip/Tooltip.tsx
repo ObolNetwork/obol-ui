@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { styled, keyframes } from "../../../stitches.config";
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
 
@@ -60,9 +60,10 @@ export const TooltipContent = TooltipPrimitive.Content;
 export const TooltipArrow = TooltipPrimitive.Arrow;
 
 export interface TooltipComponentProps extends TooltipPrimitive.TooltipProps {
+  content: React.ReactNode | string;
   side?: "top" | "bottom" | "right" | "left";
   sideOffset?: number;
-  content: React.ReactNode | string;
+  showOnClick?: boolean;
 }
 
 export const TooltipComponent: React.FC<TooltipComponentProps> = ({
@@ -70,24 +71,35 @@ export const TooltipComponent: React.FC<TooltipComponentProps> = ({
   sideOffset = 5,
   children,
   content,
-  open,
-  onOpenChange,
+  showOnClick,
   ...props
 }) => {
- 
+  const [open, setOpen] = useState(false);
+  const StyledContentComp = (
+    <StyledContent
+      className="tooltip-content"
+      side={side}
+      sideOffset={sideOffset}
+    >
+      {content}
+      <StyledArrow className="arrow" />
+    </StyledContent>
+  );
   return (
     <Provider delayDuration={0} skipDelayDuration={100}>
-      <Tooltip {...props} open={open} onOpenChange={onOpenChange}>
-        <TooltipTrigger asChild>{children}</TooltipTrigger>
-        <StyledContent
-          className="tooltip-content"
-          side={side}
-          sideOffset={sideOffset}          
-        >
-          {content}
-          <StyledArrow className="arrow" />
-        </StyledContent>
-      </Tooltip>
+      {showOnClick ? (
+        <Tooltip {...props} open={open} onOpenChange={() => setOpen(false)}>
+          <TooltipTrigger onClick={() => setOpen(true)} asChild>
+            {children}
+          </TooltipTrigger>
+          {StyledContentComp}
+        </Tooltip>
+      ) : (
+        <Tooltip {...props}>
+          <TooltipTrigger asChild>{children}</TooltipTrigger>
+          {StyledContentComp}
+        </Tooltip>
+      )}
     </Provider>
   );
 };
