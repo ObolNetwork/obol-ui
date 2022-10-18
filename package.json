@@ -1,6 +1,6 @@
 {
   "name": "@obolnetwork/obol-ui",
-  "version": "1.0.31",
+  "version": "1.0.32",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "license": "MIT",
