@@ -16,3 +16,4 @@ export * from "./NumberField/NumberField"
 export * from './Tooltip/Tooltip';
 export * from './LoadingButton/LoadingButton';
 export * from './Checkbox/Checkbox';
+export * from './Dialog/Dialog';
