@@ -52,6 +52,7 @@ export const Navbar: React.FC<{ logoText?: string }> = ({
 
   const LogoIcon = () => (
     <Box
+      as="a"
       css={{
         display: "flex",
         flex: 1,
@@ -61,15 +62,14 @@ export const Navbar: React.FC<{ logoText?: string }> = ({
           pl: "$sm",
         },
       }}
+      href="/"
     >
       <Box
-        as="a"
         css={{
           display: "flex",
           alignItems: "center",
           "@sm": { display: "none" },
         }}
-        href="/"
       >
         <ObolDarkBgH />
         {logoText && (
