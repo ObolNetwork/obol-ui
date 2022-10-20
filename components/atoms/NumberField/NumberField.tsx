@@ -37,7 +37,7 @@ export const NumberField = forwardRef<HTMLInputElement, NumberFieldProps>(
     };
 
     const handleOnChange = (e: any) => {
-      const value = e.target.value as number;
+      const value = Number(e.target.value)
       if (value > max) {
         setQty(max);
       } else if (value < min) {
