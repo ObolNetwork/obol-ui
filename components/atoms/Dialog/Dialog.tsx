@@ -45,8 +45,8 @@ const StyledContent = styled(DialogPrimitive.Content, {
 const Content: React.FC = ({ children, ...props }) => {
   return (
     <DialogPrimitive.Portal className="dialog-portal-content">
-      <StyledOverlay />
-      <StyledContent {...props}>{children}</StyledContent>
+      <StyledOverlay className="dialog-overlay" />
+      <StyledContent className="dialog-styled-content" {...props}>{children}</StyledContent>
     </DialogPrimitive.Portal>
   );
 };
@@ -72,8 +72,11 @@ export const DialogContent = Content;
 export const DialogTitle = StyledTitle;
 export const DialogDescription = StyledDescription;
 export const DialogClose = DialogPrimitive.Close;
+export const DialogStyledContent = StyledContent;
+export const DialogOverlay = StyledOverlay;
+export const DialogPortal = DialogPrimitive.Portal;
 
-const IconButton = styled("button", {
+export const IconButton = styled("button", {
   all: "unset",
   fontFamily: "inherit",
   borderRadius: "100%",
