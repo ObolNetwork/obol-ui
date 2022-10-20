@@ -76,7 +76,7 @@ export const DialogStyledContent = StyledContent;
 export const DialogOverlay = StyledOverlay;
 export const DialogPortal = DialogPrimitive.Portal;
 
-export const IconButton = styled("button", {
+export const DialogIconButton = styled("button", {
   all: "unset",
   fontFamily: "inherit",
   borderRadius: "100%",
@@ -113,9 +113,9 @@ export const DialogComponent: React.FC<DialogComponentProps> = (props) => (
       </DialogDescription>
       {props.children}
       <DialogClose asChild>
-        <IconButton aria-label="Close">
+        <DialogIconButton aria-label="Close">
           <Cross2Icon />
-        </IconButton>
+        </DialogIconButton>
       </DialogClose>
     </DialogContent>
   </Dialog>
