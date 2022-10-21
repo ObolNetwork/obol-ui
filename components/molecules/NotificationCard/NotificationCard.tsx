@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import { styled } from "../../../stitches.config";
 import { Box, Link, Text } from "../../atoms";
 import { AlertIcon, ArrowForward } from "../../icons";
@@ -13,7 +14,7 @@ export const NotificationContainer = styled(Box, {
 });
 
 export interface NotificationCardProps {
-  heading: string;
+  heading: string | ReactNode;
   subHeading?: string;
   link?: string;
   linkText?: string;
