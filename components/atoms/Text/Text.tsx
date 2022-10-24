@@ -71,6 +71,16 @@ export const Text = styled("span", {
         fontSize: "$2",
         color: "$textMuted",
       },
+      pill:{
+        fontSize: "$3",
+        lineHeight: "16px",
+        color: "$$color",
+        border: " 1px solid $$color",
+        background: "rgba(60, 210, 221, 0.1)",
+        display: "inline-block",
+        borderRadius: "$1",
+        padding: "0 $xxxs", 
+      }
     },
     size: {
       1: { fontSize: "$1" },
