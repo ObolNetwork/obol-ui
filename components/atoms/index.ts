@@ -17,4 +17,4 @@ export * from './Tooltip/Tooltip';
 export * from './LoadingButton/LoadingButton';
 export * from './Checkbox/Checkbox';
 export * from './Switch/Switch';
-export * from './Dialog/Dialog';
+export * from './Flex/Flex';
