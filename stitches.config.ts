@@ -86,6 +86,7 @@ export const {
       obolDisabled: "#1A292D",
       linkButtonHover: "#A0F3D9",
       progressTrackerGreen: "#1D5249",
+      lightGrey: "#C4C4C4",
 
       //secondary
       coordinate: "#9167E4",
