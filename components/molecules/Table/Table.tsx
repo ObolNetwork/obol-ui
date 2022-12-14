@@ -38,10 +38,10 @@ const Td = styled("td", {
     borderRadius: 0,
     width: "100%",
   },
-  textOverflow: 'ellipsis',
+  textOverflow: "ellipsis",
   maxWidth: 0,
-  whiteSpace: 'nowrap',
-  overflow: 'hidden',
+  whiteSpace: "nowrap",
+  overflow: "hidden",
 
   variants: {
     splitter: {
@@ -66,6 +66,7 @@ const Td = styled("td", {
 
 const Th = styled("th", {
   border: "2px solid $bg04",
+  minWidth: "20px",
   py: "$sm",
   px: "$sm",
   textAlign: "center",
@@ -93,11 +94,13 @@ const BoxBorderTop = styled(Box, {
 type AddNewRowProps = {
   onAddRow: ((item?: unknown) => void) | undefined;
   totalSplitFooter: number;
+  addText?: string;
 };
 
 const AddNewRow: React.FC<AddNewRowProps> = ({
   onAddRow,
   totalSplitFooter,
+  addText = "+ Add Recipient",
 }) => {
   return (
     <Tr>
@@ -105,7 +108,13 @@ const AddNewRow: React.FC<AddNewRowProps> = ({
         <BoxBorderTop />
       </Td>
       <Td splitter css={{ backgroundColor: "$bg03" }}>
-        <BoxBorderTop>
+        <BoxBorderTop
+          css={{
+            "@xs": {
+              px: "$2",
+            },
+          }}
+        >
           {onAddRow && (
             <Button
               type="button"
@@ -120,6 +129,10 @@ const AddNewRow: React.FC<AddNewRowProps> = ({
                 "&:disabled": {
                   borderColor: "transparent",
                 },
+
+                "@xs": {
+                  px: "$1",
+                },
               }}
               fullWidth
               ghost
@@ -129,7 +142,10 @@ const AddNewRow: React.FC<AddNewRowProps> = ({
               }}
               disabled={totalSplitFooter === 100}
             >
-              + Add Signer
+              <Box css={{ display: "none", "@xs": { display: "inline-block" } }}>
+                + Recipient
+              </Box>{" "}
+              <Box css={{ "@xs": { display: "none" } }}>{addText}</Box>
             </Button>
           )}
         </BoxBorderTop>
@@ -177,6 +193,7 @@ export interface SplitterTableProps extends TableProps {
   onRemoveRow?(item: string | number): void;
   onUpdateRow?(id: string, value: string | number, accessorKey: unknown): void;
   totalSplitFooter?: number;
+  addText?: string;
 }
 
 export const SplitterTable: React.FC<SplitterTableProps> = ({
@@ -186,13 +203,14 @@ export const SplitterTable: React.FC<SplitterTableProps> = ({
   onRemoveRow,
   onUpdateRow,
   totalSplitFooter = 100,
+  addText,
 }): JSX.Element => {
   return (
     <StyledTable>
       <thead>
         <tr>
           <Th></Th>
-          {columns.map(({css, ...column}, index) => (
+          {columns.map(({ css, ...column }, index) => (
             <Th css={{ textAlign: "start", ...css }} key={`header-${index}`}>
               {column.header}
             </Th>
@@ -288,7 +306,11 @@ export const SplitterTable: React.FC<SplitterTableProps> = ({
             </tr>
           )
         )}
-        <AddNewRow onAddRow={onAddRow} totalSplitFooter={totalSplitFooter} />
+        <AddNewRow
+          onAddRow={onAddRow}
+          totalSplitFooter={totalSplitFooter}
+          addText={addText}
+        />
       </tbody>
     </StyledTable>
   );
@@ -299,7 +321,7 @@ export const Table: React.FC<TableProps> = ({ rows, columns }): JSX.Element => {
     <StyledTable>
       <thead>
         <tr>
-          {columns.map(({css, ...column}, index) => (
+          {columns.map(({ css, ...column }, index) => (
             <Th css={{ textAlign: "start", ...css }} key={`header-${index}`}>
               {column.header}
             </Th>
