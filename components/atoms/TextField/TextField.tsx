@@ -141,7 +141,12 @@ export const TextFieldWithCopy = forwardRef<HTMLInputElement, TextFieldType>(
         />
         <Tooltip open={isCopied}>
           <TooltipTrigger asChild>
-            <IconButton onClick={() => copyToClipBoard(inputValue)}>
+            <IconButton
+              onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+                e.preventDefault();
+                copyToClipBoard(inputValue);
+              }}
+            >
               {!isCopied ? <CopyIcon /> : <CheckIcon />}
             </IconButton>
           </TooltipTrigger>
