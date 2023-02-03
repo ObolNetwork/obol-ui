@@ -11,8 +11,6 @@ about: Create a new feature or suggest an improvement
 
 <!--Describe the solution to be implemented-->
 
-Environment to deploy this in:
-
 - [ ] UX Flows and/or Designs have been reviewed and approved
 
 # 🧪 Tests
