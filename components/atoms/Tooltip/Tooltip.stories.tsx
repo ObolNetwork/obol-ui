@@ -20,5 +20,5 @@ Default.args = {
   children: <Button css={{ ml: "10rem" }}>Tooltip</Button>,
   side: "bottom",
   content: `An ENR is an "Ethereum Node Record", and is used to identify your client to the other clients in the cluster.`,
-  showOnClick: false
+  showOnClick: false,
 };

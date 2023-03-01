@@ -119,7 +119,7 @@ export const TextFieldWithCopy = forwardRef<HTMLInputElement, TextFieldType>(
       () => {
         setIsCopied(false);
       },
-      isCopied ? 3000 : null
+      isCopied ? 3000 : null,
     );
 
     const handleOnChange = (e: any) => {
@@ -157,7 +157,7 @@ export const TextFieldWithCopy = forwardRef<HTMLInputElement, TextFieldType>(
         </Tooltip>
       </Box>
     );
-  }
+  },
 );
 
 TextFieldWithCopy.displayName = "TextFieldWithCopy";

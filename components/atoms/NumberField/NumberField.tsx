@@ -37,7 +37,7 @@ export const NumberField = forwardRef<HTMLInputElement, NumberFieldProps>(
     };
 
     const handleOnChange = (e: any) => {
-      const value = Number(e.target.value)
+      const value = Number(e.target.value);
       if (value > max) {
         setQty(max);
       } else if (value < min) {
@@ -122,7 +122,7 @@ export const NumberField = forwardRef<HTMLInputElement, NumberFieldProps>(
         </IconButton>
       </Box>
     );
-  }
+  },
 );
 
 NumberField.displayName = "NumberField";

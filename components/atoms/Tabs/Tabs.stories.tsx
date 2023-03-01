@@ -8,7 +8,7 @@ const TabsDemo = () => (
     css={{
       backgroundColor: "$cardBackgroundDark",
       color: "white",
-      height:'80vh'
+      height: "80vh",
     }}
   >
     <Tabs defaultValue="tab1">

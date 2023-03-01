@@ -128,7 +128,7 @@ const TemplateSplitter: ComponentStory<typeof SplitterTable> = (args) => {
   const [maxSplit, setMaxSplit] = useState(100);
 
   const handleOnAddRow = (
-    item: SplitterType = { id: uuid(), operator: null, split: null }
+    item: SplitterType = { id: uuid(), operator: null, split: null },
   ) => {
     setData([...data, item]);
   };
@@ -140,8 +140,8 @@ const TemplateSplitter: ComponentStory<typeof SplitterTable> = (args) => {
   const handleOnUpdateRow = (id: string, value: string, accessorKey: any) => {
     setData(
       data.map((item) =>
-        item.id === id ? { ...item, [accessorKey]: value } : { ...item }
-      )
+        item.id === id ? { ...item, [accessorKey]: value } : { ...item },
+      ),
     );
   };
 
@@ -150,7 +150,7 @@ const TemplateSplitter: ComponentStory<typeof SplitterTable> = (args) => {
       const totalValue = data.reduce(
         (prev, curr) =>
           curr["split"] ? parseFloat(curr["split"]) + prev : prev,
-        0
+        0,
       );
 
       setMaxSplit(totalValue);

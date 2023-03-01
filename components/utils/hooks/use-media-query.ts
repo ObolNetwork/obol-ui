@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import { mediaQueryKeys } from "../../../stitches.config";
 
-type MediaQueryKeysType = typeof mediaQueryKeys[keyof typeof mediaQueryKeys];
+type MediaQueryKeysType = (typeof mediaQueryKeys)[keyof typeof mediaQueryKeys];
 
 export function useMediaQuery(query: MediaQueryKeysType) {
   const [matches, setMatches] = useState(false);
@@ -25,8 +25,8 @@ export function useMediaQuery(query: MediaQueryKeysType) {
 }
 
 export const MediaQueryKeys = {
-  xs: '(max-width: 520px)',
-  sm: '(max-width: 900px)',
-  md: '(max-width: 1200px)',
-  lg: '(max-width: 1800px)',
+  xs: "(max-width: 520px)",
+  sm: "(max-width: 900px)",
+  md: "(max-width: 1200px)",
+  lg: "(max-width: 1800px)",
 } as const;

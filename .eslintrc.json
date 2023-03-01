@@ -8,7 +8,7 @@
         // example of overriding a rule
         "storybook/hierarchy-separator": "error",
         // example of disabling a rule
-        "storybook/default-exports": "off",
+        "storybook/default-exports": "off"
       }
     }
   ]

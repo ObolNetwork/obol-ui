@@ -46,7 +46,9 @@ const Content: React.FC = ({ children, ...props }) => {
   return (
     <DialogPrimitive.Portal className="dialog-portal-content">
       <StyledOverlay className="dialog-overlay" />
-      <StyledContent className="dialog-styled-content" {...props}>{children}</StyledContent>
+      <StyledContent className="dialog-styled-content" {...props}>
+        {children}
+      </StyledContent>
     </DialogPrimitive.Portal>
   );
 };

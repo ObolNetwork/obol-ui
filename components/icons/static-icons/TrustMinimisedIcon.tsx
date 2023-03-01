@@ -1,6 +1,8 @@
 import { GlowIconBox, GlowIconBoxProps } from "../GlowIconBox";
 
-export const TrustMinimisedIcon: React.FC<GlowIconBoxProps> = ({ glow = "true" }) => {
+export const TrustMinimisedIcon: React.FC<GlowIconBoxProps> = ({
+  glow = "true",
+}) => {
   const svg = (
     <svg width="48" height="48" viewBox="0 0 48 48">
       <path

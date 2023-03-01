@@ -8,7 +8,7 @@ export default {
 } as ComponentMeta<typeof HeroSection>;
 
 const Template: ComponentStory<typeof HeroSection> = (
-  args: HeroSectionProps
+  args: HeroSectionProps,
 ) => <HeroSection {...args}></HeroSection>;
 
 export const Default = Template.bind({});

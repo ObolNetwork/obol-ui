@@ -67,9 +67,8 @@ NOTE: this can't live in the stories file because the storybook navigator will t
 type IconButtonComponentVariants = Stitches.VariantProps<typeof IconButton>;
 export type IconButtonComponentProps = IconButtonComponentVariants;
 
-export const IconButtonStory =
-  modifyVariantsForStory<
-    IconButtonComponentVariants,
-    IconButtonComponentProps,
-    typeof IconButton
-  >(IconButton);
+export const IconButtonStory = modifyVariantsForStory<
+  IconButtonComponentVariants,
+  IconButtonComponentProps,
+  typeof IconButton
+>(IconButton);

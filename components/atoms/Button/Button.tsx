@@ -57,7 +57,7 @@ export const Button = styled("button", {
   variants: {
     color: {
       ghost: {
-        $$background: "transparent",      
+        $$background: "transparent",
       },
       primary: {
         $$background: "$colors$obolGreen",
@@ -199,11 +199,10 @@ export type ButtonComponentProps = ButtonComponentVariants & {
   loading?: boolean;
 };
 
-export const ButtonStory =
-  modifyVariantsForStory<
-    ButtonComponentVariants,
-    ButtonComponentProps,
-    typeof Button
-  >(Button);
+export const ButtonStory = modifyVariantsForStory<
+  ButtonComponentVariants,
+  ButtonComponentProps,
+  typeof Button
+>(Button);
 
 // export const WalletButton =

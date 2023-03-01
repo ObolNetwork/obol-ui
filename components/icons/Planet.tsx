@@ -170,5 +170,5 @@ export const PlanetIcon = React.forwardRef<SVGSVGElement, IconProps>(
         </defs>
       </svg>
     );
-  }
+  },
 );

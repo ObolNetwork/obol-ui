@@ -33,4 +33,3 @@ export * from "./static-icons/HelpIcon";
 export * from "./static-icons/WaitingIcon";
 export * from "./static-icons/MinusIcon";
 export * from "./static-icons/PlusIcon";
-

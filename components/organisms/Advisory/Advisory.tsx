@@ -18,7 +18,7 @@ export interface AdvisoryItemProps {
     enableNextStep: boolean,
     onAccept?: (value: number) => void,
     onBack?: (value: number) => void,
-    onComplete?: (value: string) => void
+    onComplete?: (value: string) => void,
   ): JSX.Element;
   enableNextStep: boolean;
 }
@@ -59,6 +59,7 @@ export const Advisory: React.FC<AdvisoryProps> = ({
       }}
     >
       <Box
+        className="advisory-toggles"
         css={{
           display: "flex",
           fd: "column",
@@ -68,6 +69,7 @@ export const Advisory: React.FC<AdvisoryProps> = ({
           borderRight: "2px solid $bg04",
           btlr: "$2",
           bblr: "$2",
+          width: "330px",
         }}
       >
         <ToggleGroup
@@ -112,6 +114,7 @@ export const Advisory: React.FC<AdvisoryProps> = ({
         </ToggleGroup>
       </Box>
       <Box
+        className="advisory-content"
         css={{
           display: "flex",
           flex: 2,
@@ -127,7 +130,7 @@ export const Advisory: React.FC<AdvisoryProps> = ({
           itemSelected.enableNextStep,
           handleOnAccept,
           handleOnBack,
-          onComplete
+          onComplete,
         )}
       </Box>
     </Box>
