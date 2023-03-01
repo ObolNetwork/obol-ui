@@ -1,8 +1,8 @@
-import fs from 'fs';
-import path from 'path';
+import fs from "fs";
+import path from "path";
 
-import dotenv from 'dotenv';
-import * as Figma from 'figma-api';
+import dotenv from "dotenv";
+import * as Figma from "figma-api";
 
 dotenv.config();
 
@@ -11,7 +11,7 @@ dotenv.config();
  */
 async function main() {
   const api = new Figma.Api({
-    personalAccessToken: process.env.FIGMA_ACCESS_TOKEN || 'token',
+    personalAccessToken: process.env.FIGMA_ACCESS_TOKEN || "token",
   });
 
   const file = await api.getFile(FIGMA_FILE_KEY, {
@@ -20,7 +20,7 @@ async function main() {
 
   const styles: Styles[] = Object.entries(file.styles)
     .filter(([, { styleType }]) => styleType === FILL)
-    .map(([id, { name }]) => ({ name: name.replace(/\s/g, ''), id }))
+    .map(([id, { name }]) => ({ name: name.replace(/\s/g, ""), id }))
     .sort((a, b) => a.name.localeCompare(b.name));
 
   const result = mapStyleToNode(file, styles);
@@ -30,10 +30,10 @@ async function main() {
 }
 
 //#region constants
-const FIGMA_FILE_KEY = 'iXKExkvVS8K9Vc13mz3jxk';
-const COLORS_DOCUMENT = '3542:11605';
-const FILL = 'FILL';
-const RECTANGLE = 'RECTANGLE';
+const FIGMA_FILE_KEY = "iXKExkvVS8K9Vc13mz3jxk";
+const COLORS_DOCUMENT = "3542:11605";
+const FILL = "FILL";
+const RECTANGLE = "RECTANGLE";
 //#endregion constants
 
 //#region Types
@@ -51,7 +51,7 @@ type ColorNode = {
 //#region Utils functions
 const rgbToHex = (r: number, g: number, b: number) => {
   const color =
-    '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+    "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
 
   if (color.length > 7) {
     return color.slice(0, 7);
@@ -59,7 +59,7 @@ const rgbToHex = (r: number, g: number, b: number) => {
   return color;
 };
 
-const noChildren = (node: any) => node != null && !('children' in node);
+const noChildren = (node: any) => node != null && !("children" in node);
 const isRectangle = (node: any) => node != null && node.type === RECTANGLE;
 
 const findStyleInTree = (root: any, styleId: any) => {
@@ -73,7 +73,7 @@ const findStyleInTree = (root: any, styleId: any) => {
       .reduce(
         (accumulator: any, current: any) =>
           accumulator != null ? accumulator : current,
-        undefined
+        undefined,
       );
   }
 };
@@ -95,9 +95,9 @@ const mapStyleToNode = (file: any, styles: Styles[]) => {
   return colorNodes;
 };
 
-const generateFile = (content: ColorNode[], fileName = 'colors.ts') => {
+const generateFile = (content: ColorNode[], fileName = "colors.ts") => {
   if (!content) {
-    throw new Error('No styles found');
+    throw new Error("No styles found");
   }
 
   const colorsGroupName: string[] = [];
@@ -105,24 +105,27 @@ const generateFile = (content: ColorNode[], fileName = 'colors.ts') => {
   const colors = content.reduce((prev, curr) => {
     let colorGroupName;
 
-    if (!colorsGroupName.includes(curr.name.split('/')[0])) {
-      colorsGroupName.push(curr.name.split('/')[0]);
-      colorGroupName = curr.name.split('/')[0];
+    if (!colorsGroupName.includes(curr.name.split("/")[0])) {
+      colorsGroupName.push(curr.name.split("/")[0]);
+      colorGroupName = curr.name.split("/")[0];
     }
 
     return (
       prev +
-      (colorGroupName ? `/** ${colorGroupName}  */\n` : '') +
+      (colorGroupName ? `/** ${colorGroupName}  */\n` : "") +
       `  '${curr.name}': '${curr.color}',\n`
     );
-  }, '');
+  }, "");
 
   const fileContents = `/* Updated at ${new Date().toUTCString()}*/
 export const colors = {
 ${colors}
 };`;
 
-  fs.writeFileSync(path.resolve(`./components/utils/${fileName}`), fileContents);
+  fs.writeFileSync(
+    path.resolve(`./components/utils/${fileName}`),
+    fileContents,
+  );
 
   // eslint-disable-next-line no-console
   console.log(`Wrote ${content.length} colors to colors.ts`);
@@ -131,7 +134,7 @@ ${colors}
 
 (async function () {
   await main()
-    .catch(error => {
+    .catch((error) => {
       console.error(error);
       process.exit(1);
     })

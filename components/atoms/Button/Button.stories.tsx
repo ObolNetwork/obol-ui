@@ -58,7 +58,7 @@ export const WithLoading2 = TemplateLoading.bind({});
 
 WithLoading2.args = {
   loading: true,
-  color:"primary",
+  color: "primary",
   children: "Button",
 };
 

@@ -62,5 +62,8 @@ NOTE: this can't live in the stories file because the storybook navigator will t
 type ComponentVariants = Stitches.VariantProps<typeof Link>;
 type ComponentProps = ComponentVariants;
 
-export const LinkStory =
-  modifyVariantsForStory<ComponentVariants, ComponentProps, typeof Link>(Link);
+export const LinkStory = modifyVariantsForStory<
+  ComponentVariants,
+  ComponentProps,
+  typeof Link
+>(Link);

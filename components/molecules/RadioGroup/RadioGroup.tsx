@@ -46,7 +46,6 @@ export const RadioGroupItemLabel = styled("label", {
   textTransform: "uppercase",
 });
 
-
 // TODO: implemente all-in-one Radio Group component
 interface RadioGroupItemProps {
   value: string;
@@ -81,7 +80,12 @@ export const RadioGroupComponent: React.FC<RadioGroupComponentsProps> = ({
   onValueChange,
   ...props
 }) => (
-  <RadioGroup aria-label="View density" value={value} onValueChange={onValueChange} {...props}>
+  <RadioGroup
+    aria-label="View density"
+    value={value}
+    onValueChange={onValueChange}
+    {...props}
+  >
     {items.map((item, index) => (
       <RadioGroupItem
         key={`item-${item.label}-${index}`}

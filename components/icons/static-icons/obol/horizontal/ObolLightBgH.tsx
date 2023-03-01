@@ -1,4 +1,3 @@
-
 export const ObolLightBgH = () => (
   <svg width="103" height="24" viewBox="0 0 103 24">
     <path

@@ -13,5 +13,5 @@ export {
   globalCss,
   keyframes,
   config,
-  reset
+  reset,
 } from "./stitches.config";

@@ -19,20 +19,16 @@ export const Default = Template.bind({});
 Default.args = {};
 
 const TemplateWithCopyDefaultValue: ComponentStory<typeof TextFieldWithCopy> = (
-  args
+  args,
 ) => {
   const [value, setValue] = useState(args?.value || "");
   const ref: any = useRef<HTMLInputElement>();
   const handleOnChange = (e: any) => {
     setValue(e.target.value);
     console.log(e.target.value);
-  }
+  };
   return (
-    <TextFieldWithCopy
-      value={value}
-      ref={ref}
-      readOnly
-    ></TextFieldWithCopy>
+    <TextFieldWithCopy value={value} ref={ref} readOnly></TextFieldWithCopy>
   );
 };
 

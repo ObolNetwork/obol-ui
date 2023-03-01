@@ -17,7 +17,7 @@ export default {
 const Template: ComponentStory<typeof RadioGroupComponent> = (args) => {
   const [value, setValue] = useState<string>();
   return (
-    <form style={{backgroundColor: "#182D32"}}>
+    <form style={{ backgroundColor: "#182D32" }}>
       {value}
       <RadioGroup
         value={value}

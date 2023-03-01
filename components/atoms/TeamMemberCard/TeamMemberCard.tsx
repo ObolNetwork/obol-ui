@@ -17,7 +17,7 @@ export const TeamMemberCard: React.FC<EcosystemCardProps> = (props) => (
       width: "288px",
       gap: "$lg",
       py: "$xl",
-      "@sm": { gridTemplateColumns: "1fr 2fr", p: "$sm", height:"116px" },
+      "@sm": { gridTemplateColumns: "1fr 2fr", p: "$sm", height: "116px" },
     }}
   >
     <Box

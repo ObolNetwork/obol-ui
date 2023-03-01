@@ -10,7 +10,7 @@ type MappedColor = {
 
 const colorVariants = Object.keys(colors).reduce(
   (prev, curr) => ({ ...prev, [curr]: { $$color: "$colors$" + curr } }),
-  {} as MappedColor
+  {} as MappedColor,
 );
 
 export const Text = styled("span", {
@@ -71,7 +71,7 @@ export const Text = styled("span", {
         fontSize: "$2",
         color: "$textMuted",
       },
-      pill:{
+      pill: {
         fontSize: "$3",
         lineHeight: "16px",
         color: "$$color",
@@ -79,8 +79,8 @@ export const Text = styled("span", {
         background: "rgba(60, 210, 221, 0.1)",
         display: "inline-block",
         borderRadius: "$1",
-        padding: "0 $xxxs", 
-      }
+        padding: "0 $xxxs",
+      },
     },
     size: {
       1: { fontSize: "$1" },
@@ -130,5 +130,8 @@ NOTE: this can't live in the stories file because the storybook navigator will t
 type ComponentVariants = Stitches.VariantProps<typeof Text>;
 type ComponentProps = ComponentVariants;
 
-export const TextStory =
-  modifyVariantsForStory<ComponentVariants, ComponentProps, typeof Text>(Text);
+export const TextStory = modifyVariantsForStory<
+  ComponentVariants,
+  ComponentProps,
+  typeof Text
+>(Text);

@@ -12,7 +12,7 @@ export default {
 const Template: ComponentStory<typeof Advisory> = (args) => {
   const [items, setItems] = useState(args.items);
   const [itemSelected, setItemSelected] = useState<AdvisoryItemProps>(
-    args.items[0]
+    args.items[0],
   );
   const handleOnUpdateState = (rank: number) => {
     setItems(
@@ -22,7 +22,7 @@ const Template: ComponentStory<typeof Advisory> = (args) => {
           return { ...item, state: "enabled" };
         }
         return item;
-      })
+      }),
     );
   };
 
@@ -37,7 +37,7 @@ const Template: ComponentStory<typeof Advisory> = (args) => {
           return { ...item, state: "upcoming" };
         }
         return item;
-      })
+      }),
     );
     const itemBehind = items.find((item) => item.rank === rank - 1);
     if (itemBehind) setItemSelected(itemBehind);

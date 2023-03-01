@@ -2,15 +2,15 @@ import React from "react";
 import * as nextImage from "next/image";
 Object.defineProperty(nextImage, "default", {
   configurable: true,
-  value: props => {
-    const height = props.height
-    const width = props.width
-    const quotient = height / width
-    const paddingTop = isNaN(quotient) ? "100%" : `${quotient * 100}%`
-    let wrapperStyle
-    let sizerStyle
-    let sizerSvg
-    let toBase64
+  value: (props) => {
+    const height = props.height;
+    const width = props.width;
+    const quotient = height / width;
+    const paddingTop = isNaN(quotient) ? "100%" : `${quotient * 100}%`;
+    let wrapperStyle;
+    let sizerStyle;
+    let sizerSvg;
+    let toBase64;
     let imgStyle = {
       position: "absolute",
       top: 0,
@@ -30,9 +30,13 @@ Object.defineProperty(nextImage, "default", {
       maxHeight: "100%",
       objectFit: props.objectFit ? props.objectFit : undefined,
       objectPosition: props.objectPosition ? props.objectPosition : undefined,
-    }
+    };
 
-    if (width !== undefined && height !== undefined && props.layout !== "fill") {
+    if (
+      width !== undefined &&
+      height !== undefined &&
+      props.layout !== "fill"
+    ) {
       if (props.layout === "responsive") {
         wrapperStyle = {
           display: "block",
@@ -40,12 +44,12 @@ Object.defineProperty(nextImage, "default", {
           position: "relative",
           boxSizing: "border-box",
           margin: 0,
-        }
+        };
         sizerStyle = {
           display: "block",
           boxSizing: "border-box",
           paddingTop,
-        }
+        };
       } else if (props.layout === "intrinsic" || props.layout === undefined) {
         wrapperStyle = {
           display: "inline-block",
@@ -54,14 +58,14 @@ Object.defineProperty(nextImage, "default", {
           position: "relative",
           boxSizing: "border-box",
           margin: 0,
-        }
+        };
         sizerStyle = {
           boxSizing: "border-box",
           display: "block",
           maxWidth: "100%",
-        }
-        sizerSvg = `<svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg" version="1.1"/>`
-        toBase64 = Buffer.from(sizerSvg).toString("base64")
+        };
+        sizerSvg = `<svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg" version="1.1"/>`;
+        toBase64 = Buffer.from(sizerSvg).toString("base64");
       } else if (props.layout === "fixed") {
         wrapperStyle = {
           overflow: "hidden",
@@ -70,9 +74,13 @@ Object.defineProperty(nextImage, "default", {
           position: "relative",
           width,
           height,
-        }
+        };
       }
-    } else if (width === undefined && height === undefined && props.layout === "fill") {
+    } else if (
+      width === undefined &&
+      height === undefined &&
+      props.layout === "fill"
+    ) {
       wrapperStyle = {
         display: "block",
         overflow: "hidden",
@@ -83,11 +91,11 @@ Object.defineProperty(nextImage, "default", {
         right: 0,
         boxSizing: "border-box",
         margin: 0,
-      }
+      };
     } else {
       throw new Error(
         `Image with src "${props.src}" must use "width" and "height" properties or "layout='fill'" property.`,
-      )
+      );
     }
 
     return (
@@ -107,6 +115,6 @@ Object.defineProperty(nextImage, "default", {
         ) : null}
         <img {...props} decoding="async" style={imgStyle} />
       </div>
-    )
+    );
   },
-})
+});

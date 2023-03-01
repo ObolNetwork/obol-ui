@@ -142,7 +142,9 @@ const AddNewRow: React.FC<AddNewRowProps> = ({
               }}
               disabled={totalSplitFooter === 100}
             >
-              <Box css={{ display: "none", "@xs": { display: "inline-block" } }}>
+              <Box
+                css={{ display: "none", "@xs": { display: "inline-block" } }}
+              >
                 + Recipient
               </Box>{" "}
               <Box css={{ "@xs": { display: "none" } }}>{addText}</Box>
@@ -257,7 +259,7 @@ export const SplitterTable: React.FC<SplitterTableProps> = ({
                             if (column.cell?.config?.totalCell) {
                               const value = rows.reduce((prev, curr, indx) => {
                                 const floatNumber = parseFloat(
-                                  curr[column.accessorKey]
+                                  curr[column.accessorKey],
                                 );
                                 const parsedValue = isNaN(floatNumber)
                                   ? 0
@@ -304,7 +306,7 @@ export const SplitterTable: React.FC<SplitterTableProps> = ({
                 </Td>
               )}
             </tr>
-          )
+          ),
         )}
         <AddNewRow
           onAddRow={onAddRow}

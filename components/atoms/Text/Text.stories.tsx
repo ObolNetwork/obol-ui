@@ -27,7 +27,6 @@ export const Default = Template.bind({});
 
 Default.args = {
   children: "co-ordinate",
-
 };
 
 export const WithNeon = TemplateNeon.bind({});
