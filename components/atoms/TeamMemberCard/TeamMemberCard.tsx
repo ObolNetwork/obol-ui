@@ -13,7 +13,6 @@ export const TeamMemberCard: React.FC<EcosystemCardProps> = (props) => (
       gridTemplateColumns: "1fr",
       borderRadius: "$3",
       backgroundColor: "$bg04",
-      alignItems: "center",
       width: "288px",
       gap: "$lg",
       py: "$xl",
@@ -25,6 +24,7 @@ export const TeamMemberCard: React.FC<EcosystemCardProps> = (props) => (
         $$size: "160px",
         width: "$$size",
         height: "$$size",
+        placeSelf: "center",
         "@sm": { $$size: "100px" },
         "&::after": {
           position: "absolute",
