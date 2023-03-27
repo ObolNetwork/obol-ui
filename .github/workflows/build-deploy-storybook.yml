@@ -3,8 +3,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - '**/*.stories.tsx'
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
