@@ -14,7 +14,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 'v16'
       - name: Install and Build 🔧
         run: | # Install npm packages and build the Storybook files          
           yarn install
