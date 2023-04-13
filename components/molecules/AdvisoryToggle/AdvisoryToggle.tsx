@@ -68,7 +68,14 @@ export const AdvisoryToggleBullet: React.FC<AdvisoryToggleBulletProps> = (
           </Box>
         </Box>
       )}
-      <Text color={color}>{props.children}</Text>
+      <Text
+        css={{
+          lineHeight: "$lg",
+        }}
+        color={color}
+      >
+        {props.children}
+      </Text>
     </Box>
   );
 };
