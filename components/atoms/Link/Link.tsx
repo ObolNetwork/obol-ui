@@ -1,9 +1,10 @@
+import NextLink from "next/link";
 import type * as Stitches from "@stitches/react";
 
 import { styled } from "../../../stitches.config";
 import { modifyVariantsForStory } from "../../utils/types";
 
-export const Link = styled("a", {
+export const Link = styled(NextLink, {
   display: "flex",
   gap: "$xxs",
   alignItems: "center",
