@@ -30,7 +30,7 @@ Default.args = {
         gridTemplateColumns: "repeat(2, 1fr)",
       }}
     >
-      <Button variant="wallet">
+      <Button className="noColorChange" variant="wallet">
         <Metamask />
         Metamask
       </Button>
