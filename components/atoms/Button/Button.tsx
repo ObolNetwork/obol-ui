@@ -61,13 +61,15 @@ export const Button = styled("button", {
       },
       primary: {
         $$background: "$colors$obolGreen",
-        "&:not([class*='noColorChange']):hover": {
+        "&:hover": {
           $$color: "$colors$textGreenHover",
           $$background: "$colors$obolGreenHover",
-          "& svg": {
-            "& path": {
-              fill: "$textGreenHover",
-              stroke: "$textGreenHover",
+          "&:not([class*='noColorChange']):hover": {
+            "& svg": {
+              "& path": {
+                fill: "$textGreenHover",
+                stroke: "$textGreenHover",
+              },
             },
           },
         },
@@ -82,46 +84,52 @@ export const Button = styled("button", {
         $$background: "$colors$bg03",
         border: "2px solid $bg03",
         color: "$body",
-        "&:not([class*='noColorChange']):hover": {
+        "&:hover": {
           $$background: "$colors$bg04",
           border: "2px solid $bg04",
         },
       },
       create: {
         $$background: "$colors$create",
-        "&:not([class*='noColorChange']):hover": {
+        "&:hover": {
           $$background: "$colors$createHover",
           $$color: "$colors$textCreateHover",
-          "& svg": {
-            "& path": {
-              fill: "$textCreateHover",
-              stroke: "$textCreateHover",
+          "&:not([class*='noColorChange']):hover": {
+            "& svg": {
+              "& path": {
+                fill: "$textCreateHover",
+                stroke: "$textCreateHover",
+              },
             },
           },
         },
       },
       test: {
         $$background: "$colors$test",
-        "&:not([class*='noColorChange']):hover": {
+        "&:hover": {
           $$background: "$colors$testHover",
           $$color: "$colors$textGrayHover",
-          "& svg": {
-            "& path": {
-              fill: "$textGrayHover",
-              stroke: "$textGrayHover",
+          "&:not([class*='noColorChange']):hover": {
+            "& svg": {
+              "& path": {
+                fill: "$textGrayHover",
+                stroke: "$textGrayHover",
+              },
             },
           },
         },
       },
       coordinate: {
         $$background: "$colors$coordinate",
-        "&:not([class*='noColorChange']):hover": {
+        "&:hover": {
           $$background: "$colors$coordinateHover",
           $$color: "$colors$textGrayHover",
-          "& svg": {
-            "& path": {
-              fill: "$textGrayHover",
-              stroke: "$textGrayHover",
+          "&:not([class*='noColorChange']):hover": {
+            "& svg": {
+              "& path": {
+                fill: "$textGrayHover",
+                stroke: "$textGrayHover",
+              },
             },
           },
         },
@@ -131,7 +139,7 @@ export const Button = styled("button", {
       true: {
         $$background: "transparent",
         color: "white",
-        "&:not([class*='noColorChange']):hover": {
+        "&:hover": {
           $$background: "transparent",
         },
       },
@@ -158,7 +166,7 @@ export const Button = styled("button", {
         borderRadius: "$3",
         $$background: "$colors$navButtonBgDefault",
         color: "$textMiddle",
-        "&:not([class*='noColorChange']):hover": {
+        "&:hover": {
           $$background: "$colors$navButtonBgHover",
           color: "$textLight",
         },
@@ -175,7 +183,7 @@ export const Button = styled("button", {
         $$background: "$colors$bg03",
         border: "2px solid $bg03",
         color: "$body",
-        "&:not([class*='noColorChange']):hover": {
+        "&:hover": {
           $$background: "$colors$bg04",
           border: "2px solid $bg04",
         },
