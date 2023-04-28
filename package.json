@@ -33,7 +33,6 @@
     "@radix-ui/react-toggle-group": "^0.1.5",
     "@radix-ui/react-tooltip": "^0.1.7",
     "@stitches/react": "~1.2.8",
-    "ts-node": "^10.9.1",
     "next": "^13.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -69,6 +68,7 @@
     "rollup": "^2.70.1",
     "rollup-plugin-typescript2": "^0.31.2",
     "storybook-addon-designs": "^6.3.1",
+    "ts-node": "^10.9.1",
     "tslib": "^2.3.1",
     "typescript": "^4.6.3",
     "use": "^3.1.1"
