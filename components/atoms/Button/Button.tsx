@@ -64,10 +64,12 @@ export const Button = styled("button", {
         "&:hover": {
           $$color: "$colors$textGreenHover",
           $$background: "$colors$obolGreenHover",
-          "& svg": {
-            "& path": {
-              fill: "$textGreenHover",
-              stroke: "$textGreenHover",
+          "&:not([class*='disableColorChange']):hover": {
+            "& svg": {
+              "& path": {
+                fill: "$textGreenHover",
+                stroke: "$textGreenHover",
+              },
             },
           },
         },
@@ -92,10 +94,12 @@ export const Button = styled("button", {
         "&:hover": {
           $$background: "$colors$createHover",
           $$color: "$colors$textCreateHover",
-          "& svg": {
-            "& path": {
-              fill: "$textCreateHover",
-              stroke: "$textCreateHover",
+          "&:not([class*='disableColorChange']):hover": {
+            "& svg": {
+              "& path": {
+                fill: "$textCreateHover",
+                stroke: "$textCreateHover",
+              },
             },
           },
         },
@@ -105,10 +109,12 @@ export const Button = styled("button", {
         "&:hover": {
           $$background: "$colors$testHover",
           $$color: "$colors$textGrayHover",
-          "& svg": {
-            "& path": {
-              fill: "$textGrayHover",
-              stroke: "$textGrayHover",
+          "&:not([class*='disableColorChange']):hover": {
+            "& svg": {
+              "& path": {
+                fill: "$textGrayHover",
+                stroke: "$textGrayHover",
+              },
             },
           },
         },
@@ -118,10 +124,12 @@ export const Button = styled("button", {
         "&:hover": {
           $$background: "$colors$coordinateHover",
           $$color: "$colors$textGrayHover",
-          "& svg": {
-            "& path": {
-              fill: "$textGrayHover",
-              stroke: "$textGrayHover",
+          "&:not([class*='disableColorChange']):hover": {
+            "& svg": {
+              "& path": {
+                fill: "$textGrayHover",
+                stroke: "$textGrayHover",
+              },
             },
           },
         },
