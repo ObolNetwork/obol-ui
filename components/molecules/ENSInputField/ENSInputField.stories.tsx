@@ -42,7 +42,6 @@ NonEditableField.args = {
     borderRadius: "$1",
     px: "$sm",
     py: "$xs",
-    nonEditable: true
   },
   ensName: "obol.eth",
   value: "0x86B8145c98e5BD25BA722645b15eD65f024a87EC",

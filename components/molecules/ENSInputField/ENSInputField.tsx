@@ -18,7 +18,7 @@ export const ENSInputField: React.FC<ENSInputFieldProps> = ({
   nonEditable,
   css,
 }): JSX.Element => (
-  <Flex css={css}>
+  <Flex direction="column" css={css}>
     <Flex css={{ gap: "$xxs" }}>
       <Flex direction="column">
         {ensName && (
