@@ -136,5 +136,3 @@ export const Advisory: React.FC<AdvisoryProps> = ({
     </Box>
   );
 };
-
-export const Flex = styled(Box, { display: "flex", fd: "column" });
