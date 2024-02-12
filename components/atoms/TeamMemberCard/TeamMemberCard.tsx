@@ -53,8 +53,13 @@ export const TeamMemberCard: React.FC<EcosystemCardProps> = (props) => (
     <Box
       css={{
         display: "grid",
+        width: "$full",
         justifyContent: "center",
-        "@sm": { justifyContent: "start", gridTemplateRows: "3fr 1fr" },
+        "@sm": {
+          justifyContent: "start",
+          gridTemplateRows: "3fr 1fr",
+          width: "160px",
+        },
         gap: "$sm",
       }}
     >
@@ -69,7 +74,17 @@ export const TeamMemberCard: React.FC<EcosystemCardProps> = (props) => (
           },
         }}
       >
-        <Text variant="h5">{props.heading}</Text>
+        <Text
+          variant={props.heading.length > 14 ? "lh5" : "h5"}
+          css={{
+            whiteSpace: "nowrap",
+            width: "160px",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+          }}
+        >
+          {props.heading}
+        </Text>
         {props.subheading && <Text variant="body">{props.subheading}</Text>}
       </Box>
       {props.links && (

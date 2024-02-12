@@ -50,6 +50,11 @@ export const Text = styled("span", {
         lineHeight: "28px",
         fontWeight: "bold",
       },
+      lh5: {
+        fontSize: "$4",
+        lineHeight: "28px",
+        fontWeight: "bold",
+      },
       body: {
         fontSize: "$4",
         lineHeight: "24px",
